@@ -12,15 +12,15 @@ export default function Blend() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight;
-      const triggerPoint = window.innerHeight * 0.7;
+      const triggerPoint = window.innerHeight * 0.55;
       const triggerPoint2 = window.innerHeight * 0.3;
       if (window.scrollY > triggerPoint) {
         headerRef.current.style.opacity = "1";
         headerRef.current.style.zIndex = "9";
         headerRef.current.style.transition = "all 1s";
         headerRef.current.style.position = "fixed";
-        headerRef.current.style.top = "-3%";
-        headerRef.current.style.left = "30%";
+        headerRef.current.style.top = "-25px";
+        headerRef.current.style.left = "0%";
         leviRef.current.style.position = 'fixed';
         leviRef.current.style.left = '3%';
         leviRef.current.style.top = '0%';
@@ -55,19 +55,25 @@ export default function Blend() {
           <h1 ref={leviRef}>Levi Noppers</h1>
           <code>Front end software developer</code>
           <div ref={headerRef}>
-          <Link href='https://github.com/MonkyMars' target="_blank">
-            <button>
-              <Image src='/github.png' alt='github' width={20} height={20} />
-              Github
-            </button>
-          </Link>
-            <Link href='/contact'>
-            <button className={styles.Contact}>
-              <Image src='/user-portfolio.png' alt='contact' width={20} height={20} />
-              Contact
-            </button>
-          </Link>
-          </div>
+                <Link href='https://github.com/MonkyMars' target="_blank">
+                <button>
+                    <Image src='/github.png' alt='github' width={20} height={20} />
+                    Github
+                </button>
+            </Link>
+            <Link href={'/projects'}>
+                <button>
+                    <Image src='/page.png' alt='home' width={20} height={20}/>
+                    Projects
+                </button>
+            </Link>
+                <Link href='/contact'>
+                <button className={styles.Contact}>
+                    <Image src='/user-portfolio.png' alt='contact' width={20} height={20} />
+                    Contact
+                </button>
+            </Link>
+                </div>
         </header>
 
         <main className={styles.mainContent}>
@@ -85,8 +91,8 @@ export default function Blend() {
 
             <p>{"Looking ahead, I’m excited to continue my journey in software engineering, exploring new technologies, and contributing to meaningful projects. Whether it’s developing the next big web app or collaborating with other passionate developers, I’m driven by the desire to create impactful digital experiences that make a difference."}</p>
 
-            <code><section>const </section>mainLanguages <section>{"="}</section>{"["}<section>{'"JavaScript, html, css"'}</section>{"]"}</code>
-            <code><section>const</section>frameworks <section>{"="}</section> {"["}<section>{'"Next.js, React"'}</section>{"]"}</code>
+            <code><section>const </section>mainLanguages <section>{"="}</section>{"["}<section>{'"JavaScript", "html", "css"'}</section>{"]"}</code>
+            <code><section>const</section>frameworks <section>{"="}</section> {"["}<section>{'"Next.js", "React"'}</section>{"]"}</code>
           </div>
         </main>
       </div>

@@ -48,3 +48,73 @@
   }
 
   
+
+.project{
+  text-align: center;
+  background-color: #242424;
+  padding: 50px;
+  width: 700px;
+  margin: 50px;
+  border-radius: 20px;
+}
+
+.project h2{
+  font-size: 2rem;
+}
+
+.project img{
+  border-radius: 10px;
+  border: 2px solid var(--text-color);
+}
+
+.project h2 a{
+  color: var(--text-color);
+}
+
+.header div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px;
+  gap: 100px;
+  width: 100%;
+  position: sticky;
+}
+
+.header div a button:nth-child(1) {
+  background-color: #242424;
+  color: var(--text-color);
+} 
+
+.header div button{
+  background-color: var(--text-color);
+  padding: 8px 12px;
+  border-radius: 10px;
+  scale: 1.7;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: scale 0.3s, top 0.7s, left 0.7s;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  align-items: center;
+  letter-spacing: 0.25px;
+  filter: blur(0);
+  z-index: 8;
+  position: sticky;
+}
+
+.header div button:hover{
+  scale: 1.65;
+}
+
+.header div a button {
+  color: #999;
+  text-decoration: none;
+} 
+
+.Contact{
+  background-color: var(--text-color) !important;
+  color: #242424 !important;
+}

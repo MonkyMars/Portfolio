@@ -18,15 +18,25 @@ export default function Contact() {
     <GradientBG/>
       <nav className={styles.Nav}>
       <div className={styles.NavBtnDiv}>
-            <button>
-              <Image src='/github.png' alt='github' width={20} height={20} />
-              <Link href='https://github.com/MonkyMars' target="_blank">Github</Link>
-            </button>
-            <button>
-              <Image src='/user-portfolio.png' alt='contact' width={20} height={20} />
-              <Link href='/'>Home</Link>
-            </button>
-          </div>
+                <Link href='https://github.com/MonkyMars' target="_blank">
+                <button>
+                    <Image src='/github.png' alt='github' width={20} height={20} />
+                    Github
+                </button>
+            </Link>
+                <Link href='/contact'>
+                <button className={styles.Contact}>
+                    <Image src='/user-portfolio.png' alt='contact' width={20} height={20} />
+                    Contact
+                </button>
+            </Link>
+            <Link href={'/'}>
+                <button>
+                    <Image src='/home.png' alt='home' width={20} height={20}/>
+                    Home
+                </button>
+            </Link>
+                </div>
       </nav>
 
       <header className={styles.header}>
