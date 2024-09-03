@@ -42,7 +42,7 @@ export default function Blend() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [mainRef.current]);
+  }, []);
 
   return (
     <>
@@ -75,15 +75,15 @@ export default function Blend() {
             <h2>About me</h2>
             <p>Hello, World! I'm Levi Noppers, a 15-year-old software engineer with a passion for developing innovative web applications.</p>
 
-            <p>Over the past two years, I’ve dedicated myself to learning and mastering the art of coding, with a strong focus on building full-stack applications. My journey in the tech world began with curiosity, and it quickly evolved into a deep-seated passion for creating digital solutions.</p>
+            <p>{"Over the past two years, I’ve dedicated myself to learning and mastering the art of coding, with a strong focus on building full-stack applications. My journey in the tech world began with curiosity, and it quickly evolved into a deep-seated passion for creating digital solutions."}</p>
 
-            <p>I specialize in crafting both the front-end and back-end of web applications, ensuring that every project I work on is fully functional and aesthetically pleasing. My experience includes developing robust APIs, designing efficient databases, and, most importantly, creating intuitive and engaging user interfaces. The front-end is where my creativity truly shines—I love experimenting with new ideas, pushing the boundaries of design, and bringing concepts to life through code.</p>
+            <p>{"I specialize in crafting both the front-end and back-end of web applications, ensuring that every project I work on is fully functional and aesthetically pleasing. My experience includes developing robust APIs, designing efficient databases, and, most importantly, creating intuitive and engaging user interfaces. The front-end is where my creativity truly shines—I love experimenting with new ideas, pushing the boundaries of design, and bringing concepts to life through code."}</p>
 
-            <p>When I'm not working on a project, you'll likely find me brainstorming new ideas or diving into the latest web development trends. I’m constantly seeking to improve my skills and expand my knowledge, whether it’s by learning new programming languages, exploring different frameworks, or participating in coding communities.</p>
+            <p>{"When I'm not working on a project, you'll likely find me brainstorming new ideas or diving into the latest web development trends. I’m constantly seeking to improve my skills and expand my knowledge, whether it’s by learning new programming languages, exploring different frameworks, or participating in coding communities."}</p>
 
-            <p>On my <a target="_blank" href="https://github.com/MonkyMars">GitHub</a>, you can find a showcase of the projects I’ve developed. Each project represents not just a learning milestone but also a step towards mastering the craft of software development. I believe that the best way to grow as a developer is through hands-on experience, and my GitHub portfolio reflects my commitment to continuous learning and innovation.</p>
+            <p>{"On my "} <a target="_blank" href="https://github.com/MonkyMars">GitHub</a>, {"you can find a showcase of the projects I’ve developed. Each project represents not just a learning milestone but also a step towards mastering the craft of software development. I believe that the best way to grow as a developer is through hands-on experience, and my GitHub portfolio reflects my commitment to continuous learning and innovation."}</p>
 
-            <p>Looking ahead, I’m excited to continue my journey in software engineering, exploring new technologies, and contributing to meaningful projects. Whether it’s developing the next big web app or collaborating with other passionate developers, I’m driven by the desire to create impactful digital experiences that make a difference.</p>
+            <p>{"Looking ahead, I’m excited to continue my journey in software engineering, exploring new technologies, and contributing to meaningful projects. Whether it’s developing the next big web app or collaborating with other passionate developers, I’m driven by the desire to create impactful digital experiences that make a difference."}</p>
 
             <code><section>const </section>mainLanguages <section>=</section> [<section>"JavaScript, html, css"</section>]</code>
             <code><section>const</section>frameworks <section>=</section> [<section>"Next.js, React"</section>]</code>
