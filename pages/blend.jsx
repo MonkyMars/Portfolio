@@ -85,8 +85,8 @@ export default function Blend() {
 
             <p>{"Looking ahead, I’m excited to continue my journey in software engineering, exploring new technologies, and contributing to meaningful projects. Whether it’s developing the next big web app or collaborating with other passionate developers, I’m driven by the desire to create impactful digital experiences that make a difference."}</p>
 
-            <code><section>const </section>mainLanguages <section>=</section> [<section>"JavaScript, html, css"</section>]</code>
-            <code><section>const</section>frameworks <section>=</section> [<section>"Next.js, React"</section>]</code>
+            <code><section>const </section>mainLanguages <section>{"="}</section>{"["}<section>"JavaScript, html, css"</section>{"]"}</code>
+            <code><section>const</section>frameworks <section>{"="}</section> {"["}<section>"Next.js, React"</section>{"]"}</code>
           </div>
         </main>
       </div>
