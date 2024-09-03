@@ -98,7 +98,9 @@
   text-align: center;
   font-size: 4rem;
 }
-
+.mainContent div p{
+  min-width: 75%;
+}
 .mainContent div code{
   display: flex;
   font-size: 2rem;
