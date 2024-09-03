@@ -118,3 +118,18 @@
   background-color: var(--text-color) !important;
   color: #242424 !important;
 }
+
+@media screen and (max-width: 1000px){
+  .project{
+    width: 80%;
+  }
+  .project img{
+    width: 90%;
+  }
+  .header div button{
+    max-width: 90px;
+  }
+  .media{
+    display: none;
+  }
+}

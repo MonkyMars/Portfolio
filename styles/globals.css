@@ -5,7 +5,11 @@ body{
   padding: 0;
   background-color: #363534;
   color: #e3e3e3;
-  overflowx-x: hidden;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 :root{
@@ -14,4 +18,11 @@ body{
 
 *::selection{
   background-color: #707070;
+}
+
+
+@media screen and (max-width: 1000px) {
+  .media{
+    display: none;
+  }
 }

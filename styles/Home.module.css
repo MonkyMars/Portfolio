@@ -88,9 +88,6 @@
   margin-top: 30vh;
   padding-bottom: 100px;
   font-family: poppins, verdana;
-  left: 50%;
-  transform: translateX(-50%);
-  position: relative;
 }
 
 .mainContent h2{
@@ -139,4 +136,23 @@
   color: var(--text-color);
   margin-left: 6px;
   margin-right: 6px;
+}
+
+@media screen and (max-width: 1000px){
+  .project{
+    width: 80%;
+  }
+  .project img{
+    width: 90%;
+  }
+  .header div button{
+    max-width: 90px;
+  }
+  .Nav{
+    width: 100%;
+  }
+  .header code{
+    text-align: center;
+    min-width: 400px;
+  }
 }

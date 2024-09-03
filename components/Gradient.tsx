@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 import { NeatConfig, NeatGradient } from "@firecms/neat";
 
-export const GradientBG: React.FC = () => {
+export const GradientBG: React.FC = (height) => {
 
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const gradientRef = useRef<NeatGradient | null>(null);

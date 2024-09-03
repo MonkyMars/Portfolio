@@ -1,32 +1,34 @@
 import Image from "next/image";
 import Link from 'next/link';
 import styles from "../styles/Home.module.css";
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { GradientBG } from '../components/Gradient';
+import { useMediaQuery } from 'react-responsive'
 
 export default function Blend() {
   const mainRef = useRef(null);
   const headerRef = useRef(null);
   const leviRef = useRef(null);
-  
+  const isTabletorMobile = useMediaQuery({query: '(max-width: 1000px)'})
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight;
       const triggerPoint = window.innerHeight * 0.55;
       const triggerPoint2 = window.innerHeight * 0.3;
-      if (window.scrollY > triggerPoint) {
+      if (window.scrollY > triggerPoint && !isTabletorMobile) {
         headerRef.current.style.opacity = "1";
         headerRef.current.style.zIndex = "9";
         headerRef.current.style.transition = "all 1s";
         headerRef.current.style.position = "fixed";
         headerRef.current.style.top = "-25px";
-        headerRef.current.style.left = "0%";
+        headerRef.current.style.left = "-10px";
         leviRef.current.style.position = 'fixed';
         leviRef.current.style.left = '3%';
-        leviRef.current.style.top = '0%';
+        leviRef.current.style.top = '0';
         leviRef.current.style.fontSize = '2rem';
         leviRef.current.style.zIndex = '9';
-      } else if(window.scrollY < triggerPoint2){
+        leviRef.current.classList.add('media');
+      } else if(window.scrollY < triggerPoint2 && !isTabletorMobile){
         headerRef.current.style.position = "relative";
         headerRef.current.style.top = "0";
         headerRef.current.style.left = "0";
@@ -34,6 +36,7 @@ export default function Blend() {
         leviRef.current.style.left = '0';
         leviRef.current.style.top = '0%';
         leviRef.current.style.fontSize = '5rem';
+        leviRef.current.classList.remove('media');
       }
     };
 
@@ -46,7 +49,7 @@ export default function Blend() {
 
   return (
     <>
-      <GradientBG />
+    <GradientBG/>
       <div ref={mainRef}>
         <nav className={styles.Nav}>
         </nav>
@@ -78,7 +81,7 @@ export default function Blend() {
 
         <main className={styles.mainContent}>
           <div>
-            <h2>About me</h2>
+          <div style={{position: 'relative', zIndex: '11'}}><h2>{'About me'}</h2></div>
             <p>{"Hello World! I'm Levi Noppers, a 15-year-old software engineer from The Hague, the Netherlands, with a passion for developing web applications."}</p>
 
             <p>{"Over the past two years, I’ve dedicated myself to learn coding, I mainly focus on the front-end. My journey as a software developer began when I was 12 and wanted to create my first Discord Bot, since then I've improved a lot at coding, day in and day out spent on coding new web-apps"}</p>
@@ -91,9 +94,9 @@ export default function Blend() {
 
             <p>{"I speak English and Dutch both fluently so in the future I look forward to meeting fellow developers from all over the planet and settling in a team!"}</p>
 
-            <code><section>{'const'} </section>{'mainLanguages'} <section>{"="}</section>{"["}<section>{'"JavaScript", "html", "css"'}</section>{"]"}</code>
+            <div style={{position: 'relative', zIndex: '11'}}><code><section>{'const'} </section>{'mainLanguages'} <section>{"="}</section>{"["}<section>{'"JavaScript", "html", "css"'}</section>{"]"}</code>
             <code><section>{'const'}</section>{'frameworks'} <section>{"="}</section> {"["}<section>{'"Next.js", "React"'}</section>{"]"}</code>
-          </div>
+            </div></div>
         </main>
       </div>
     </>
