@@ -73,7 +73,7 @@ export default function Blend() {
         <main className={styles.mainContent}>
           <div>
             <h2>About me</h2>
-            <p>Hello, World! I'm Levi Noppers, a 15-year-old software engineer with a passion for developing innovative web applications.</p>
+            <p>{"Hello, World! I'm Levi Noppers, a 15-year-old software engineer with a passion for developing innovative web applications."}</p>
 
             <p>{"Over the past two years, I’ve dedicated myself to learning and mastering the art of coding, with a strong focus on building full-stack applications. My journey in the tech world began with curiosity, and it quickly evolved into a deep-seated passion for creating digital solutions."}</p>
 
