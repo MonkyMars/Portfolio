@@ -1,0 +1,140 @@
+.Nav{
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100vw;
+  height: 80px;
+  background-color: #212121;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  padding: 5px;
+  opacity: 0.85;
+  z-index: 7;
+}
+
+.header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+  margin-top: 20vh;
+  font-family: poppins, verdana;
+}
+
+.header h1{
+  text-align: center;
+  font-size: 5rem;
+  border-bottom: 2px solid var(--text-color);
+  transition: all 0.7s;
+}
+
+.header code{
+  font-size: 2.2rem;
+}
+
+.header div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px;
+  gap: 100px;
+  width: 100%;
+}
+
+.header div a button:nth-child(1) {
+  background-color: #242424;
+  color: var(--text-color);
+} 
+
+.header div button{
+  background-color: var(--text-color);
+  padding: 8px 12px;
+  border-radius: 10px;
+  scale: 1.7;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: scale 0.3s, top 0.7s, left 0.7s;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  align-items: center;
+  letter-spacing: 0.25px;
+  filter: blur(0);
+  z-index: 8;
+}
+
+.header div button:hover{
+  scale: 1.65;
+}
+
+.header div a button {
+  color: #999;
+  text-decoration: none;
+} 
+
+.Contact{
+  background-color: var(--text-color) !important;
+  color: #242424 !important;
+}
+
+.mainContent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 30vh;
+  padding-bottom: 100px;
+  font-family: poppins, verdana;
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+}
+
+.mainContent h2{
+  font-family: poppins, verdana;
+  text-align: center;
+  font-size: 4rem;
+}
+
+.mainContent div code{
+  display: flex;
+  font-size: 2rem;
+  justify-content: center;
+  text-align: left;
+}
+
+.mainContent div code section{
+  margin-right: 6px;
+}
+
+.mainContent div code section:nth-child(1) {
+  color: #4d61e8;
+}
+
+.mainContent div code section:nth-child(2) {
+  color: #c7d7ff;
+  margin-left: 6px;
+}
+
+.mainContent div code section:nth-child(3) {
+  color: #e38242;
+  margin-right: 0;
+}
+
+.mainContent div p{
+  max-width: 35%;
+  text-align: center;
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+}
+
+.mainContent div p a{
+  color: var(--text-color);
+  margin-left: 6px;
+  margin-right: 6px;
+}
