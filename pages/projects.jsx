@@ -37,6 +37,13 @@ export default function Projects() {
         "Got trouble drinking enough water? Need to track your hydration? Use DailyWater! Get a reminder every few hours to drink something.",
       width: 600,
     },
+    {
+      title: "Notes",
+      src: "/notes.png",
+      description: 
+        "Need an app for keeping all your notes? Use the app for writing all your notes and list all the things you need to remember. Set up reminders for your notes so you'll never forget!",
+      width: 600,
+    }
   ];
 
   useEffect(() => {
