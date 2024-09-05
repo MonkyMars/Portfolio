@@ -24,10 +24,10 @@ export default function Contact() {
                     Github
                 </button>
             </Link>
-                <Link href='/contact'>
+                <Link href='/projects'>
                 <button className={styles.Contact}>
-                    <Image src='/user-portfolio.png' alt='contact' width={20} height={20} />
-                    Contact
+                    <Image src='/page.png' alt='contact' width={20} height={20} />
+                    Projects
                 </button>
             </Link>
             <Link href={'/'}>
