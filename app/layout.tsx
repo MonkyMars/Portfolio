@@ -1,5 +1,18 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { Doto, Poppins } from 'next/font/google';
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-poppins',
+});
+
+const doto = Doto({
+  subsets: ['latin'],
+  weight: ['400', '900'],
+  variable: '--font-doto',
+});
 
 export const metadata: Metadata = {
   title: "Levi Noppers | Full Stack Developer",
@@ -35,7 +48,7 @@ export const metadata: Metadata = {
     "MongoDB",
     "PostgreSQL",
     "Git",
-    "agile development"
+    "agile development",
   ],
   authors: [{ name: "Levi Noppers", url: "https://levinoppers.nl" }],
   creator: "Levi Noppers",
@@ -60,7 +73,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "Levi Noppers - Full Stack Developer Portfolio",
-      }
+      },
     ],
     locale: "en_US",
     siteName: "Levi Noppers Portfolio",
@@ -74,7 +87,7 @@ export const metadata: Metadata = {
       {
         url: "https://levinoppers.nl/code.png",
         alt: "Levi Noppers - Full Stack Developer Portfolio",
-      }
+      },
     ],
     creator: "@levinoppers",
     site: "@levinoppers",
@@ -84,14 +97,12 @@ export const metadata: Metadata = {
       { url: "/code.png", sizes: "any" },
       { url: "/code.png", type: "image/png" },
     ],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180" },
-    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
   alternates: {
     canonical: "https://www.levinoppers.nl",
     languages: {
-      'en-US': 'https://www.levinoppers.nl',
+      "en-US": "https://www.levinoppers.nl",
     },
   },
   robots: {
@@ -100,20 +111,20 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
-  metadataBase: new URL('https://www.levinoppers.nl'),
+  metadataBase: new URL("https://www.levinoppers.nl"),
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1.0,
   themeColor: "#f0f9ff",
-  colorScheme: "light dark"
-}
+  colorScheme: "light dark",
+};
 
 export default function RootLayout({
   children,
@@ -128,31 +139,38 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Levi Noppers",
-              url: "https://levinoppers.nl",
-              jobTitle: "Full Stack Developer",
-              description: "Full Stack Developer specializing in React, Next.js, and modern web technologies",
-              image: "https://levinoppers.nl/code.png",
-              sameAs: [
-                "https://github.com/MonkyMars",
+              "@type": "ItemList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "About Levi Noppers",
+                  url: "https://levinoppers.nl#about",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Experience",
+                  url: "https://levinoppers.nl#experience",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  name: "Portfolio Projects",
+                  url: "https://levinoppers.nl#projects",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 4,
+                  name: "Tech Stack",
+                  url: "https://levinoppers.nl#techstack",
+                },
               ],
-              knowsAbout: [
-                "Web Development",
-                "React",
-                "Next.js",
-                "TypeScript",
-                "Node.js",
-                "Full Stack Development"
-              ]
-            })
+            }),
           }}
         />
       </head>
-      <body className="antialiased bg-gray-100">
-        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:p-4 focus:bg-white focus:z-50">
-          Skip to main content
-        </a>
+      <body className={`antialiased bg-gray-100 ${poppins.variable} ${doto.variable}`}>
         {children}
       </body>
     </html>
