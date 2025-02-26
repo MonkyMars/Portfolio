@@ -33,7 +33,7 @@ const Aside = () => (
             width={28}
             height={28}
             className="invert opacity-90 hover:opacity-100"
-            unoptimized
+            
           />
         </span>
       </Link>

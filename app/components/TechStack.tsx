@@ -108,7 +108,7 @@ const TechStack = () => {
                     className="w-full h-full object-contain group-hover:scale-105 transition-all duration-100"
                     fill
                     draggable={false}
-                    unoptimized
+                    
                   />
                 </div>
                 <div className="flex-1">
