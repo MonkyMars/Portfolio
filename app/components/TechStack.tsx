@@ -85,7 +85,7 @@ const TechStack = () => {
   return (
     <section
       className="bg-white rounded-2xl shadow-lg p-8 mb-8 border-1 border-[rgba(255,255,255, 0.1)]"
-      id="techstack"
+      id="tech-stack"
     >
       <h2 className="text-2xl font-doto font-extrabold text-gray-800 mb-6 flex items-center gap-2">
         Tech Stack

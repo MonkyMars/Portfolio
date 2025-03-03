@@ -10,8 +10,9 @@ import TechStack from "./components/TechStack";
 const Home: NextPage = () => {
   return (
     <>
-      <main className="min-h-screen">
-        {/* Hero Section with Aside */}
+      <main className="min-h-screen pt-16">
+        {/* Hero Section with Aside */} 
+        <Navigation />
         <div className="container mx-auto px-2 sm:px-4 py-4 sm:py-8 md:py-16">
           <div className="grid md:grid-cols-12 gap-4 sm:gap-8">
             {/* Profile Card */}
@@ -22,9 +23,10 @@ const Home: NextPage = () => {
             {/* Main Content */}
             <div className="w-full md:col-span-8 lg:col-span-9">
               {/* Navigation */}
-              <div className="max-w-[95vw] sm:max-w-full mx-auto">
+             
+              {/* <div className="max-w-[95vw] sm:max-w-full mx-auto">
                 <Navigation />
-              </div>
+              </div> */}
 
               {/* About Section */}
               <div className="max-w-[95vw] sm:max-w-full mx-auto">
@@ -35,7 +37,7 @@ const Home: NextPage = () => {
             </div>
           </div>
           <div className="flex flex-col w-full">
-            <div className="">
+            <div>
               <Experiences />
             </div>
 
