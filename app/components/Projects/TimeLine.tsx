@@ -4,9 +4,20 @@ import Image from "next/image";
 import { X } from "lucide-react";
 
 const TimeLineView: React.FC<TimelineProps> = ({ project, onClose }) => {
+  
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Escape") {
+      onClose();
+    }
+  };
+
   return (
     <>
-      <div className="fixed inset-0 z-50 flex items-center py-8 justify-center bg-black bg-opacity-80 text-black pointer-events-auto overflow-hidden">
+      <div 
+        className="fixed inset-0 z-50 flex items-center py-8 justify-center bg-black bg-opacity-80 text-black pointer-events-auto overflow-hidden"
+        onKeyDown={handleKeyDown}
+        tabIndex={0}
+      >
         <article className="bg-white max-w-4xl max-h-full p-8 rounded-lg shadow-lg pointer-events-auto overflow-auto">
           <div className="flex items-center justify-between relative">
             <span className="inline-block px-3 py-1 my-3 rounded-full bg-primary-100 text-primary-600 text-sm font-medium">
