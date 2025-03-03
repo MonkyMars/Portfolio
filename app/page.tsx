@@ -43,11 +43,10 @@ const Home: NextPage = () => {
             <div className="max-w-[95vw] sm:max-w-full mx-auto">
               <Projects />
             </div>
-            <div className="max-w-[95vw] sm:max-w-full mx-auto"></div>
-              <TechStack />
 
-            </div>
+            <TechStack />
           </div>
+        </div>
 
         <Footer />
       </main>
