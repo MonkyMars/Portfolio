@@ -30,7 +30,7 @@ const Navigation = () => {
           <li key={index}>
             <Link
               href={icon.href}
-              className="flex flex-col items-center transition-all duration-200 hover:text-blue-600 dark:hover:text-blue-400 group relative"
+              className="flex flex-col items-center transition-all duration-200 hover:text-primary-600 dark:hover:text-primary-400 group relative"
               aria-label={icon.label}
             >
               <div className="relative">
@@ -39,7 +39,7 @@ const Navigation = () => {
                   className="transition-transform duration-200 group-hover:scale-110"
                   strokeWidth={2}
                 />
-                <span className="absolute -bottom-1 -right-1 opacity-0 group-hover:opacity-100 transition-all duration-200 w-2.5 h-2.5 rounded-full bg-blue-500 dark:bg-blue-400"></span>
+                <span className="absolute -bottom-1 -right-1 opacity-0 group-hover:opacity-100 transition-all duration-200 w-2.5 h-2.5 rounded-full bg-primary-500 dark:bg-primary-400"></span>
               </div>
               <span className="text-[.85em] mt-2 font-medium tracking-wider opacity-90 group-hover:opacity-100">
                 {icon.label}
@@ -51,23 +51,23 @@ const Navigation = () => {
     </nav>
 
     {/* Mobile navigation (visible only on sm and smaller) */}
-    <nav className="flex lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/90 dark:bg-slate-900/95 backdrop-blur-md shadow-[0_-4px_10px_rgba(0,0,0,0.1)] border-t border-slate-200/50 dark:border-slate-700/50 px-2 py-2">
-      <ul className="flex w-full justify-around items-center">
+    <nav className="flex lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/90 dark:bg-slate-900/95 backdrop-blur-md shadow-[0_-4px_10px_rgba(0,0,0,0.1)] border-t border-slate-200/50 dark:border-slate-700/50 px-2 sm:px-4 md:px-6 py-2 sm:py-3">
+      <ul className="flex w-full justify-around items-center max-w-screen-md mx-auto">
         {nav_icons.map((icon, index) => (
-          <li key={index}>
+          <li key={index} className="w-full">
             <Link
               href={icon.href}
-              className="flex flex-col items-center transition-all duration-200 hover:text-blue-600 dark:hover:text-blue-400 group relative py-1"
+              className="flex flex-col items-center justify-center w-full transition-all duration-200 hover:text-primary-600 dark:hover:text-primary-400 group relative py-1"
               aria-label={icon.label}
             >
               <div className="relative">
                 <icon.src
-                  className="transition-transform duration-200 group-hover:scale-110 sm:size-[24px] md:size-[28px] lg:size-[32px]"
+                  className="transition-transform duration-200 group-hover:scale-110 size-[26px] sm:size-[24px] md:size-[28px]"
                   strokeWidth={2}
                 />
-                <span className={`absolute -bottom-1 -right-1 opacity-0 group-hover:opacity-100 transition-all duration-200 w-2 h-2 rounded-full bg-blue-500 dark:bg-blue-400`}></span>
+                <span className="absolute -bottom-1 -right-1 opacity-0 group-hover:opacity-100 transition-all duration-200 w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-primary-600 dark:bg-primary-500"></span>
               </div>
-              <span className="text-[.65em] mt-1 font-medium tracking-wider opacity-90 group-hover:opacity-100">
+              <span className="text-[.65em] sm:text-[.75em] mt-1 font-medium tracking-wider opacity-90 group-hover:opacity-100 hidden sm:block">
                 {icon.label}
               </span>
             </Link>
