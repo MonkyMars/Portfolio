@@ -1,0 +1,5 @@
+{
+  "typescript.suggest.paths": false,
+  "javascript.suggest.paths": false,
+  "editor.tabSize": 2
+}

@@ -17,7 +17,7 @@ export default {
           400: '#38bdf8',
           500: '#0ea5e9',
           600: '#0284c7',
-        }
+        },
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

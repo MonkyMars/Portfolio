@@ -17,16 +17,16 @@ const About = () => {
   ];
   return (
     <section
-      className="bg-white rounded-2xl shadow-lg p-8 mb-8 border-1 border-[rgba(255,255,255, 0.1)]"
+      className="bg-white dark:text-gray-100 dark:bg-slate-900/95 rounded-2xl shadow-lg p-8 mb-8 border-1 border-[rgba(255,255,255, 0.1)] border border-gray-100 dark:border-gray-800"
       id="about"
     >
-      <h2 className="text-2xl font-doto font-extrabold text-gray-800 mb-6 flex items-center gap-2">
+      <h2 className="text-2xl font-doto font-extrabold text-gray-800 dark:text-gray-100 mb-6 flex items-center gap-2">
         About Me
         <div className="h-1 w-24 bg-primary-500 rounded-full"></div>
       </h2>
       <div className="space-y-4">
         {about_me_text.map((text, index) => (
-          <p key={index} className="text-gray-600 leading-relaxed">
+          <p key={index} className="text-gray-600 dark:text-gray-300/90 leading-relaxed">
             {text}
           </p>
         ))}

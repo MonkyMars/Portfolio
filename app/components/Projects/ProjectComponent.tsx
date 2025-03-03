@@ -39,7 +39,7 @@ const ProjectComponent = ({ project, index, setSelectedProject, selectedProject 
   return (
     <div
       key={index}
-      className="group hover:bg-gray-50 p-6 transition-all rounded-lg border-2 border-primary-200/50"
+      className="group hover:bg-gray-50 dark:hover:bg-slate-800/90 p-6 transition-all rounded-lg border-2 border-primary-200/50"
     >
       <div className="flex flex-col md:flex-row gap-6">
         <div className="w-full md:w-1/2">
@@ -68,12 +68,12 @@ const ProjectComponent = ({ project, index, setSelectedProject, selectedProject 
             })}
           </span>
           <Link href={project.href} prefetch target="_blank">
-            <h3 className="text-xl font-bold text-gray-800 mt-2 hover:underline decoration-primary-500 cursor-pointer">
+            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mt-2 hover:underline decoration-primary-500 cursor-pointer">
               {project.title}
             </h3>
           </Link>
 
-          <p className="text-gray-600 mt-3">{project.description}</p>
+          <p className="text-gray-600 mt-3 dark:text-gray-300/90">{project.description}</p>
           <div className="flex gap-4 mt-4 justify-center lg:justify-start">
             <Link href={project.href} prefetch target="_blank">
               <button className="mt-4 text-sm font-medium text-primary-600 hover:text-primary-500 bg-primary-100 px-4 py-2 rounded-full transition-colors duration-300 flex items-center gap-2">

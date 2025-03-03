@@ -18,16 +18,16 @@ const TimeLineView: React.FC<TimelineProps> = ({ project, onClose }) => {
         onKeyDown={handleKeyDown}
         tabIndex={0}
       >
-        <article className="bg-white max-w-4xl max-h-full p-8 rounded-lg shadow-lg pointer-events-auto overflow-auto">
+        <article className="bg-white dark:bg-slate-900/95 dark:text-gray-100 max-w-4xl max-h-full p-8 rounded-lg shadow-lg pointer-events-auto overflow-auto">
           <div className="flex items-center justify-between relative">
-            <span className="inline-block px-3 py-1 my-3 rounded-full bg-primary-100 text-primary-600 text-sm font-medium">
+            <span className="inline-block px-3 py-1 my-3 rounded-full bg-primary-100 dark:bg-slate-800/90 text-primary-600 text-sm font-medium">
             {project.date.toLocaleDateString("en-US", {
               month: "long",
               day: "numeric",
               year: "numeric",
             })}
           </span>
-          <X className="p-1 my-3 rounded-full bg-primary-100 text-primary-600 text-sm font-medium cursor-pointer" size={28} onClick={onClose}/>
+          <X className="p-1 my-3 rounded-full bg-primary-100 dark:bg-slate-800/95 text-primary-600 text-sm font-medium cursor-pointer" size={28} onClick={onClose}/>
           </div>
           
           <header>
@@ -50,7 +50,7 @@ const TimeLineView: React.FC<TimelineProps> = ({ project, onClose }) => {
               </div>
             )}
           </main>
-          <footer className="w-full mt-8 p-6 bg-primary-50 rounded-lg">
+          <footer className="w-full mt-8 p-6 bg-primary-50 dark:bg-slate-800/90 rounded-lg">
             {project.details?.techStack?.length && (
               <div>
                 <h2 className="text-3xl font-doto font-extrabold mb-4">
@@ -60,7 +60,7 @@ const TimeLineView: React.FC<TimelineProps> = ({ project, onClose }) => {
                   {project.details?.techStack.map((tech, index) => (
                     <div
                       key={index}
-                      className="flex items-center gap-2 bg-primary-200/50 p-2 rounded-lg shadow-sm"
+                      className="flex items-center gap-2 bg-primary-200/50 dark:bg-slate-700 p-2 rounded-lg shadow-sm"
                     >
                       <Image
                         src={`/icons/${tech.replaceAll('.', '').toLocaleLowerCase()}.png`}

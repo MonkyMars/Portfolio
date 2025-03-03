@@ -42,10 +42,10 @@ const Experiences = () => {
 
   return (
     <section
-      className="bg-white rounded-2xl shadow-lg p-8 mb-8 border-1 border-[rgba(255,255,255, 0.1)]"
+      className="bg-white dark:bg-slate-900/95 rounded-2xl shadow-lg p-8 mb-8 border-1 border-[rgba(255,255,255, 0.1)] border border-gray-100 dark:border-gray-800"
       id="experience"
     >
-      <h2 className="text-2xl font-doto font-extrabold text-gray-800 mb-6 flex items-center gap-2">
+      <h2 className="text-2xl font-doto font-extrabold text-gray-800 dark:text-gray-100 mb-6 flex items-center gap-2">
         Experience
         <div className="h-1 w-24 bg-primary-500 rounded-full"></div>
       </h2>
@@ -53,15 +53,15 @@ const Experiences = () => {
         {experiences?.map((experience, index) => (
           <div
             key={index}
-            className="border-l-4 border-primary-500 pl-4 py-2 bg-slate-200/20 rounded-r-lg translate hover:translate-x-1 transition-transform duration-300"
+            className="border-l-4 border-primary-500 pl-4 py-2 bg-slate-200/20 dark:bg-slate-500/20 rounded-r-lg translate hover:translate-x-1 transition-transform duration-300"
           >
             <span className="text-sm text-primary-600 font-medium">
               {experience.date}
             </span>
-            <h4 className="text-lg font-semibold text-gray-800 mt-1">
+            <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mt-1">
               {experience.title}
             </h4>
-            <p className="text-gray-600 mt-1">{experience.description}</p>
+            <p className="text-gray-600 mt-1 dark:text-gray-400/90">{experience.description}</p>
           </div>
         ))}
       </div>

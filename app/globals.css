@@ -19,7 +19,3 @@ body {
   background: var(--background);
   font-family: 'Poppins', 'Inter', 'Helvetica';
 }
-
-section{
-  background-color: #fff !important;
-}

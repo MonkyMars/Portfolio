@@ -242,10 +242,10 @@ const Projects = () => {
 
   return (
     <section
-      className="bg-white rounded-2xl shadow-lg p-8 mb-8 border-2 border-primary-100"
+      className="bg-white rounded-2xl shadow-lg p-8 mb-8 dark:bg-slate-900/95 border border-gray-100 dark:border-gray-800"
       id="projects"
     >
-      <h2 className="text-2xl font-doto font-extrabold text-gray-800 mb-6 flex items-center gap-2">
+      <h2 className="text-2xl font-doto font-extrabold text-gray-800 dark:text-gray-100 mb-6 flex items-center gap-2">
         Projects
         <div className="h-1 w-24 bg-primary-500 rounded-full"></div>
       </h2>
