@@ -63,7 +63,7 @@ const Navigation = () => {
 
   return (<>
     {/* Desktop navigation (visible only on lg and up) */}
-    <nav className="fixed flex-col top-6 left-1/2  -translate-x-1/2 lg:flex hidden bg-white/90 dark:bg-slate-900/95 rounded-full px-6 py-3 backdrop-blur-md shadow-xl border border-slate-200/50 dark:border-slate-700/50 justify-center items-center z-50 transition-all duration-300">
+    <nav className="fixed flex-col top-6 left-1/2 -translate-x-1/2 lg:flex hidden bg-white/90 dark:bg-slate-900/95 rounded-full px-8 py-3 backdrop-blur-md shadow-xl border border-slate-200/50 dark:border-slate-700/50 justify-center items-center z-50 transition-all duration-300">
       <ul className="flex gap-6 sm:gap-10">
         {nav_icons.map((icon, index) => (
           <li key={index}>
