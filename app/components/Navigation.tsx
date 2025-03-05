@@ -106,7 +106,7 @@ const Navigation = () => {
           <li key={index} className="w-full">
             <Link
               href={icon.href}
-              className="flex flex-col items-center justify-center w-full transition-all duration-200 hover:text-primary-600 dark:hover:text-primary-400 group relative py-1"
+              className="flex flex-col items-center transition-all duration-200 hover:text-primary-600 text-gray-700/80 dark:text-gray-300/90 dark:hover:text-primary-400 group relative"
               aria-label={icon.label}
             >
               <div className="relative">
@@ -125,13 +125,13 @@ const Navigation = () => {
       </ul>
       {/* Add theme toggle to mobile nav */}
       <div className="absolute right-5 top-1/2 transform -translate-y-1/2">
-        <button 
+      <button 
           type="button"
-          className="rounded-full p-1.5 bg-slate-200 dark:bg-slate-800 transition-colors duration-200 hover:bg-slate-300 dark:hover:bg-slate-700"
+          className="rounded-full p-2 bg-slate-200 text-primary-600  dark:bg-slate-800 transition-colors duration-200 hover:bg-slate-300 dark:hover:bg-slate-700"
           aria-label="Toggle dark mode"
           onClick={toggleTheme}
         >
-          {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+          {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
         </button>
       </div>
     </nav>
