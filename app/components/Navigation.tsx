@@ -1,5 +1,7 @@
-import { IdCard, Trophy, Folder, Package, Contact } from "lucide-react";
+'use client'
+import { IdCard, Trophy, Folder, Package, Contact, Moon, Sun } from "lucide-react";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 interface navIcons {
   label: string;
@@ -19,24 +21,61 @@ const nav_icons: navIcons[] = [
   { label: "Tech Stack", href: "#tech-stack", src: Package },
 ];
 
-
-
 const Navigation = () => {
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const savedTheme = localStorage.getItem('theme');
+    
+    if (!savedTheme) {
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initialTheme = systemPrefersDark ? 'dark' : 'light';
+      setTheme(initialTheme);
+      
+      if (initialTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+      localStorage.setItem('theme', initialTheme);
+    } else {
+      setTheme(savedTheme as 'light' | 'dark');
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+
+    if (newTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    localStorage.setItem('theme', newTheme);
+  };
+  if (!mounted) return null;
+
   return (<>
     {/* Desktop navigation (visible only on lg and up) */}
-    <nav className="fixed top-6 left-1/2  -translate-x-1/2 lg:flex hidden bg-white/90 dark:bg-slate-900/95 rounded-full px-6 py-3 backdrop-blur-md shadow-xl border border-slate-200/50 dark:border-slate-700/50 justify-center items-center z-50 transition-all duration-300">
+    <nav className="fixed flex-col top-6 left-1/2  -translate-x-1/2 lg:flex hidden bg-white/90 dark:bg-slate-900/95 rounded-full px-6 py-3 backdrop-blur-md shadow-xl border border-slate-200/50 dark:border-slate-700/50 justify-center items-center z-50 transition-all duration-300">
       <ul className="flex gap-6 sm:gap-10">
         {nav_icons.map((icon, index) => (
           <li key={index}>
             <Link
               href={icon.href}
-              className="flex flex-col items-center transition-all duration-200 hover:text-primary-600 dark:hover:text-primary-400 group relative"
+              className="flex flex-col items-center transition-all duration-200 hover:text-primary-600 text-gray-700/80 dark:text-gray-300/90 dark:hover:text-primary-400 group relative"
               aria-label={icon.label}
             >
               <div className="relative">
                 <icon.src
                   size={26}
-                  className="transition-transform duration-200 group-hover:scale-110"
+                  className="transition-transform duration-200 group-hover:scale-110 "
                   strokeWidth={2}
                 />
                 <span className="absolute -bottom-1 -right-1 opacity-0 group-hover:opacity-100 transition-all duration-200 w-2.5 h-2.5 rounded-full bg-primary-500 dark:bg-primary-400"></span>
@@ -48,6 +87,16 @@ const Navigation = () => {
           </li>
         ))}
       </ul>
+      <div className="absolute right-[-60px] flex items-center">
+        <button 
+          type="button"
+          className="rounded-full p-2 bg-slate-200 text-primary-600  dark:bg-slate-800 transition-colors duration-200 hover:bg-slate-300 dark:hover:bg-slate-700"
+          aria-label="Toggle dark mode"
+          onClick={toggleTheme}
+        >
+          {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+        </button>
+      </div>
     </nav>
 
     {/* Mobile navigation (visible only on sm and smaller) */}
@@ -74,6 +123,17 @@ const Navigation = () => {
           </li>
         ))}
       </ul>
+      {/* Add theme toggle to mobile nav */}
+      <div className="absolute right-5 top-1/2 transform -translate-y-1/2">
+        <button 
+          type="button"
+          className="rounded-full p-1.5 bg-slate-200 dark:bg-slate-800 transition-colors duration-200 hover:bg-slate-300 dark:hover:bg-slate-700"
+          aria-label="Toggle dark mode"
+          onClick={toggleTheme}
+        >
+          {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+        </button>
+      </div>
     </nav>
   </>
 );
