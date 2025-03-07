@@ -79,6 +79,13 @@ const TechStack = () => {
       experience: 2024,
       note: "I've used PostgreSQL mostly in the past, ever since I discovered SupaBase I've been using it more.",
       type: "service",
+    },
+    {
+      label: "GO",
+      iconSrc: "go",
+      experience: 2025,
+      note: "I still consider myself a beginner in GO, though I think this is changing very soon. Currently I'm coding daily in GO.",
+      type: "language",
     }
   ];
 
@@ -101,11 +108,11 @@ const TechStack = () => {
               border-l-4 border-primary-500 duration-300 transition-all bg-slate-200/20 dark:bg-slate-500/20 rounded-r-lg"
             >
               <div className="flex flex-col sm:flex-row gap-6 items-start">
-                <div className="w-16 h-16 relative bg-gray-100 rounded-lg p-3 transition-colors group-hover:bg-white">
+                <div className="w-16 h-16 relative bg-gray-100 dark:bg-gray-700 rounded-lg transition-colors group-hover:bg-white dark:group-hover:bg-slate-900/90">
                   <Image
                     src={`/icons/${stackItem.iconSrc.toLocaleLowerCase()}.png`}
                     alt={stackItem.label}
-                    className="w-full h-full object-contain group-hover:scale-105 transition-all duration-100"
+                    className="w-full h-full object-contain group-hover:scale-105 transition-all duration-100 p-2"
                     fill
                     draggable={false}
                     sizes="100%"
