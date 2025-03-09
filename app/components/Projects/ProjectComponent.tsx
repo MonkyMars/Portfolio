@@ -69,7 +69,7 @@ const ProjectComponent = ({ project, index, setSelectedProject, selectedProject 
           </span>
           <Link href={project.href} prefetch target="_blank">
             <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mt-2 hover:underline decoration-primary-500 cursor-pointer">
-              {project.title}
+              {index+1}. {project.title}
             </h3>
           </Link>
 

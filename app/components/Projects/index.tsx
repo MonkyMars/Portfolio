@@ -2,9 +2,11 @@
 import { useState } from "react";
 import { type projects } from "./TimelineItem";
 import ProjectComponent from "./ProjectComponent";
+import { ArrowDown, ArrowUp } from "lucide-react";
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<projects | null>(null);
+  const [maxLength, setMaxLength] = useState<number>(5);
 
   const projects: projects[] = [
     {
@@ -268,10 +270,10 @@ const Projects = () => {
               "When I look back at this project, I realize that this project made me understand and love GO. It's definitely my favorite language by far currently. Definitely a big step forward to becoming a GO developer.",
             date: new Date(2025, 2, 9), // March 9, 2025
             image: "/vibecast.png",
-          }
-        ]
-      }
-    }
+          },
+        ],
+      },
+    },
   ];
 
   return (
@@ -286,6 +288,7 @@ const Projects = () => {
       <div className="grid gap-8">
         {projects
           ?.sort((a, b) => Number(b.date) - Number(a.date))
+          .slice(0, maxLength)
           .map((project, index) => (
             <ProjectComponent
               key={project.title}
@@ -295,6 +298,21 @@ const Projects = () => {
               setSelectedProject={setSelectedProject}
             />
           ))}
+        {maxLength < projects.length ? (
+          <button
+            onClick={() => setMaxLength(projects.length)}
+            className="flex items-center justify-center gap-2 px-4 py-2 mt-4 text-sm font-medium transition-all rounded-lg bg-primary-100 hover:bg-primary-200 text-primary-600 dark:bg-slate-800/70 dark:hover:bg-slate-800 dark:text-gray-200 border border-primary-200 dark:border-slate-700 w-full md:w-auto self-center"
+          >
+            See more <ArrowDown className="w-4 h-4" />
+          </button>
+        ) : (
+          <button
+            onClick={() => setMaxLength(5)}
+            className="flex items-center justify-center gap-2 px-4 py-2 mt-4 text-sm font-medium transition-all rounded-lg bg-primary-100 hover:bg-primary-200 text-primary-600 dark:bg-slate-800/70 dark:hover:bg-slate-800 dark:text-gray-200 border border-primary-200 dark:border-slate-700 w-full md:w-auto self-center"
+          >
+            See less <ArrowUp className="w-4 h-4" />
+          </button>
+        )}
       </div>
     </section>
   );

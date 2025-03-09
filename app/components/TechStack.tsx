@@ -1,4 +1,8 @@
+'use client';
+
 import Image from "next/image";
+import React from "react";
+import { ArrowDown, ArrowUp } from "lucide-react";
 
 interface TechStackItem {
   label: string;
@@ -9,6 +13,7 @@ interface TechStackItem {
 }
 
 const TechStack = () => {
+  const [maxLength, setMaxLength] = React.useState(5);
   const stack: TechStackItem[] = [
     {
       label: "Next.js",
@@ -100,7 +105,7 @@ const TechStack = () => {
       </h2>
       <div className="grid gap-8">
         {stack
-          ?.sort((a, b) => b.experience - a.experience)
+          ?.sort((a, b) => b.experience - a.experience).slice(0, maxLength)
           .map((stackItem, index) => (
             <div
               key={index}
@@ -136,6 +141,21 @@ const TechStack = () => {
               </div>
             </div>
           ))}
+          {maxLength < stack.length ? (
+          <button
+            onClick={() => setMaxLength(stack.length)}
+            className="flex items-center justify-center gap-2 px-4 py-2 mt-4 text-sm font-medium transition-all rounded-lg bg-primary-100 hover:bg-primary-200 text-primary-600 dark:bg-slate-800/70 dark:hover:bg-slate-800 dark:text-gray-200 border border-primary-200 dark:border-slate-700 w-full md:w-auto self-center"
+          >
+            See more <ArrowDown className="w-4 h-4" />
+          </button>
+        ) : (
+          <button
+            onClick={() => setMaxLength(5)}
+            className="flex items-center justify-center gap-2 px-4 py-2 mt-4 text-sm font-medium transition-all rounded-lg bg-primary-100 hover:bg-primary-200 text-primary-600 dark:bg-slate-800/70 dark:hover:bg-slate-800 dark:text-gray-200 border border-primary-200 dark:border-slate-700 w-full md:w-auto self-center"
+          >
+            See less <ArrowUp className="w-4 h-4" />
+          </button>
+        )}
       </div>
     </section>
   );
