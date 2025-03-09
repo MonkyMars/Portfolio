@@ -238,6 +238,40 @@ const Projects = () => {
         ],
       },
     },
+    {
+      title: "VibeCast",
+      description:
+        "VibeCast is a playlist generator to create a playlist based on the weather or a specific genre. This project is purely made in GO and uses the zmb3 Spotify API wrapper.",
+      date: new Date(2025, 2, 9), // March 9, 2025
+      image: "/vibecast.png",
+      href: "https://github.com/MonkyMars/vibecast/",
+      details: {
+        techStack: ["GO"],
+        features: ["Weather", "Genre", "Playlist", "Spotify"],
+        notes: [
+          {
+            title: "Problem",
+            description:
+              "There wasn't necessarily a problem I was trying to solve with this project. I was aiming for a simple GO application for my girlfriend to use. She loves music and I wanted to make something for her.",
+            date: new Date(2025, 2, 7), // March 7, 2025
+          },
+          {
+            title: "Complications",
+            description:
+              "In this project, I wanted to learn and practice GO since this was my first real project. The only problem I had was just me being a beginner in GO.",
+            date: new Date(2025, 2, 8), // March 8, 2025
+            image: "/vibecast/cmd.png",
+          },
+          {
+            title: "Conclussion",
+            description:
+              "When I look back at this project, I realize that this project made me understand and love GO. It's definitely my favorite language by far currently. Definitely a big step forward to becoming a GO developer.",
+            date: new Date(2025, 2, 9), // March 9, 2025
+            image: "/vibecast.png",
+          }
+        ]
+      }
+    }
   ];
 
   return (

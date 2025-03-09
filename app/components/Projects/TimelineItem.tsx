@@ -46,7 +46,7 @@ export const TimeLineItem = ({
               src={`/demos/${item.image}`}
               alt={item.title}
               fill
-              className="rounded-lg object-contain"
+              className="rounded-lg object-contain bg-primary-200 dark:bg-slate-700"
               unoptimized
             />
           </div>

@@ -1,7 +1,8 @@
 import React from "react";
 import { TimeLineItem, TimelineProps } from "./TimelineItem";
 import Image from "next/image";
-import { X } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
+import Link from "next/link";
 
 const TimeLineView: React.FC<TimelineProps> = ({ project, onClose }) => {
   
@@ -19,14 +20,23 @@ const TimeLineView: React.FC<TimelineProps> = ({ project, onClose }) => {
         tabIndex={0}
       >
         <article className="bg-white dark:bg-slate-900/95 dark:text-gray-100 max-w-4xl max-h-full p-8 rounded-lg shadow-lg pointer-events-auto overflow-auto">
-          <div className="flex items-center justify-between relative">
-            <span className="inline-block px-3 py-1 my-3 rounded-full bg-primary-100 dark:bg-slate-800/90 text-primary-600 text-sm font-medium">
-            {project.date.toLocaleDateString("en-US", {
-              month: "long",
-              day: "numeric",
-              year: "numeric",
-            })}
-          </span>
+          <div className="flex items-center justify-between relative w-full">
+            <div className="flex items-center gap-4">
+              <span className="inline-block px-3 py-1 my-3 rounded-full bg-primary-100 dark:bg-slate-800/90 text-primary-600 text-sm font-medium">
+                {project.date.toLocaleDateString("en-US", {
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
+                })}
+              </span>
+              <Link 
+              href={project.href}
+              target="_blank"
+              className="cursor-pointer flex items-center gap-1 translate hover:-translate-y-1 transition-transform duration-100 px-3 py-1 my-3 rounded-full bg-primary-100 dark:bg-slate-800/90 text-primary-600 text-sm font-medium">
+                See Reposity <ArrowRight size={16} />
+              </Link>
+            </div>
+            
           <X className="p-1 my-3 rounded-full bg-primary-100 dark:bg-slate-800/95 text-primary-600 text-sm font-medium cursor-pointer" size={28} onClick={onClose}/>
           </div>
           
