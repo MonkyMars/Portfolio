@@ -51,6 +51,11 @@ const ProjectComponent = ({ project, index, setSelectedProject, selectedProject 
               } - Project by Levi Noppers showcasing ${project.details?.techStack?.join(
                 ", "
               )}`}
+              title={`${
+                project.title
+              } - Project by Levi Noppers showcasing ${project.details?.techStack?.join(
+                ", "
+              )}`}
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               priority
