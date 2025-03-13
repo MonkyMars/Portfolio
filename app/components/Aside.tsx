@@ -7,7 +7,7 @@ const Aside = () => (
     className="md:col-span-4 lg:col-span-3 shadow-lg h-full"
     id="aside" 
   >
-    <div className="bg-white dark:bg-slate-900/95 dark:text-gray-100 rounded-2xl shadow-lg p-8 sm:p-3 sm:py-8 border border-gray-100 dark:border-gray-800">
+    <div className="bg-white dark:bg-slate-900/95 dark:text-gray-100 rounded-2xl shadow-lg p-8 sm:p-4 sm:py-8 border border-gray-100 dark:border-gray-800">
       <div className="text-center mb-8">
         <h1 className="text-2xl text-gray-800 dark:text-gray-100 mb-3 font-doto font-extrabold">
           Levi Noppers
