@@ -1,11 +1,11 @@
-interface experiences {
+interface Experiences {
   title: string;
   description: string;
   date: string;
 }
 
 const Experiences = () => {
-  const experiences: experiences[] = [
+  const experiences: Experiences[] = [
     {
       title: "First Steps in Programming",
       date: "27/11/2022",
@@ -13,7 +13,7 @@ const Experiences = () => {
         "Developed and deployed my first application: a Discord bot using Python",
     },
     {
-      title: "Career Focus Shift",
+      title: "Made coding my priority",
       date: "29/12/2023",
       description:
         "Committed to pursuing software development as a career path, establishing a structured learning routine",
@@ -22,13 +22,13 @@ const Experiences = () => {
       title: "Creating projects",
       date: "2024",
       description:
-        "Made multiple projects in Next.js, TypeScript and Tailwind CSS. The projects include a webstore, a social media platform, a personal gallery and a collection of albumcovers",
+        "Made multiple projects in Next.js, TypeScript and Tailwind CSS. The projects include a webstore, a social media platform, a personal gallery for my girlfriend and a collection of albumcovers",
     },
     {
       title: "Q42 Internship",
       date: "06/01/2025",
       description:
-        "Secured internship position at Q42, a leading software development company in The Hague, Netherlands",
+        "Had an internship for 8 weeks at Q42, a leading software development company in The Hague, Netherlands",
     },
     {
       title: "Independent Full-Stack Developer",
@@ -36,7 +36,7 @@ const Experiences = () => {
         new Date().getMonth() + 1
       ).padStart(2, "0")}/${new Date().getFullYear()}`,
       description:
-        "Actively developing full-stack applications and expanding technical expertise through daily project work",
+        "Actively working and developing personal projects in order to gain new skills and learn new coding languages.",
     },
   ];
 
