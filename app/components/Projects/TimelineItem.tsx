@@ -6,7 +6,8 @@ export interface projects {
   description: string;
   date: Date;
   image: string;
-  href: string;
+  type: string | string[];
+  href: string | Array<{url: string, label: string}>;
   details?: {
     techStack: string[];
     features: string[];

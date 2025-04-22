@@ -29,12 +29,12 @@ const TimeLineView: React.FC<TimelineProps> = ({ project, onClose }) => {
                   year: "numeric",
                 })}
               </span>
-              <Link 
-              href={project.href}
+              {!Array.isArray(project.href) ?<Link 
+              href={project.href[0]}
               target="_blank"
               className="cursor-pointer flex items-center gap-1 translate hover:-translate-y-1 transition-transform duration-100 px-3 py-1 my-3 rounded-full bg-primary-100 dark:bg-slate-800/90 text-primary-600 text-sm font-medium">
                 See Reposity <ArrowRight size={16} />
-              </Link>
+              </Link> : null}
             </div>
             
           <X className="p-1 my-3 rounded-full bg-primary-100 dark:bg-slate-800/95 text-primary-600 text-sm font-medium cursor-pointer" size={28} onClick={onClose}/>
@@ -67,7 +67,7 @@ const TimeLineView: React.FC<TimelineProps> = ({ project, onClose }) => {
                   Tech Stack
                 </h2>
                 <ul className="flex flex-wrap gap-4">
-                  {project.details?.techStack.map((tech, index) => (
+                  {project.details?.techStack.sort().map((tech, index) => (
                     <div
                       key={index}
                       className="flex items-center gap-2 bg-primary-200/50 dark:bg-slate-700 p-2 rounded-lg shadow-sm"

@@ -132,8 +132,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" dir="ltr">
+    <html lang="en" dir="ltr" className="scroll-smooth" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var mode = localStorage.getItem('theme');
+                  var systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  if (mode === 'dark' || (!mode && systemPrefersDark)) {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -170,7 +187,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`antialiased bg-gray-100 ${poppins.variable} ${doto.variable}`}>
+      <body className={`antialiased bg-gray-100 dark:bg-slate-900 text-gray-900 dark:text-gray-100 transition-colors ${poppins.variable} ${doto.variable}`}>
         {children}
       </body>
     </html>

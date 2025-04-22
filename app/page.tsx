@@ -22,11 +22,6 @@ const Home: NextPage = () => {
 
             {/* Main Content */}
             <div className="w-full md:col-span-8 lg:col-span-9">
-              {/* Navigation */}
-             
-              {/* <div className="max-w-[95vw] sm:max-w-full mx-auto">
-                <Navigation />
-              </div> */}
 
               {/* About Section */}
               <div className="max-w-[95vw] sm:max-w-full mx-auto">

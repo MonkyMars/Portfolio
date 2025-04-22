@@ -3,6 +3,7 @@
 import Image from "next/image";
 import React from "react";
 import { ArrowDown, ArrowUp } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface TechStackItem {
   label: string;
@@ -89,10 +90,33 @@ const TechStack = () => {
       label: "GO",
       iconSrc: "go",
       experience: 2025,
-      note: "I still consider myself a beginner in GO, though I think this is changing very soon. Currently I'm coding daily in GO.",
+      note: "I am comfortable with GO, though I'm still learning.",
       type: "language",
     }
   ];
+
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 260,
+        damping: 20
+      }
+    }
+  };
 
   return (
     <section
@@ -103,60 +127,80 @@ const TechStack = () => {
         Tech Stack
         <div className="h-1 w-24 bg-primary-500 rounded-full"></div>
       </h2>
-      <div className="grid gap-8">
-        {stack
-          ?.sort((a, b) => b.experience - a.experience).slice(0, maxLength)
-          .map((stackItem, index) => (
-            <div
-              key={index}
-              className="group hover:bg-gray-50 dark:hover:bg-slate-500/90 p-6 transform hover:translate-x-1 
-              border-l-4 border-primary-500 duration-300 transition-all bg-slate-200/20 dark:bg-slate-500/20 rounded-r-lg"
-            >
-              <div className="flex flex-col sm:flex-row gap-6 items-start">
-                <div className="w-16 h-16 relative bg-gray-100 dark:bg-gray-700 rounded-lg transition-colors group-hover:bg-white dark:group-hover:bg-slate-900/90">
-                  <Image
-                    src={`/icons/${stackItem.iconSrc.toLocaleLowerCase()}.png`}
-                    alt={stackItem.label}
-                    className="w-full h-full object-contain group-hover:scale-105 transition-all duration-100 p-2"
-                    fill
-                    draggable={false}
-                    sizes="100%"
-                  />
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-3">
-                    <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
-                      {stackItem.label}
-                    </h3>
-                    <span className="text-sm px-3 py-1 bg-primary-100 text-primary-600 rounded-full font-medium">
-                      {stackItem.type.charAt(0).toUpperCase() +
-                        stackItem.type.slice(1).toLowerCase()}
-                    </span>
+      <motion.div 
+        className="grid gap-8"
+        variants={container}
+        initial="hidden"
+        animate="show"
+        key={maxLength} // Force re-render of animation when maxLength changes
+      >
+        <AnimatePresence>
+          {stack
+            ?.sort((a, b) => b.experience - a.experience).slice(0, maxLength)
+            .map((stackItem, index) => (
+              <motion.div
+                key={index}
+                variants={item}
+                className="group hover:bg-gray-50 dark:hover:bg-slate-500/90 p-6 transform hover:translate-x-1 
+                border-l-4 border-primary-500 duration-300 transition-all bg-slate-200/20 dark:bg-slate-500/20 rounded-r-lg"
+              >
+                <div className="flex flex-col sm:flex-row gap-6 items-start">
+                  <div className="w-16 h-16 relative bg-gray-100 dark:bg-gray-700 rounded-lg transition-colors group-hover:bg-white dark:group-hover:bg-slate-900/90">
+                    <Image
+                      src={`/icons/${stackItem.iconSrc.toLocaleLowerCase()}.png`}
+                      alt={stackItem.label}
+                      className="w-full h-full object-contain group-hover:scale-105 transition-all duration-100 p-2"
+                      fill
+                      draggable={false}
+                      sizes="100%"
+                    />
                   </div>
-                  <span className="text-sm text-primary-600 font-medium block mt-2">
-                    Since {stackItem.experience}
-                  </span>
-                  <p className="text-gray-600 mt-2 dark:text-gray-300/90">{stackItem.note}</p>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3">
+                      <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
+                        {stackItem.label}
+                      </h3>
+                      <span className="text-sm px-3 py-1 bg-primary-100 text-primary-600 rounded-full font-medium">
+                        {stackItem.type.charAt(0).toUpperCase() +
+                          stackItem.type.slice(1).toLowerCase()}
+                      </span>
+                    </div>
+                    <span className="text-sm text-primary-600 font-medium block mt-2">
+                      Since {stackItem.experience}
+                    </span>
+                    <p className="text-gray-600 mt-2 dark:text-gray-300/90">{stackItem.note}</p>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              </motion.div>
+            ))}
+        </AnimatePresence>
+        
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+        >
           {maxLength < stack.length ? (
-          <button
-            onClick={() => setMaxLength(stack.length)}
-            className="flex items-center justify-center gap-2 px-4 py-2 mt-4 text-sm font-medium transition-all rounded-lg bg-primary-100 hover:bg-primary-200 text-primary-600 dark:bg-slate-800/70 dark:hover:bg-slate-800 dark:text-gray-200 border border-primary-200 dark:border-slate-700 w-full md:w-auto self-center"
-          >
-            See more <ArrowDown className="w-4 h-4" />
-          </button>
-        ) : (
-          <button
-            onClick={() => setMaxLength(5)}
-            className="flex items-center justify-center gap-2 px-4 py-2 mt-4 text-sm font-medium transition-all rounded-lg bg-primary-100 hover:bg-primary-200 text-primary-600 dark:bg-slate-800/70 dark:hover:bg-slate-800 dark:text-gray-200 border border-primary-200 dark:border-slate-700 w-full md:w-auto self-center"
-          >
-            See less <ArrowUp className="w-4 h-4" />
-          </button>
-        )}
-      </div>
+            <motion.button
+              onClick={() => setMaxLength(stack.length)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center justify-center gap-2 px-4 py-2 mt-4 text-sm font-medium transition-all rounded-lg bg-primary-100 hover:bg-primary-200 text-primary-600 dark:bg-slate-800/70 dark:hover:bg-slate-800 dark:text-gray-200 border border-primary-200 dark:border-slate-700 w-full md:w-auto self-center"
+            >
+              See more <ArrowDown className="w-4 h-4" />
+            </motion.button>
+          ) : (
+            <motion.button
+              onClick={() => setMaxLength(5)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center justify-center gap-2 px-4 py-2 mt-4 text-sm font-medium transition-all rounded-lg bg-primary-100 hover:bg-primary-200 text-primary-600 dark:bg-slate-800/70 dark:hover:bg-slate-800 dark:text-gray-200 border border-primary-200 dark:border-slate-700 w-full md:w-auto self-center"
+            >
+              See less <ArrowUp className="w-4 h-4" />
+            </motion.button>
+          )}
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

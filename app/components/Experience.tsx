@@ -10,25 +10,25 @@ const Experiences = () => {
       title: "First Steps in Programming",
       date: "27/11/2022",
       description:
-        "Developed and deployed my first application: a Discord bot using Python",
+        "Built and launched my first project — a Python Discord bot. It kicked off my interest in coding.",
     },
     {
       title: "Career Focus Shift",
       date: "29/12/2023",
       description:
-        "Committed to pursuing software development as a career path, establishing a structured learning routine",
+        "Decided to take software development seriously. Locked in a learning routine and stuck to it.",
     },
     {
-      title: "Creating projects",
+      title: "Building Real Projects",
       date: "2024",
       description:
-        "Made multiple projects in Next.js, TypeScript and Tailwind CSS. The projects include a webstore, a social media platform, a personal gallery and a collection of albumcovers",
+        "Created multiple projects using Next.js, TypeScript, and Tailwind. Built a webstore, a social platform, a personal gallery, and an album cover showcase.",
     },
     {
       title: "Q42 Internship",
       date: "06/01/2025",
       description:
-        "Secured internship position at Q42, a leading software development company in The Hague, Netherlands",
+        "Got an internship at Q42 for 8 weeks, a company known for its innovative projects.",
     },
     {
       title: "Independent Full-Stack Developer",
@@ -36,9 +36,10 @@ const Experiences = () => {
         new Date().getMonth() + 1
       ).padStart(2, "0")}/${new Date().getFullYear()}`,
       description:
-        "Actively developing full-stack applications and expanding technical expertise through daily project work",
+        "Building full-stack apps daily. Staying sharp, learning by doing, and leveling up with every project.",
     },
   ];
+  
 
   return (
     <section
