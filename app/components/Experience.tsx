@@ -1,11 +1,11 @@
-interface experiences {
+interface Experiences {
   title: string;
   description: string;
   date: string;
 }
 
 const Experiences = () => {
-  const experiences: experiences[] = [
+  const experiences: Experiences[] = [
     {
       title: "First Steps in Programming",
       date: "27/11/2022",
@@ -13,7 +13,7 @@ const Experiences = () => {
         "Built and launched my first project — a Python Discord bot. It kicked off my interest in coding.",
     },
     {
-      title: "Career Focus Shift",
+      title: "Made coding my priority",
       date: "29/12/2023",
       description:
         "Decided to take software development seriously. Locked in a learning routine and stuck to it.",
