@@ -64,7 +64,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Levi Noppers | Full Stack Developer",
     description:
-      "Full Stack Developer specializing in creating modern, responsive web applications with React, Node.js, and cutting-edge technologies.",
+      "Full-stack developer building clean, responsive web apps with Next.js, TypeScript, and modern tooling. I focus on shipping real projects that feel fast, look good, and solve actual problems.",
     type: "website",
     url: "https://levinoppers.nl",
     images: [
