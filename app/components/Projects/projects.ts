@@ -128,13 +128,7 @@ export const projects: ProjectType[] = [
     href: "https://github.com/MonkyMars/amber-gallery/",
     details: {
       techStack: ["Next.js", "TypeScript", "Scss", "PostgreSQL"],
-      features: [
-        "Artwork",
-        "Categories",
-        "Locations",
-        "Analytics",
-        "Account",
-      ],
+      features: ["Artwork", "Categories", "Locations", "Analytics", "Account"],
       notes: [
         {
           title: "Problem",
@@ -267,23 +261,23 @@ export const projects: ProjectType[] = [
   //   },
   // },
   {
-    title: "GreenTrade",
+    title: "GreenVue",
     description:
-      "GreenTrade is a sustainable marketplace built for the European Union. It connects eco-conscious buyers with independent sellers offering environmentally friendly products. The platform uses Next.js for the frontend, Supabase for the backend, and is deployed with Docker on Railway.",
+      "GreenVue is a sustainable marketplace built for the European Union. It connects eco-conscious buyers with independent sellers offering environmentally friendly products. The platform uses Next.js for the frontend, Supabase for the backend, and is deployed with Docker on Railway.",
     date: new Date(2025, 3, 1), // April 1, 2025
-    image: "/greentrade.png",
+    image: "'/greenvue.png",
     type: ["Web", "Mobile", "API"],
     href: [
       {
-        url: "https://github.com/MonkyMars/greentrade.eu",
+        url: "https://github.com/MonkyMars/GreenVue.eu",
         label: "Web",
       },
       {
-        url: "https://github.com/MonkyMars/GreenTrade.eu-Mobile",
+        url: "https://github.com/MonkyMars/GreenVue.eu-Mobile",
         label: "Mobile",
       },
       {
-        url: "https://github.com/MonkyMars/greentrade.eu---backend",
+        url: "https://github.com/MonkyMars/GreenVue.eu---backend",
         label: "API",
       },
     ],
@@ -323,7 +317,7 @@ export const projects: ProjectType[] = [
           description:
             "I've gotten a lot more comfortable with GO and React Native since I started this project. I am still expanding this project.",
           date: new Date(2025, 3, 1), // April 1, 2025
-          image: "/greentrade.png",
+          image: "/GreenVue.png",
         },
       ],
     },
