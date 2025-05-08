@@ -261,23 +261,23 @@ export const projects: ProjectType[] = [
   //   },
   // },
   {
-    title: "GreenVue",
+    title: "GreenTrade",
     description:
-      "GreenVue is a sustainable marketplace built for the European Union. It connects eco-conscious buyers with independent sellers offering environmentally friendly products. The platform uses Next.js for the frontend, Supabase for the backend, and is deployed with Docker on Railway.",
+      "GreenTrade is a sustainable marketplace built for the European Union. It connects eco-conscious buyers with independent sellers offering environmentally friendly products. The platform uses Next.js for the frontend, Supabase for the backend, and is deployed with Docker on Railway.",
     date: new Date(2025, 3, 1), // April 1, 2025
-    image: "'/greenvue.png",
+    image: "/greenvue.png",
     type: ["Web", "Mobile", "API"],
     href: [
       {
-        url: "https://github.com/MonkyMars/GreenVue.eu",
+        url: "https://github.com/MonkyMars/GreenVue-Web",
         label: "Web",
       },
       {
-        url: "https://github.com/MonkyMars/GreenVue.eu-Mobile",
+        url: "https://github.com/MonkyMars/GreenVue-Mobile",
         label: "Mobile",
       },
       {
-        url: "https://github.com/MonkyMars/GreenVue.eu---backend",
+        url: "https://github.com/MonkyMars/GreenVue-API",
         label: "API",
       },
     ],
