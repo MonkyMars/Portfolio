@@ -193,19 +193,19 @@ export const projects: ProjectType[] = [
   {
     title: "BlueQuill",
     description:
-      "BlueQuill was my first shot at an actual application, intended for succes and usage. Bluequill is made in Next.js using Typescript and TailwindCSS. The backend is written in Typescript and Go, and is built on SupaBase as database provider.",
+      "BlueQuill was my first shot at an actual application, intended for succes and usage. Bluequill is made in Next.js using Typescript and TailwindCSS. The backend is written in Typescript, and is built on SupaBase as database provider.",
     date: new Date(2025, 0, 4), // January 4, 2025
     image: "/bluequill.png",
     type: "Web",
-    href: "https://github.com/MonkyMars/bluequill/",
+    href: "https://github.com/MonkyMars/bluequill",
     details: {
-      techStack: ["Next.js", "TypeScript", "TailwindCSS", "SupaBase", "GO"],
+      techStack: ["Next.js", "TypeScript", "TailwindCSS", "SupaBase"],
       features: ["Notes", "Homework", "Assignments", "Calendar", "Planner"],
       notes: [
         {
           title: "Problem",
           description:
-            "My teacher told me at school that if I could make a webapp with AI integrated, the succes rate of it taking off would be higher. I looked at the things I used on a daily basis and how I could improve that. I came up with BlueQuill, a note taking app with AI as writing assistant.",
+            "My teacher told me at school that if I could make a webapp with AI integrated, the succes rate of it taking off would be higher. I looked at the things I used on a daily basis and how I could improve that. I came up with BlueQuill, a Google Docs alternative with an AI writing assistant.",
           date: new Date(2024, 7, 20), // August 20, 2024
         },
         {
@@ -218,7 +218,7 @@ export const projects: ProjectType[] = [
         {
           title: "Conclussion",
           description:
-            "I never released BlueQuill to the public, due to the AI limitations. I did however learn a lot about the proces of working with AI and using TipTap, a built-in text editor",
+            "I never released BlueQuill to the public, due to the AI costs. I did however learn a lot about the proces of working with AI and using TipTap, a built-in text editor",
           date: new Date(2024, 8, 1), // September 1, 2024
           image: "/bluequill.png",
         },
