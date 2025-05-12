@@ -90,7 +90,7 @@ const TechStack = () => {
       label: "GO",
       iconSrc: "go",
       experience: 2025,
-      note: "I am comfortable with GO, though I'm still learning.",
+      note: "I'm comfortable with GO, though I'm still learning.",
       type: "language",
     }
   ];

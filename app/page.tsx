@@ -6,6 +6,7 @@ import Projects from "./components/Projects";
 import About from "./components/About";
 import Footer from "./components/Footer";
 import TechStack from "./components/TechStack";
+import Likes from "./components/Likes";
 
 const Home: NextPage = () => {
   return (
@@ -42,6 +43,8 @@ const Home: NextPage = () => {
             </div>
 
             <TechStack />
+
+						<Likes/>
           </div>
         </div>
 
