@@ -11,7 +11,7 @@ import Likes from "./components/Likes";
 const Home: NextPage = () => {
   return (
     <>
-      <main className="min-h-screen pt-16 dark:bg-slate-950 bg-[#e3e3e350] sm:pb-16">
+      <main className="min-h-screen pt-16 dark:bg-slate-950 bg-[#e3e3e350] sm:pb-16 pb-0">
         {/* Hero Section with Aside */} 
         <Navigation />
         <div className="container mx-auto px-2 sm:px-4 py-4 sm:py-8 md:py-16">
