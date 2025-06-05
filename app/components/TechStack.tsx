@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import React, { useState } from "react";
-import { ArrowDown, ArrowUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
 	Select,
@@ -23,7 +22,6 @@ interface TechStackItem {
 }
 
 const TechStack = () => {
-	const [maxLength, setMaxLength] = React.useState(5);
 	const [filters, setFilters] = useState({
 		search: "",
 		type: "all",
@@ -53,32 +51,11 @@ const TechStack = () => {
 			type: "language",
 		},
 		{
-			label: "Python",
-			iconSrc: "python",
-			experience: 2022,
-			note: "I've used Python for a while now, mostly in school and for my projects at the beginning of my journey.",
-			type: "language",
-		},
-		{
-			label: "React",
-			iconSrc: "react",
-			experience: 2023,
-			note: "React is a great library for a first web framework to learn. Although I prefer Next.js, I still use React for smaller projects.",
-			type: "library",
-		},
-		{
 			label: "Git",
 			iconSrc: "git",
 			experience: 2023,
 			note: "Git is a must-have for me. I use it for every project I work on, even if it's just a small project.",
 			type: "tool",
-		},
-		{
-			label: "GitHub",
-			iconSrc: "github",
-			experience: 2023,
-			note: "I use GitHub for almost everything, contributing and hosting projects. I couldn't live without it.",
-			type: "service",
 		},
 		{
 			label: "SupaBase",
@@ -88,26 +65,12 @@ const TechStack = () => {
 			type: "service",
 		},
 		{
-			label: "Vercel",
-			iconSrc: "vercel",
-			experience: 2023,
-			note: "Vercel is my go-to for hosting my projects. It's fast, easy to use and has great support.",
-			type: "service",
-		},
-		{
-			label: "PostgreSQL",
-			iconSrc: "postgresql",
-			experience: 2024,
-			note: "I've used PostgreSQL mostly in the past, ever since I discovered SupaBase I've been using it more.",
-			type: "service",
-		},
-		{
 			label: "GO",
 			iconSrc: "go",
 			experience: 2025,
-			note: "I'm comfortable with GO, though I'm still learning.",
+			note: "I've been coding in GO for quite a while now and created several applications with it. It's my favorite language by far!",
 			type: "language",
-		}
+		},
 	];
 
 	const stackTypes: string[] = Array.from(
@@ -224,12 +187,10 @@ const TechStack = () => {
 				variants={container}
 				initial="hidden"
 				animate="show"
-				key={maxLength} // Force re-render of animation when maxLength changes
 			>
 				<AnimatePresence>
 					{filteredStack
 						?.sort((a, b) => Number(b.experience) - Number(a.experience))
-						.slice(0, maxLength)
 						.map((stackItem, index) => (
 							<motion.div
 								key={index}
@@ -266,52 +227,7 @@ const TechStack = () => {
 								</div>
 							</motion.div>
 						))}
-					{filteredStack.length >= 5 && (
-						<>
-							{maxLength < filteredStack.length ? (
-								<button
-									onClick={() => setMaxLength(filteredStack.length)}
-									className="flex items-center justify-center gap-2 px-4 py-2 mt-4 text-sm font-medium transition-all rounded-lg bg-primary-100 hover:bg-primary-200 text-primary-600 dark:bg-slate-800/70 dark:hover:bg-slate-800 dark:text-gray-200 border border-primary-200 dark:border-slate-700 w-full md:w-auto self-center"
-								>
-									See more <ArrowDown className="w-4 h-4" />
-								</button>
-							) : (
-								<button
-									onClick={() => setMaxLength(5)}
-									className="flex items-center justify-center gap-2 px-4 py-2 mt-4 text-sm font-medium transition-all rounded-lg bg-primary-100 hover:bg-primary-200 text-primary-600 dark:bg-slate-800/70 dark:hover:bg-slate-800 dark:text-gray-200 border border-primary-200 dark:border-slate-700 w-full md:w-auto self-center"
-								>
-									See less <ArrowUp className="w-4 h-4" />
-								</button>
-							)}
-						</>
-					)}
 				</AnimatePresence>
-
-				<motion.div
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ delay: 0.3 }}
-				>
-					{maxLength < stack.length ? (
-						<motion.button
-							onClick={() => setMaxLength(stack.length)}
-							whileHover={{ scale: 1.05 }}
-							whileTap={{ scale: 0.95 }}
-							className="flex items-center justify-center gap-2 px-4 py-2 mt-4 text-sm font-medium transition-all rounded-lg bg-primary-100 hover:bg-primary-200 text-primary-600 dark:bg-slate-800/70 dark:hover:bg-slate-800 dark:text-gray-200 border border-primary-200 dark:border-slate-700 w-full md:w-auto self-center"
-						>
-							See more <ArrowDown className="w-4 h-4" />
-						</motion.button>
-					) : (
-						<motion.button
-							onClick={() => setMaxLength(5)}
-							whileHover={{ scale: 1.05 }}
-							whileTap={{ scale: 0.95 }}
-							className="flex items-center justify-center gap-2 px-4 py-2 mt-4 text-sm font-medium transition-all rounded-lg bg-primary-100 hover:bg-primary-200 text-primary-600 dark:bg-slate-800/70 dark:hover:bg-slate-800 dark:text-gray-200 border border-primary-200 dark:border-slate-700 w-full md:w-auto self-center"
-						>
-							See less <ArrowUp className="w-4 h-4" />
-						</motion.button>
-					)}
-				</motion.div>
 			</motion.div>
 		</section>
 	);
