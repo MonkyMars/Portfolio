@@ -9,49 +9,49 @@ import TechStack from "./components/TechStack";
 import Likes from "./components/Likes";
 
 const Home: NextPage = () => {
-  return (
-    <>
-      <main className="min-h-screen pt-16 dark:bg-slate-950 bg-[#e3e3e350] sm:pb-16 pb-0">
-        {/* Hero Section with Aside */} 
-        <Navigation />
-        <div className="container mx-auto px-2 sm:px-4 py-4 sm:py-8 md:py-16">
-          <div className="grid md:grid-cols-12 gap-4 sm:gap-8">
-            {/* Profile Card */}
-            <div className="w-full md:col-span-4 lg:col-span-3 overflow-x-hidden">
-              <Aside />
-            </div>
+	return (
+		<>
+			<main className="min-h-screen pt-16 dark:bg-slate-950 bg-[#e3e3e350] pb-0 sm:pb-8">
+				<Navigation />
 
-            {/* Main Content */}
-            <div className="w-full md:col-span-8 lg:col-span-9">
+				<div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+					{/* Hero Section with Profile and About */}
+					<section className="py-6 sm:py-8 lg:py-12">
+						<div className="grid md:grid-cols-12 gap-6 lg:gap-8">
+							{/* Profile Card */}
+							<div className="md:col-span-4 lg:col-span-3">
+								<div className="sticky top-20">
+									<Aside />
+								</div>
+							</div>
 
-              {/* About Section */}
-              <div className="max-w-[95vw] sm:max-w-full mx-auto">
-                <About />
-              </div>
+							{/* About Section */}
+							<div className="md:col-span-8 lg:col-span-9">
+								<About />
+							</div>
+						</div>
+					</section>
 
-              {/* Experience Section */}
-            </div>
-          </div>
-          <div className="flex flex-col w-full">
-            <div>
-              <Experiences />
-            </div>
+					{/* Main Content Sections */}
+					<div className="space-y-6 sm:space-y-8 lg:space-y-10">
+						{/* Experience Section */}
+						<Experiences />
 
-            {/* Projects Section */}
-            <div className="max-w-[95vw] sm:max-w-full mx-auto">
-              <Projects />
-            </div>
+						{/* Projects Section */}
+						<Projects />
 
-            <TechStack />
+						{/* Tech Stack Section */}
+						<TechStack />
 
-						<Likes/>
-          </div>
-        </div>
+						{/* Likes Section */}
+						<Likes />
+					</div>
+				</div>
 
-        <Footer />
-      </main>
-    </>
-  );
+				<Footer />
+			</main>
+		</>
+	);
 };
 
 export default Home;

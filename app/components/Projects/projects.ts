@@ -125,7 +125,7 @@ export const projects: ProjectType[] = [
     date: new Date(2024, 9, 16), // October 16, 2024
     image: "/amber-gallery.png",
     type: ["Web", "Mobile"],
-    href: "https://github.com/MonkyMars/amber-gallery/",
+    link: "https://github.com/MonkyMars/amber-gallery/",
     details: {
       techStack: ["Next.js", "TypeScript", "Scss", "PostgreSQL"],
       features: ["Artwork", "Categories", "Locations", "Analytics", "Account"],
@@ -149,7 +149,7 @@ export const projects: ProjectType[] = [
           description:
             "In the end, this project was a great success overall. My girlfriend loves it and still uses it to this day to upload her artworks with the neccesary information. And I learned about image hosting and how to make an Android APK.",
           date: new Date(2024, 9, 16), // October 16, 2024
-          image: "/amber-gallery.png",
+          image: "/amber-gallery/amber-gallery.png",
         },
       ],
     },
@@ -161,7 +161,7 @@ export const projects: ProjectType[] = [
     date: new Date(2024, 11, 7), // December 7, 2024
     image: "/frame-the-beat.png",
     type: "Web",
-    href: "https://github.com/MonkyMars/framethebeat/",
+    link: "https://github.com/MonkyMars/framethebeat/",
     details: {
       techStack: ["Next.js", "TypeScript", "Scss", "TailwindCSS", "SupaBase"],
       features: ["AlbumCovers", "Save", "Share", "Like", "Comment"],
@@ -197,7 +197,7 @@ export const projects: ProjectType[] = [
     date: new Date(2025, 0, 4), // January 4, 2025
     image: "/bluequill.png",
     type: "Web",
-    href: "https://github.com/MonkyMars/bluequill",
+    link: "https://github.com/MonkyMars/bluequill",
     details: {
       techStack: ["Next.js", "TypeScript", "TailwindCSS", "SupaBase"],
       features: ["Notes", "Homework", "Assignments", "Calendar", "Planner"],
@@ -220,7 +220,7 @@ export const projects: ProjectType[] = [
           description:
             "I never released BlueQuill to the public, due to the AI costs. I did however learn a lot about the proces of working with AI and using TipTap, a built-in text editor",
           date: new Date(2024, 8, 1), // September 1, 2024
-          image: "/bluequill.png",
+          image: "/bluequill/bluequill.png",
         },
       ],
     },
@@ -265,9 +265,9 @@ export const projects: ProjectType[] = [
     description:
       "GreenTrade is a sustainable marketplace built for the European Union. It connects eco-conscious buyers with independent sellers offering environmentally friendly products. The platform uses Next.js for the frontend, Supabase for the backend, and is deployed with Docker on Railway.",
     date: new Date(2025, 3, 1), // April 1, 2025
-    image: "/greenvue.png",
+    image: "/greenvue.webp",
     type: ["Web", "Mobile", "API"],
-    href: [
+    link: [
       {
         url: "https://github.com/MonkyMars/GreenVue-Web",
         label: "Web",
@@ -317,7 +317,7 @@ export const projects: ProjectType[] = [
           description:
             "I've gotten a lot more comfortable with GO and React Native since I started this project. I am still expanding this project.",
           date: new Date(2025, 3, 1), // April 1, 2025
-          image: "/GreenVue.png",
+          image: "/greenvue.webp",
         },
       ],
     },

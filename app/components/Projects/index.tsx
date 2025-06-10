@@ -148,7 +148,7 @@ const Projects = () => {
 					{(filters.search !== "" || filters.type !== "all" || filters.tech !== "all") && (
 						<button
 							onClick={() => setFilters({ search: "", type: "all", tech: "all" })}
-							className="px-4 h-10 text-sm font-medium transition-all rounded-lg bg-primary-100 hover:bg-primary-200 text-primary-600 dark:bg-slate-700/70 dark:hover:bg-slate-700 dark:text-gray-200 border border-primary-200 dark:border-slate-600 w-full sm:w-auto"
+							className="px-4 h-10 text-sm font-medium transition-all rounded-2xl bg-primary-100 hover:bg-primary-200 text-primary-600 dark:bg-slate-700/70 dark:hover:bg-slate-700 dark:text-gray-200 border border-primary-200 dark:border-slate-600 w-full sm:w-auto"
 						>
 							Clear
 						</button>
@@ -175,14 +175,14 @@ const Projects = () => {
 						{maxLength < filteredProjects.length ? (
 							<button
 								onClick={() => setMaxLength(filteredProjects.length)}
-								className="flex items-center justify-center gap-2 px-4 py-2 mt-4 text-sm font-medium transition-all rounded-lg bg-primary-100 hover:bg-primary-200 text-primary-600 dark:bg-slate-800/70 dark:hover:bg-slate-800 dark:text-gray-200 border border-primary-200 dark:border-slate-700 w-full md:w-auto self-center"
+								className="flex items-center justify-center gap-2 px-4 py-2 mt-4 text-sm font-medium transition-all rounded-2xl bg-primary-100 hover:bg-primary-200 text-primary-600 dark:bg-slate-800/70 dark:hover:bg-slate-800 dark:text-gray-200 border border-primary-200 dark:border-slate-700 w-full md:w-auto self-center"
 							>
 								See more <ArrowDown className="w-4 h-4" />
 							</button>
 						) : (
 							<button
 								onClick={() => setMaxLength(5)}
-								className="flex items-center justify-center gap-2 px-4 py-2 mt-4 text-sm font-medium transition-all rounded-lg bg-primary-100 hover:bg-primary-200 text-primary-600 dark:bg-slate-800/70 dark:hover:bg-slate-800 dark:text-gray-200 border border-primary-200 dark:border-slate-700 w-full md:w-auto self-center"
+								className="flex items-center justify-center gap-2 px-4 py-2 mt-4 text-sm font-medium transition-all rounded-2xl bg-primary-100 hover:bg-primary-200 text-primary-600 dark:bg-slate-800/70 dark:hover:bg-slate-800 dark:text-gray-200 border border-primary-200 dark:border-slate-700 w-full md:w-auto self-center"
 							>
 								See less <ArrowUp className="w-4 h-4" />
 							</button>

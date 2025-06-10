@@ -47,28 +47,28 @@ const TechStack = () => {
 			label: "TypeScript",
 			iconSrc: "typescript",
 			experience: 2023,
-			note: "TypeScript is a must-have for any serious project. It helps me to catch errors before they even happen. Of course JavaScript is great, but TypeScript is better.",
+			note: "TypeScript is a must-have for any serious project in my opinion. It helps me to catch errors before they even happen.",
 			type: "language",
 		},
 		{
 			label: "Git",
 			iconSrc: "git",
 			experience: 2023,
-			note: "Git is a must-have for me. I use it for every project I work on, even if it's just a small project.",
+			note: "Git is a daily driver for me. I use it to manage my projects and also collaborate with others.",
 			type: "tool",
 		},
 		{
-			label: "SupaBase",
+			label: "Supabase",
 			iconSrc: "supabase",
 			experience: 2024,
-			note: "SupaBase is a great service for hosting databases. It's easy to use and has a great documentation.",
+			note: "I really love Supabase because the DX is amazing and they provide an amazing free tier that i can use for any project.",
 			type: "service",
 		},
 		{
-			label: "GO",
+			label: "Go",
 			iconSrc: "go",
 			experience: 2025,
-			note: "I've been coding in GO for quite a while now and created several applications with it. It's my favorite language by far!",
+			note: "I've been coding in Go for quite a while now and created several applications with it. It's my favorite language by far!",
 			type: "language",
 		},
 	];
@@ -175,7 +175,7 @@ const TechStack = () => {
 					{(filters.search !== "" || filters.type !== "all" || filters.tech !== "all") && (
 						<button
 							onClick={() => setFilters({ search: "", type: "all", tech: "all" })}
-							className="px-4 h-10 text-sm font-medium transition-all rounded-lg bg-primary-100 hover:bg-primary-200 text-primary-600 dark:bg-slate-700/70 dark:hover:bg-slate-700 dark:text-gray-200 border border-primary-200 dark:border-slate-600 w-full sm:w-auto"
+							className="px-4 h-10 text-sm font-medium transition-all rounded-2xl bg-primary-100 hover:bg-primary-200 text-primary-600 dark:bg-slate-700/70 dark:hover:bg-slate-700 dark:text-gray-200 border border-primary-200 dark:border-slate-600 w-full sm:w-auto"
 						>
 							Clear
 						</button>
@@ -199,7 +199,7 @@ const TechStack = () => {
                 border-l-4 border-primary-500 duration-300 transition-all bg-slate-200/20 dark:bg-slate-500/20 rounded-r-lg"
 							>
 								<div className="flex flex-col sm:flex-row gap-6 items-start">
-									<div className="w-16 h-16 relative bg-gray-100 dark:bg-gray-700 rounded-lg transition-colors group-hover:bg-white dark:group-hover:bg-slate-900/90">
+									<div className="w-16 h-16 relative bg-gray-100 dark:bg-gray-700 rounded-2xl transition-colors group-hover:bg-white dark:group-hover:bg-slate-900/90">
 										<Image
 											src={`/icons/${stackItem.iconSrc.toLocaleLowerCase()}.png`}
 											alt={stackItem.label}
@@ -212,7 +212,7 @@ const TechStack = () => {
 									<div className="flex-1">
 										<div className="flex items-center gap-3">
 											<h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
-												{stackItem.label}
+												{stackItem.label.trim()}
 											</h3>
 											<span className="text-sm px-3 py-1 bg-primary-100 text-primary-600 rounded-full font-medium">
 												{stackItem.type.charAt(0).toUpperCase() +
@@ -222,7 +222,7 @@ const TechStack = () => {
 										<span className="text-sm text-primary-600 font-medium block mt-2">
 											Since {stackItem.experience}
 										</span>
-										<p className="text-gray-600 mt-2 dark:text-gray-300/90">{stackItem.note}</p>
+										<p className="text-gray-600 mt-2 dark:text-gray-300/90">{stackItem.note.trim()}</p>
 									</div>
 								</div>
 							</motion.div>
