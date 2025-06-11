@@ -18,13 +18,12 @@ Visit the live site at [levinoppers.nl](https://www.levinoppers.nl)
 ## 🛠️ Technology Stack
 
 - **Framework**: [Next.js](https://nextjs.org/) - React framework with SSR and file-based routing
-- **Styling**: 
+- **Styling**:
   - [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
   - Custom CSS with dark/light mode support
 - **Fonts**:
-  - Google Fonts (Poppins, Doto)
+  - Google Fonts (Geist, Doto)
 - **Animations**: [Framer Motion](https://www.framer.com/motion/) - Production-ready animation library
-- **SEO**: 
+- **SEO**:
   - Next.js Metadata API
-  - Structured data (JSON-LD)
   - Sitemap generation
