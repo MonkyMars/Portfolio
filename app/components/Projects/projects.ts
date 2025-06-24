@@ -261,9 +261,9 @@ export const projects: ProjectType[] = [
   //   },
   // },
   {
-    title: "GreenTrade",
+    title: "GreenVue",
     description:
-      "GreenTrade is a sustainable marketplace built for the European Union. It connects eco-conscious buyers with independent sellers offering environmentally friendly products. The platform uses Next.js for the frontend, Supabase for the backend, and is deployed with Docker on Railway.",
+      "GreenVue is a sustainable marketplace built for the European Union. It connects eco-conscious buyers with independent sellers offering environmentally friendly products. The platform uses Next.js for the frontend, Supabase for the backend, and is deployed with Docker on Railway.",
     date: new Date(2025, 3, 1), // April 1, 2025
     image: "/greenvue.webp",
     type: ["Web", "Mobile", "API"],
