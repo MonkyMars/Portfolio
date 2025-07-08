@@ -3,6 +3,7 @@ const About = () => {
 		`I'm Levi Noppers, a ${(() => {
 			const birthDate = new Date(2009, 6, 8);
 			const today = new Date();
+			today.setHours(0,0,0,0)
 			let age = today.getFullYear() - birthDate.getFullYear();
 			const m = today.getMonth() - birthDate.getMonth();
 			if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
