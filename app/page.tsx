@@ -47,9 +47,8 @@ const Home: NextPage = () => {
             <Likes />
           </div>
         </div>
-
-        <Footer />
       </main>
+      <Footer />
     </>
   );
 };

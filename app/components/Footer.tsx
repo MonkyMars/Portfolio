@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const Footer = () => (
-  <footer className="border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 py-8">
+  <footer className="border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 py-6">
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="text-center sm:text-left">

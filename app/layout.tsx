@@ -1,17 +1,17 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { Doto, Poppins } from 'next/font/google';
+import { Doto, Poppins } from "next/font/google";
 
 const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  variable: '--font-poppins',
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-poppins",
 });
 
 const doto = Doto({
-  subsets: ['latin'],
-  weight: ['400', '900'],
-  variable: '--font-doto',
+  subsets: ["latin"],
+  weight: ["400", "900"],
+  variable: "--font-doto",
 });
 
 export const metadata: Metadata = {
@@ -132,7 +132,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" dir="ltr" className="scroll-smooth" suppressHydrationWarning>
+    <html
+      lang="en"
+      dir="ltr"
+      className="scroll-smooth"
+      suppressHydrationWarning
+    >
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -187,7 +192,9 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`antialiased bg-gray-100 dark:bg-slate-900 text-gray-900 dark:text-gray-100 transition-colors ${poppins.variable} ${doto.variable}`}>
+      <body
+        className={`antialiased bg-gray-100 dark:bg-slate-900 text-gray-900 dark:text-gray-100 transition-colors ${poppins.variable} ${doto.variable}`}
+      >
         {children}
       </body>
     </html>
