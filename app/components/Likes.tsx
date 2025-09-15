@@ -4,14 +4,23 @@ import Link from "next/link";
 const Likes = () => {
   return (
     <section
-      className="bg-white dark:bg-slate-900/95 rounded-2xl shadow-lg p-8 mb-8 border-1 border-[rgba(255,255,255, 0.1)] border border-gray-100 dark:border-gray-800"
+      className="bg-white dark:bg-slate-900 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-6"
       id="likes"
     >
-      <h2 className="text-2xl font-doto font-extrabold text-gray-800 dark:text-gray-100 mb-6 flex items-center gap-2">
-        Things I like
-        <div className="h-1 w-24 bg-primary-500 rounded-full"></div>
-      </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+      <div className="flex items-center gap-4 mb-6">
+        <div className="flex items-center gap-1">
+          <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 font-doto">
+            Things
+          </h2>
+          <h2 className="text-2xl font-semibold text-primary-600 dark:text-primary-400 font-doto">
+            I like
+          </h2>
+        </div>
+
+        <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700"></div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <LikesCard
           label="Go"
           iconSrc="go"
@@ -25,7 +34,7 @@ const Likes = () => {
         <LikesCard
           label="Linux"
           iconSrc="linux"
-          note="I enjoy using Linux for its flexibility and control over my PC. I personally use CachyOS:)"
+          note="I enjoy using Linux for its flexibility and control over my PC. I personally use CachyOS."
           link="https://github.com/MonkyMars/dotfiles"
         />
       </div>
@@ -40,32 +49,41 @@ interface LikesCardProps {
   link?: string;
 }
 
-const invertedIcons: string[] = ["spotify"];
-
 const LikesCard = ({ label, iconSrc, note, link }: LikesCardProps) => {
+  const invertedIcons: string[] = ["spotify"];
   const isInverted = invertedIcons.includes(iconSrc);
-  const imageClass = "object-contain transition-transform duration-300";
-  const iconClass = isInverted ? `${imageClass} dark:invert` : imageClass;
+  const iconClass = isInverted
+    ? "object-contain dark:invert"
+    : "object-contain";
 
   return (
-    <div className="flex flex-col items-center justify-center text-center bg-white dark:bg-slate-900/90 rounded-2xl shadow-lg p-6 border-1 border-[rgba(255,255,255, 0.1)] border border-gray-100 dark:border-gray-800 h-full">
-      <div className="relative w-16 h-16 mb-4 flex items-center justify-center">
+    <div className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-gray-300 dark:hover:border-gray-600 transition-colors duration-200 text-center">
+      <div className="w-16 h-16 mx-auto mb-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 flex items-center justify-center">
         <Image
           src={`/icons/${iconSrc}.png`}
           alt={label}
-          width={48}
-          height={48}
+          width={32}
+          height={32}
           className={iconClass}
           priority
         />
       </div>
-      <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-2">
+
+      <h3 className="text-lg font-extrabold text-gray-900 dark:text-gray-100 mb-3 font-doto">
         {label}
       </h3>
-      <p className="text-gray-600 dark:text-gray-400 text-sm">{note}</p>
+
+      <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">
+        {note}
+      </p>
+
       {link && (
-        <Link href={link} className="text-blue-600 dark:text-blue-400 text-sm">
-          My dotfiles
+        <Link
+          href={link}
+          target="_blank"
+          className="text-primary-600 dark:text-primary-400 text-sm font-extrabold font-doto hover:text-primary-700 dark:hover:text-primary-300 transition-colors duration-200"
+        >
+          View dotfiles →
         </Link>
       )}
     </div>

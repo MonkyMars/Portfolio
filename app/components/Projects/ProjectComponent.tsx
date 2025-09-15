@@ -1,182 +1,195 @@
 import { useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CircleAlert } from "lucide-react";
+import { ExternalLink, Eye } from "lucide-react";
 import { type projects } from "./TimelineItem";
 import TimeLineView from "./TimeLine";
 
 interface ProjectComponentProps {
-	project: projects;
-	index: number;
-	setSelectedProject: (project: projects | null) => void;
-	selectedProject: projects | null;
+  project: projects;
+  setSelectedProject: (project: projects | null) => void;
+  selectedProject: projects | null;
 }
 
-// Define a type for repository links
 type RepoLink = {
-	url: string;
-	label: string;
+  url: string;
+  label: string;
 };
 
 const ProjectComponent = ({
-	project,
-	index,
-	setSelectedProject,
-	selectedProject,
+  project,
+  setSelectedProject,
+  selectedProject,
 }: ProjectComponentProps) => {
-	// Type guard function to help with type checking
-	const isRepoLinkArray = (href: unknown): href is RepoLink[] => {
-		return (
-			Array.isArray(href) &&
-			href.length > 0 &&
-			typeof href[0] === "object" &&
-			href[0] !== null &&
-			"url" in href[0] &&
-			"label" in href[0]
-		);
-	};
+  const isRepoLinkArray = (href: unknown): href is RepoLink[] => {
+    return (
+      Array.isArray(href) &&
+      href.length > 0 &&
+      typeof href[0] === "object" &&
+      href[0] !== null &&
+      "url" in href[0] &&
+      "label" in href[0]
+    );
+  };
 
-	// Get primary repository URL with proper type handling
-	const getPrimaryRepoUrl = useCallback(() => {
-		if (typeof project.link === "string") {
-			return project.link;
-		} else if (isRepoLinkArray(project.link)) {
-			return project.link[0].url;
-		}
-		return "";
-	}, [project.link]);
+  const getPrimaryRepoUrl = useCallback(() => {
+    if (typeof project.link === "string") {
+      return project.link;
+    } else if (isRepoLinkArray(project.link)) {
+      return project.link[0].url;
+    }
+    return "";
+  }, [project.link]);
 
-	useEffect(() => {
-		const script = document.createElement("script");
-		script.type = "application/ld+json";
-		script.innerHTML = JSON.stringify({
-			"@context": "https://schema.org",
-			"@type": "SoftwareSourceCode",
-			name: project.title,
-			description: project.description,
-			datePublished: project.date,
-			programmingLanguage: project.details?.techStack,
-			codeRepository: getPrimaryRepoUrl(),
-			author: {
-				"@type": "Person",
-				name: "Levi Noppers",
-			},
-		});
-		document.head.appendChild(script);
-		return () => {
-			document.head.removeChild(script);
-		};
-	}, [project, getPrimaryRepoUrl]);
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.innerHTML = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareSourceCode",
+      name: project.title,
+      description: project.description,
+      datePublished: project.date,
+      programmingLanguage: project.details?.techStack,
+      codeRepository: getPrimaryRepoUrl(),
+      author: {
+        "@type": "Person",
+        name: "Levi Noppers",
+      },
+    });
+    document.head.appendChild(script);
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, [project, getPrimaryRepoUrl]);
 
-	return (
-		<div
-			key={index}
-			className="group hover:bg-gray-50 dark:hover:bg-slate-800/90 p-6 transition-all rounded-2xl border-2 border-primary-200/50"
-		>
-			<div className="flex flex-col md:flex-row gap-6">
-				<div className="w-full md:w-1/2">
-					<div className="relative aspect-video overflow-hidden rounded-3xl">
-						<Image
-							src={`/demos/${project.image}`}
-							alt={`${project.title
-								} - Project by Levi Noppers showcasing ${project.details?.techStack?.join(
-									", "
-								)}`}
-							title={`${project.title
-								} - Project by Levi Noppers showcasing ${project.details?.techStack?.join(
-									", "
-								)}`}
-							fill
-							sizes="(max-width: 768px) 100vw, 50vw"
-							priority
-							unoptimized
-							className="object-cover rounded-xl p-2 group-hover:scale-[1.01] transition-transform duration-300"
-						/>
-					</div>
-				</div>
-				<div className="w-full md:w-1/2 relative">
-					<div className="flex flex-wrap gap-2 items-center">
-						<span className="inline-block px-3 py-1 rounded-full bg-primary-100 text-primary-600 text-sm font-medium my-2">
-							{project.date.toLocaleDateString("en-US", {
-								month: "long",
-								day: "numeric",
-								year: "numeric",
-							})}
-						</span>
-						{/* Handle both single type string and array of types */}
-						{Array.isArray(project.type) ? (
-							// Multiple types
-							project.type.map((type, i) => (
-								<span
-									key={i}
-									className="inline-block px-3 py-1 rounded-full bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-300 text-sm font-medium my-2 border border-blue-200 dark:border-blue-800/30"
-								>
-									{type}
-								</span>
-							))
-						) : (
-							// Single type
-							<span className="inline-block px-3 py-1 rounded-full bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-300 text-sm font-medium my-2 border border-blue-200 dark:border-blue-800/30">
-								{project.type}
-							</span>
-						)}
-					</div>
-					<Link href={getPrimaryRepoUrl()} prefetch target="_blank">
-						<h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mt-2 hover:underline decoration-primary-500 cursor-pointer">
-							{index + 1}. {project.title}
-						</h3>
-					</Link>
+  return (
+    <div className="group border border-gray-200 dark:border-gray-700 rounded-lg hover:border-gray-300 dark:hover:border-gray-600 transition-colors duration-200 overflow-hidden">
+      <div className="p-4">
+        <div className="flex flex-col lg:flex-row gap-4">
+          {/* Project Image */}
+          <div className="w-full lg:w-2/5">
+            <div className="relative aspect-video overflow-hidden rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+              <Image
+                src={`/demos/${project.image}`}
+                alt={`${project.title} preview`}
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                priority
+                unoptimized
+                className="object-cover"
+              />
+            </div>
+          </div>
 
-					<p className="text-gray-600 mt-3 dark:text-gray-300/90">
-						{project.description}
-					</p>
-					<div className="flex flex-wrap gap-4 mt-4 justify-center lg:justify-start">
-						{/* Repository Links Section */}
-						{typeof project.link === "string" ? (
-							// Single string URL
-							<Link href={project.link} prefetch target="_blank">
-								<button className="mt-4 text-sm font-medium text-primary-600 hover:text-primary-500 bg-primary-100 px-4 py-2 rounded-full transition-colors duration-300 flex items-center gap-2">
-									Repository
-									<ArrowRight size={18} />
-								</button>
-							</Link>
-						) : isRepoLinkArray(project.link) ? (
-							// Array of {url, label} objects
-							project.link.map((item, i) => (
-								<Link key={i} href={item.url} prefetch target="_blank">
-									<button className="mt-4 text-sm font-medium text-primary-600 hover:text-primary-500 bg-primary-100 px-4 py-2 rounded-full transition-colors duration-300 flex items-center gap-2">
-										{item.label}
-										<ArrowRight size={18} />
-									</button>
-								</Link>
-							))
-						) : null}
+          {/* Project Details */}
+          <div className="w-full lg:w-3/5 flex flex-col lg:pl-2">
+            {/* Header */}
+            <div className="flex flex-wrap items-center gap-3 mb-3">
+              <span className="text-xs px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-full font-medium border border-gray-200 dark:border-gray-700">
+                {new Date(project.date).toLocaleDateString("en-US", {
+                  month: "short",
+                  year: "numeric",
+                })}
+              </span>
 
-						{project.details ? (
-							<button
-								className="mt-4 text-sm font-medium text-white bg-primary-600 px-4 py-2 rounded-full hover:bg-primary-700 transition-colors duration-300 flex items-center gap-2"
-								onClick={() => setSelectedProject(project)}
-							>
-								See Details
-								<ArrowRight size={18} />
-							</button>
-						) : (
-							<p className="mt-4 text-sm font-medium text-white bg-gray-600 px-4 py-2 rounded-full hover:bg-primary-700 transition-colors duration-300 flex items-center gap-2">
-								No details available
-								<CircleAlert size={18} className="text-gray-300" />
-							</p>
-						)}
-					</div>
-				</div>
-			</div>
-			{selectedProject?.title === project.title ? (
-				<TimeLineView
-					project={selectedProject}
-					onClose={() => setSelectedProject(null)}
-				/>
-			) : null}
-		</div>
-	);
+              {Array.isArray(project.type) ? (
+                project.type.map((type, i) => (
+                  <span
+                    key={i}
+                    className="text-xs px-3 py-1 bg-blue-600 text-white rounded-full font-extrabold font-doto"
+                  >
+                    {type}
+                  </span>
+                ))
+              ) : (
+                <span className="text-xs px-3 py-1 bg-blue-600 text-white rounded-full font-extrabold font-doto">
+                  {project.type}
+                </span>
+              )}
+            </div>
+
+            {/* Title */}
+            <h3 className="text-xl font-extrabold text-gray-900 dark:text-gray-100 mb-2 font-doto">
+              {project.title}
+            </h3>
+
+            {/* Description */}
+            <p className="text-gray-600 dark:text-gray-300 text-[15px] leading-relaxed mb-4 flex-1">
+              {project.description}
+            </p>
+
+            {/* Tech Stack */}
+            {project.details?.techStack && (
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.details.techStack.slice(0, 4).map((tech, i) => (
+                  <span
+                    key={i}
+                    className="text-xs px-2 py-1 bg-blue-50 dark:bg-blue-400/30 text-blue-700 dark:text-blue-100 rounded border border-blue-200 dark:border-blue-700 font-doto font-extrabold"
+                  >
+                    {tech}
+                  </span>
+                ))}
+                {project.details.techStack.length > 4 && (
+                  <span className="text-xs px-2 py-1 text-blue-500 dark:text-blue-400 font-doto">
+                    +{project.details.techStack.length - 4} more
+                  </span>
+                )}
+              </div>
+            )}
+
+            {/* Actions */}
+            <div className="flex flex-wrap gap-3">
+              {typeof project.link === "string" ? (
+                <Link
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-blue-400 dark:text-blue-300 hover:text-blue-500 dark:hover:text-blue-100 bg-blue-50 dark:bg-blue-300/30 border border-blue-200 dark:border-blue-400 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-400/40 transition-colors duration-200 font-doto">
+                    <ExternalLink size={16} strokeWidth={1.5} />
+                    Repository
+                  </button>
+                </Link>
+              ) : isRepoLinkArray(project.link) ? (
+                project.link.map((item, i) => (
+                  <Link
+                    key={i}
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <button className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-blue-400 dark:text-blue-300 hover:text-blue-500 dark:hover:text-blue-100 bg-blue-50 dark:bg-blue-300/30 border border-blue-200 dark:border-blue-400 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-400/40 transition-colors duration-200 font-doto">
+                      <ExternalLink size={16} strokeWidth={1.5} />
+                      {item.label}
+                    </button>
+                  </Link>
+                ))
+              ) : null}
+
+              {project.details && (
+                <button
+                  className="inline-flex items-center gap-2 px-4 py-2 text-sm font-extrabold text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 rounded-lg transition-colors duration-200 font-doto"
+                  onClick={() => setSelectedProject(project)}
+                >
+                  <Eye size={16} strokeWidth={1.5} />
+                  View Details
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Project Details Modal */}
+      {selectedProject?.title === project.title && (
+        <TimeLineView
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
+    </div>
+  );
 };
 
 export default ProjectComponent;

@@ -1,16 +1,16 @@
 import Image from "next/image";
-import { Mail, MapPinHouse } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import Link from "next/link";
 
 const Aside = () => (
-  <aside className="md:col-span-4 lg:col-span-3 shadow-lg h-full" id="aside">
-    <div className="bg-white dark:bg-slate-900/95 dark:text-gray-100 rounded-2xl shadow-lg p-4 sm:p-3 sm:py-4 border border-gray-100 dark:border-gray-800 h-full flex flex-col max-w-sm mx-auto">
+  <aside className="md:col-span-4 lg:col-span-3" id="aside">
+    <div className="bg-white dark:bg-slate-900 rounded-xl border border-gray-200 dark:border-gray-700 p-6 max-w-sm mx-auto">
       {/* Header Section */}
-      <div className="text-center mb-4">
-        <h1 className="text-xl text-gray-800 dark:text-gray-100 mb-1 font-doto font-extrabold">
+      <div className="text-center mb-6">
+        <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-2 font-doto">
           Levi Noppers
         </h1>
-        <p className="text-primary-600 font-medium text-base">
+        <p className="text-primary-600 dark:text-primary-400 font-medium">
           Fullstack Web Developer
         </p>
       </div>
@@ -20,57 +20,58 @@ const Aside = () => (
         href="https://www.github.com/monkymars"
         prefetch
         target="_blank"
-        className="font-doto font-extrabold w-full flex items-center justify-center gap-2
-                bg-gradient-to-r from-gray-700 to-gray-800 text-white py-2.5 px-3 rounded-xl transform
-                transition-all duration-300 shadow-md hover:shadow-lg text-base hover:-translate-y-[2px]
-                dark:from-slate-900 dark:to-gray-800 mb-4"
+        className="w-full flex items-center justify-center gap-3 bg-gray-900 dark:bg-gray-800 text-white py-3 px-4 rounded-lg font-medium font-doto transition-colors duration-200 hover:bg-gray-800 dark:hover:bg-gray-700 mb-6"
       >
-        <span className="flex items-center gap-2">
-          GitHub
-          <Image
-            src="/icons/github.png"
-            alt="github"
-            width={20}
-            height={20}
-            className="invert opacity-90 hover:opacity-100"
-          />
-        </span>
+        GitHub
+        <Image
+          src="/icons/github.png"
+          alt="GitHub"
+          width={18}
+          height={18}
+          className="invert opacity-90"
+        />
       </Link>
 
       {/* Contact Information */}
-      <div className="space-y-4 flex-1">
+      <div className="space-y-4">
         <Link
-          className="block p-4 rounded-2xl hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-all cursor-pointer"
+          className="block p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors duration-200 border border-transparent hover:border-gray-200 dark:hover:border-gray-700"
           href="mailto:levi.laptop@hotmail.com"
           prefetch
           target="_blank"
         >
-          <div className="flex items-center gap-3 text-gray-700 dark:text-gray-100 mb-1">
-            <Mail className="text-primary-500" size={20} />
-            <span className="text-base font-doto font-extrabold">Email</span>
+          <div className="flex items-center gap-3 mb-2">
+            <Mail
+              className="text-primary-500 dark:text-primary-400"
+              size={18}
+              strokeWidth={1.5}
+            />
+            <span className="font-extrabold text-gray-900 dark:text-gray-100 font-doto">
+              Email
+            </span>
           </div>
-          <p
-            className="text-sm text-gray-600 pl-8 text-wrap break-words dark:text-gray-300/90"
-            title="Email"
-          >
-            Levi.laptop@hotmail.com
+          <p className="text-sm text-gray-600 dark:text-gray-400 pl-7">
+            levi.laptop@hotmail.com
           </p>
         </Link>
 
         <Link
-          className="block p-4 rounded-2xl hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-all cursor-pointer"
+          className="block p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors duration-200 border border-transparent hover:border-gray-200 dark:hover:border-gray-700"
           href="https://www.google.com/maps/place/Nederland"
           prefetch
           target="_blank"
         >
-          <div className="flex items-center gap-3 text-gray-700 mb-1 dark:text-gray-100">
-            <MapPinHouse className="text-primary-500" size={20} />
-            <span className="text-base font-doto font-extrabold">Location</span>
+          <div className="flex items-center gap-3 mb-2">
+            <MapPin
+              className="text-primary-500 dark:text-primary-400"
+              size={18}
+              strokeWidth={1.5}
+            />
+            <span className="font-extrabold text-gray-900 dark:text-gray-100 font-doto">
+              Location
+            </span>
           </div>
-          <p
-            className="text-sm text-gray-600 pl-8 w-full dark:text-gray-300/90"
-            title="Location"
-          >
+          <p className="text-sm text-gray-600 dark:text-gray-400 pl-7">
             The Netherlands, Europe
           </p>
         </Link>
