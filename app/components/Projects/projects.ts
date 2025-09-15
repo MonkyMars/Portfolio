@@ -118,42 +118,42 @@ export const projects: ProjectType[] = [
   //     ],
   //   },
   // },
-  {
-    title: "Amber Gallery",
-    description:
-      "A personal gallery for my girlfriend where she can save her artwork with selected categories and locations. This project is made in TypeScript and Scss, with Supabase being used for backend services. Such as storing artworks, analytics and securely storing account details.",
-    date: new Date(2024, 9, 16), // October 16, 2024
-    image: "/amber-gallery.png",
-    type: ["Web", "Mobile"],
-    link: "https://github.com/MonkyMars/amber-gallery/",
-    details: {
-      techStack: ["Next.js", "TypeScript", "Scss", "PostgreSQL"],
-      features: ["Artwork", "Categories", "Locations", "Analytics", "Account"],
-      notes: [
-        {
-          title: "Problem",
-          description:
-            "I made this project for my girlfriend. She wanted a place to store her artwork and show it to the world. I wanted to make something that was easy to use and looked good.",
-          date: new Date(2024, 9, 1), // October 1, 2024
-          image: "/amber-gallery/artwork.jpg",
-        },
-        {
-          title: "Complications",
-          description:
-            "Image hosting was a new for me, I had never used TypeScript to host images on the cloud. I used Vercel's free PostgreSQL so I didn't have access to feature like SupaBase buckets. In the end I used the image hosting from Cloudinary, and made it an Android APK using capacitor.js for my girlfriend to use.",
-          date: new Date(2024, 9, 10), // October 10, 2024
-          image: "/amber-gallery/cloudinary.png",
-        },
-        {
-          title: "Conclussion",
-          description:
-            "In the end, this project was a great success overall. My girlfriend loves it and still uses it to this day to upload her artworks with the neccesary information. And I learned about image hosting and how to make an Android APK.",
-          date: new Date(2024, 9, 16), // October 16, 2024
-          image: "/amber-gallery/amber-gallery.png",
-        },
-      ],
-    },
-  },
+  // {
+  //   title: "Amber Gallery",
+  //   description:
+  //     "A personal gallery for my girlfriend where she can save her artwork with selected categories and locations. This project is made in TypeScript and Scss, with Supabase being used for backend services. Such as storing artworks, analytics and securely storing account details.",
+  //   date: new Date(2024, 9, 16), // October 16, 2024
+  //   image: "/amber-gallery.png",
+  //   type: ["Web", "Mobile"],
+  //   link: "https://github.com/MonkyMars/amber-gallery/",
+  //   details: {
+  //     techStack: ["Next.js", "TypeScript", "Scss", "PostgreSQL"],
+  //     features: ["Artwork", "Categories", "Locations", "Analytics", "Account"],
+  //     notes: [
+  //       {
+  //         title: "Problem",
+  //         description:
+  //           "I made this project for my girlfriend. She wanted a place to store her artwork and show it to the world. I wanted to make something that was easy to use and looked good.",
+  //         date: new Date(2024, 9, 1), // October 1, 2024
+  //         image: "/amber-gallery/artwork.jpg",
+  //       },
+  //       {
+  //         title: "Complications",
+  //         description:
+  //           "Image hosting was a new for me, I had never used TypeScript to host images on the cloud. I used Vercel's free PostgreSQL so I didn't have access to feature like SupaBase buckets. In the end I used the image hosting from Cloudinary, and made it an Android APK using capacitor.js for my girlfriend to use.",
+  //         date: new Date(2024, 9, 10), // October 10, 2024
+  //         image: "/amber-gallery/cloudinary.png",
+  //       },
+  //       {
+  //         title: "Conclussion",
+  //         description:
+  //           "In the end, this project was a great success overall. My girlfriend loves it and still uses it to this day to upload her artworks with the neccesary information. And I learned about image hosting and how to make an Android APK.",
+  //         date: new Date(2024, 9, 16), // October 16, 2024
+  //         image: "/amber-gallery/amber-gallery.png",
+  //       },
+  //     ],
+  //   },
+  // },
   {
     title: "Frame The Beat",
     description:
@@ -190,41 +190,41 @@ export const projects: ProjectType[] = [
       ],
     },
   },
-  {
-    title: "BlueQuill",
-    description:
-      "BlueQuill was my first shot at an actual application, intended for succes and usage. Bluequill is made in Next.js using Typescript and TailwindCSS. The backend is written in Typescript, and is built on SupaBase as database provider.",
-    date: new Date(2025, 0, 4), // January 4, 2025
-    image: "/bluequill.png",
-    type: "Web",
-    link: "https://github.com/MonkyMars/bluequill",
-    details: {
-      techStack: ["Next.js", "TypeScript", "TailwindCSS", "SupaBase"],
-      features: ["Notes", "Homework", "Assignments", "Calendar", "Planner"],
-      notes: [
-        {
-          title: "Problem",
-          description:
-            "My teacher told me at school that if I could make a webapp with AI integrated, the succes rate of it taking off would be higher. I looked at the things I used on a daily basis and how I could improve that. I came up with BlueQuill, a Google Docs alternative with an AI writing assistant.",
-          date: new Date(2024, 7, 20), // August 20, 2024
-        },
-        {
-          title: "Complications",
-          description:
-            "AI was the biggest issue I had, I couldn't find a decent AI without many limitations in the free tier since my budget was 0 euros. I went with Cohere AI and their newest model, since it was fast and had great writing capabilities.",
-          date: new Date(2024, 7, 25), // August 25, 2024
-          image: "/bluequill/cohere.webp",
-        },
-        {
-          title: "Conclussion",
-          description:
-            "I never released BlueQuill to the public, due to the AI costs. I did however learn a lot about the proces of working with AI and using TipTap, a built-in text editor",
-          date: new Date(2024, 8, 1), // September 1, 2024
-          image: "/bluequill/bluequill.png",
-        },
-      ],
-    },
-  },
+  // {
+  //   title: "BlueQuill",
+  //   description:
+  //     "BlueQuill was my first shot at an actual application, intended for succes and usage. Bluequill is made in Next.js using Typescript and TailwindCSS. The backend is written in Typescript, and is built on SupaBase as database provider.",
+  //   date: new Date(2025, 0, 4), // January 4, 2025
+  //   image: "/bluequill.png",
+  //   type: "Web",
+  //   link: "https://github.com/MonkyMars/bluequill",
+  //   details: {
+  //     techStack: ["Next.js", "TypeScript", "TailwindCSS", "SupaBase"],
+  //     features: ["Notes", "Homework", "Assignments", "Calendar", "Planner"],
+  //     notes: [
+  //       {
+  //         title: "Problem",
+  //         description:
+  //           "My teacher told me at school that if I could make a webapp with AI integrated, the succes rate of it taking off would be higher. I looked at the things I used on a daily basis and how I could improve that. I came up with BlueQuill, a Google Docs alternative with an AI writing assistant.",
+  //         date: new Date(2024, 7, 20), // August 20, 2024
+  //       },
+  //       {
+  //         title: "Complications",
+  //         description:
+  //           "AI was the biggest issue I had, I couldn't find a decent AI without many limitations in the free tier since my budget was 0 euros. I went with Cohere AI and their newest model, since it was fast and had great writing capabilities.",
+  //         date: new Date(2024, 7, 25), // August 25, 2024
+  //         image: "/bluequill/cohere.webp",
+  //       },
+  //       {
+  //         title: "Conclussion",
+  //         description:
+  //           "I never released BlueQuill to the public, due to the AI costs. I did however learn a lot about the proces of working with AI and using TipTap, a built-in text editor",
+  //         date: new Date(2024, 8, 1), // September 1, 2024
+  //         image: "/bluequill/bluequill.png",
+  //       },
+  //     ],
+  //   },
+  // },
   // {
   //   title: "VibeCast",
   //   description:
@@ -318,6 +318,39 @@ export const projects: ProjectType[] = [
             "I've gotten a lot more comfortable with GO and React Native since I started this project. I am still expanding this project.",
           date: new Date(2025, 3, 1), // April 1, 2025
           image: "/greenvue.webp",
+        },
+      ],
+    },
+  },
+  {
+    title: "ccheck",
+    description:
+      "ccheck (content checker) scans the specified root directory for files containing the content you want to search for. includes file extention filtering. ",
+    date: new Date(2025, 8, 8), // September, 4, 2025
+    image: "/ccheck.png",
+    type: "CLI",
+    link: "https://github.com/MonkyMars/ccheck",
+    details: {
+      techStack: ["GO"],
+      features: ["content checker", "keywords", "patterns", "regex"],
+      notes: [
+        {
+          title: "Problem",
+          description:
+            "Grep was too complicated for me to use on a daily bases. That's why I made ccheck, a simple content checker for text files. Just add keywords, patterns or regex and cchecker will check the file for you.",
+          date: new Date(2025, 8, 1),
+        },
+        {
+          title: "Complications",
+          description:
+            "In this project, I didn't really have any issues; I spent a lot of time learning Go the last year to feel comfortable in the language",
+          date: new Date(2025, 8, 3),
+        },
+        {
+          title: "Conclussion",
+          description:
+            "I learned a lot about GO and how to create a CLI application. I am very happy with the result and I am excited to see where this project goes in the future.",
+          date: new Date(2025, 8, 8),
         },
       ],
     },
