@@ -2,6 +2,8 @@ import Image from "next/image";
 import { Mail, MapPin } from "lucide-react";
 import Link from "next/link";
 
+const EMAIL = "levinoppers@proton.me";
+
 const Aside = () => (
   <aside className="md:col-span-4 lg:col-span-3" id="aside">
     <div className="bg-white dark:bg-slate-900 rounded-xl border border-gray-200 dark:border-gray-700 p-6 max-w-sm mx-auto">
@@ -36,7 +38,7 @@ const Aside = () => (
       <div className="space-y-4">
         <Link
           className="block p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors duration-200 border border-transparent hover:border-gray-200 dark:hover:border-gray-700"
-          href="mailto:levi.laptop@hotmail.com"
+          href={`mailto:${EMAIL}`}
           prefetch
           target="_blank"
         >
@@ -51,7 +53,7 @@ const Aside = () => (
             </span>
           </div>
           <p className="text-sm text-gray-600 dark:text-gray-400 pl-7">
-            levi.laptop@hotmail.com
+            {EMAIL}
           </p>
         </Link>
 
