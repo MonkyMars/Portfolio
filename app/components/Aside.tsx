@@ -5,7 +5,7 @@ import Link from "next/link";
 const EMAIL = "levinoppers@proton.me";
 
 const Aside = () => (
-  <aside className="md:col-span-4 lg:col-span-3" id="aside">
+  <aside className="md:col-span-4 lg:col-span-3">
     <div className="bg-white dark:bg-slate-900 rounded-xl border border-gray-200 dark:border-gray-700 p-6 max-w-sm mx-auto">
       {/* Header Section */}
       <div className="text-center mb-6">

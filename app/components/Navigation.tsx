@@ -4,7 +4,6 @@ import {
   Trophy,
   Folder,
   Package,
-  Contact,
   Moon,
   Sun,
 } from "lucide-react";
@@ -22,7 +21,6 @@ interface navIcons {
 }
 
 const nav_icons: navIcons[] = [
-  { label: "Contact", href: "#aside", src: Contact },
   { label: "About", href: "#about", src: IdCard },
   { label: "Experience", href: "#experience", src: Trophy },
   { label: "Projects", href: "#projects", src: Folder },
