@@ -26,7 +26,7 @@ const nav_icons: navIcons[] = [
   { label: "About", href: "#about", src: IdCard },
   { label: "Experience", href: "#experience", src: Trophy },
   { label: "Projects", href: "#projects", src: Folder },
-  { label: "Tech Stack", href: "#tech-stack", src: Package },
+  { label: "Tech", href: "#tech-stack", src: Package },
 ];
 
 const Navigation = () => {
