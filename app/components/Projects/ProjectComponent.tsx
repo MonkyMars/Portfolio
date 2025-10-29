@@ -131,7 +131,7 @@ const ProjectComponent = ({
                   </span>
                 ))}
                 {project.details.techStack.length > 4 && (
-                  <span className="text-xs px-2 py-1 text-blue-500 dark:text-blue-400 font-doto">
+                  <span className="text-xs px-2 py-1 text-blue-500 dark:text-blue-400 font-doto font-extrabold">
                     +{project.details.techStack.length - 4} more
                   </span>
                 )}

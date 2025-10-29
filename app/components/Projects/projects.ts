@@ -325,7 +325,7 @@ export const projects: ProjectType[] = [
   {
     title: "ccheck",
     description:
-      "ccheck (content checker) scans the specified root directory for files containing the content you want to search for. includes file extention filtering. ",
+      "ccheck (content checker) scans the specified root directory for files containing the content you want to search for. Includes multi file extension and multi pattern filtering with regex.",
     date: new Date(2025, 8, 8), // September, 4, 2025
     image: "/ccheck.png",
     type: "CLI",
