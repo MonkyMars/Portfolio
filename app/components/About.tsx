@@ -1,6 +1,6 @@
 const About = () => {
   const about_me_text: string[] = [
-    `I'm Levi Noppers, a ${(() => {
+    `Hey:) I'm Levi Noppers, a ${(() => {
       const birthDate = new Date(2009, 6, 8);
       const today = new Date();
       today.setHours(0, 0, 0, 0);
@@ -10,10 +10,9 @@ const About = () => {
         age--;
       }
       return age;
-    })()}-year-old software developer from The Hague, Netherlands.`,
-    `My journey in software development began at age 12 with a Discord Bot project, and since then, I've been expanding my skillset with TypeScript and Go.`,
-    `Personally, I enjoy coding and try to continuously improve my skills. I do this by trying to learn something at least new every week, even something small.`,
-    `In my free time, I enjoy coding side projects, playing video games and listening to a lot of music.`,
+    })()}-year-old software developer from the best city in the Netherlands.`,
+    `In my free time, I enjoy coding side projects, playing Rocket League and listening to a lot of music.`,
+		// Add more paragraphs telling about myself
   ];
 
   return (

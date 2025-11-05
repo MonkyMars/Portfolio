@@ -7,6 +7,7 @@ import {
   Moon,
   Sun,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -136,6 +137,24 @@ const Navigation = () => {
           </button>
         </div>
       </nav>
+
+			<div className="fixed top-0 hover:top-3 right-6 z-50 group hover:bg-white/95 hover:dark:bg-slate-900/95 shadow-sm hover:border hover:border-gray-200/80 hover:dark:border-gray-700/80 rounded-xl transition-all duration-300">
+    <div className="group-hover:opacity-100 opacity-0 transform-opacity duration-600 w-full text-center">
+        <header className="font-doto font-extrabold">Favorite Album</header>
+    </div>
+    <div className="group-hover:rounded-none transition-[border-radius] duration-100 rounded-full p-[2px] bg-white/95 dark:bg-slate-900/95 shadow-sm border border-gray-200/80 dark:border-gray-700/80 overflow-hidden w-20 h-20 group-hover:w-64 group-hover:h-64 transition-[width,height] duration-300">
+        <Image
+            src={"https://i.scdn.co/image/ab67616d0000b273594fcd96ddc3195bc8db2f31"}
+            alt="LEAP - Entropy"
+            width={640}
+            height={640}
+            className="block rounded-full group-hover:rounded-none transition-[border-radius] duration-100"
+						draggable={false}
+        />
+    </div>
+</div>
+
+					
 
       {/* Mobile navigation */}
       <nav className="flex lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm border-t border-gray-200/80 dark:border-gray-700/80 px-3 py-2">
