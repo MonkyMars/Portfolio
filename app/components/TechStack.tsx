@@ -17,6 +17,7 @@ interface TechStackItem {
   iconSrc: string;
   experience: number;
   note: string;
+	className?: string;
   type: "framework" | "service" | "language" | "library" | "tool";
 }
 
@@ -69,6 +70,14 @@ const TechStack = () => {
       note: "I've been coding in Go for quite a while now and created several applications with it. It's my favorite language by far!",
       type: "language",
     },
+		{
+			label: "Rust",
+			iconSrc: "rust",
+			experience: 2025,
+			note: "I've been enjoying rust lately to be honest. The compiler is helpful though rust has a steep learning curve.",
+			type: "language",
+			className: "invert",
+		}
   ];
 
   const stackTypes: string[] = Array.from(
@@ -174,7 +183,7 @@ const TechStack = () => {
                   <Image
                     src={`/icons/${stackItem.iconSrc.toLowerCase()}.png`}
                     alt={stackItem.label}
-                    className="w-full h-full object-contain p-3"
+                    className={`w-full h-full object-contain p-3 ${stackItem.className ? stackItem.className : ""}`}
                     fill
                     draggable={false}
                     sizes="64px"
