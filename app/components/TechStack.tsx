@@ -74,7 +74,7 @@ const TechStack = () => {
 			label: "Rust",
 			iconSrc: "rust",
 			experience: 2025,
-			note: "Rust is a systems programming language that I admire for its performance and safety. I have been learning it recently and enjoy its unique features.",
+			note: "I've been enjoying rust lately to be honest. The compiler is helpful though rust has a steep learning curve.",
 			type: "language",
 			className: "invert",
 		}
