@@ -12,11 +12,10 @@ const About = () => {
       return age;
     })()}-year-old software developer from the best city in the Netherlands.`,
     `In my free time, I enjoy coding side projects, playing Rocket League and listening to a lot of music.`,
-		`I love spending time with my girlfriend, traveling and biking around the city.`,
-		`I believe coding is a powerful tool to help others and make the world at least a little better.`,
 		`Thus far, I've worked on several projects, including websites, mobile apps and most importantly, backend systems.`,
-		`After a few years of coding experience, I realised that my true passion lies in backend development and not in the frontend.`,
+		`After a few years of coding experience, I realised that I enjoy backend development way more than frontend development.`,
 		`My go-to languages are Rust and Go, though I have far more experience with Go than with Rust.`,
+		`If you're interested in my work, feel free to check out my GitHub or send an email:)`
   ];
 
   return (
