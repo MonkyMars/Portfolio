@@ -1,5 +1,3 @@
-import { JSX } from "react";
-
 interface Experience {
 	title: string;
 	description: string;
