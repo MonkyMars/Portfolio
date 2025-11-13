@@ -21,10 +21,10 @@ const DyeFirstFewLettersBlue = ({title}: {title: string}) => {
 	const rest = splitted.slice(1).join(" ");
 
 	return (
-		<h3 className="text-lg font-extrabold font-doto">
-			<span className="text-primary-600 dark:text-primary-400">{first}</span>
+		<h3 className="font-extrabold font-doto">
+			<span className="text-xl text-primary-600 dark:text-primary-400">{first}</span>
 			{" "}
-			<span className="text-gray-900 dark:text-gray-100">{rest}</span>
+			<span className="text-[.98em] text-gray-900 dark:text-gray-100">{rest}</span>
 		</h3>
 	);
 }
@@ -39,7 +39,7 @@ const Experiences = () => {
 				"Came in touch with programming for the first time",
 		},
 		{
-			title: "Learning new things",
+			title: "Learning New Things",
 			date: "2023",
 			description:
 				"Went up from Python to html, css and js to eventually React and Next.js:)",
