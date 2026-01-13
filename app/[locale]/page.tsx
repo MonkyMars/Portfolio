@@ -9,7 +9,6 @@ import About from "./components/About";
 import Footer from "./components/Footer";
 import TechStack from "./components/TechStack";
 import Likes from "./components/Likes";
-import { getTranslations } from "next-intl/server";
 
 interface HomePageProps {
   searchParams: Promise<{
@@ -25,16 +24,9 @@ type Props = HomePageProps & {
 
 const Home: NextPage<Props> = async ({ searchParams, params }: Props) => {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "navigation" });
 
   return (
     <>
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-600 focus:text-white focus:rounded-lg"
-      >
-        {t("skipToContent")}
-      </a>
       <main id="main-content" className="min-h-screen">
         <Navigation />
 

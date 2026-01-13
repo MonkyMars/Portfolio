@@ -3,7 +3,8 @@
 import { IdCard, Trophy, Folder, Package, Moon, Sun } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
+import { usePathname } from "next/navigation";
 
 interface navIcons {
   labelKey: string;
@@ -24,11 +25,19 @@ const nav_icons: navIcons[] = [
 
 const Navigation = () => {
   const t = useTranslations("navigation");
+  const locale = useLocale();
+  const pathname = usePathname();
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
   const [mounted, setMounted] = useState(false);
   const [activeItem, setActiveItem] = useState<string>("#aside");
-  // audio player removed
+
+  // Get the path without locale prefix for language switching
+  const getLocalizedPath = (newLocale: string) => {
+    const segments = pathname.split("/");
+    segments[1] = newLocale;
+    return segments.join("/");
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -118,8 +127,37 @@ const Navigation = () => {
           ))}
         </ul>
 
-        {/* Theme toggle */}
-        <div className="ml-6 pl-6 border-l border-gray-200 dark:border-gray-700 flex items-center">
+        {/* Language switcher and Theme toggle */}
+        <div className="ml-6 pl-6 border-l border-gray-200 dark:border-gray-700 flex items-center gap-3">
+          {/* Language switcher */}
+          <div className="flex gap-1 bg-gray-100 dark:bg-slate-800 rounded-lg p-1">
+            <Link href={getLocalizedPath("nl")}>
+              <button
+                className={`px-2.5 py-1 text-xs font-extrabold font-doto rounded transition-colors duration-200 ${
+                  locale === "nl"
+                    ? "bg-primary-600 text-white"
+                    : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+                }`}
+                aria-label="Switch to Dutch"
+              >
+                NL
+              </button>
+            </Link>
+            <Link href={getLocalizedPath("en")}>
+              <button
+                className={`px-2.5 py-1 text-xs font-extrabold font-doto rounded transition-colors duration-200 ${
+                  locale === "en"
+                    ? "bg-primary-600 text-white"
+                    : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+                }`}
+                aria-label="Switch to English"
+              >
+                EN
+              </button>
+            </Link>
+          </div>
+
+          {/* Theme toggle */}
           <button
             type="button"
             className="rounded-lg p-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors duration-200"
@@ -162,6 +200,32 @@ const Navigation = () => {
             </li>
           ))}
         </ul>
+
+        <div className="fixed right-4 bottom-36 z-50 flex flex-col gap-1 rounded-full border border-gray-200/80 bg-white/95 px-1.5 py-1 shadow-sm backdrop-blur-sm dark:border-gray-700/80 dark:bg-slate-900/95">
+          <Link
+            href={getLocalizedPath("nl")}
+            aria-label="Switch to Dutch"
+            className={`flex h-8 w-8 items-center justify-center rounded-full text-[11px] font-extrabold font-doto transition-colors duration-200 ${
+              locale === "nl"
+                ? "bg-primary-600 text-white"
+                : "text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800"
+            }`}
+          >
+            NL
+          </Link>
+
+          <Link
+            href={getLocalizedPath("en")}
+            aria-label="Switch to English"
+            className={`flex h-8 w-8 items-center justify-center rounded-full text-[11px] font-extrabold font-doto transition-colors duration-200 ${
+              locale === "en"
+                ? "bg-primary-600 text-white"
+                : "text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800"
+            }`}
+          >
+            EN
+          </Link>
+        </div>
 
         {/* Mobile theme toggle - floating */}
         <button
