@@ -3,9 +3,10 @@
 import { IdCard, Trophy, Folder, Package, Moon, Sun } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 
 interface navIcons {
-  label: string;
+  labelKey: string;
   href: string;
   src: React.ComponentType<{
     size?: string | number;
@@ -15,13 +16,14 @@ interface navIcons {
 }
 
 const nav_icons: navIcons[] = [
-  { label: "About", href: "#about", src: IdCard },
-  { label: "Experience", href: "#experience", src: Trophy },
-  { label: "Projects", href: "#projects", src: Folder },
-  { label: "Tech", href: "#tech-stack", src: Package },
+  { labelKey: "about", href: "#about", src: IdCard },
+  { labelKey: "experience", href: "#experience", src: Trophy },
+  { labelKey: "projects", href: "#projects", src: Folder },
+  { labelKey: "tech", href: "#tech-stack", src: Package },
 ];
 
 const Navigation = () => {
+  const t = useTranslations("navigation");
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
   const [mounted, setMounted] = useState(false);
@@ -101,12 +103,12 @@ const Navigation = () => {
                       ? "text-primary-600 dark:text-primary-400"
                       : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
                   }`}
-                aria-label={icon.label}
+                aria-label={t(icon.labelKey)}
                 onClick={() => setActiveItem(icon.href)}
               >
                 <icon.src size={18} className="mb-1" strokeWidth={1.5} />
                 <span className="tracking-wide font-doto font-extrabold">
-                  {icon.label}
+                  {t(icon.labelKey)}
                 </span>
                 {activeItem === icon.href && (
                   <div className="w-1 h-1 bg-primary-500 rounded-full mt-1.5"></div>
@@ -121,7 +123,7 @@ const Navigation = () => {
           <button
             type="button"
             className="rounded-lg p-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors duration-200"
-            aria-label="Toggle theme"
+            aria-label={t("toggleTheme")}
             onClick={toggleTheme}
           >
             {theme === "dark" ? (
@@ -146,12 +148,12 @@ const Navigation = () => {
                       ? "text-primary-600 dark:text-primary-400"
                       : "text-gray-500 dark:text-gray-400"
                   }`}
-                aria-label={icon.label}
+                aria-label={t(icon.labelKey)}
                 onClick={() => setActiveItem(icon.href)}
               >
                 <icon.src size={18} strokeWidth={1.5} />
                 <span className="text-[10px] mt-1 font-medium tracking-wide hidden sm:block font-doto">
-                  {icon.label}
+                  {t(icon.labelKey)}
                 </span>
                 {activeItem === icon.href && (
                   <div className="w-1 h-1 bg-primary-500 rounded-full mt-1"></div>
@@ -165,7 +167,7 @@ const Navigation = () => {
         <button
           type="button"
           className="fixed right-4 bottom-20 rounded-full p-2.5 bg-white/95 dark:bg-slate-900/95 text-gray-500 dark:text-gray-400 shadow-sm border border-gray-200/80 dark:border-gray-700/80 z-50 backdrop-blur-sm hover:text-gray-700 dark:hover:text-gray-200 transition-colors duration-200"
-          aria-label="Toggle theme"
+          aria-label={t("toggleTheme")}
           onClick={toggleTheme}
         >
           {theme === "dark" ? (

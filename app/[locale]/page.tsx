@@ -9,6 +9,7 @@ import About from "./components/About";
 import Footer from "./components/Footer";
 import TechStack from "./components/TechStack";
 import Likes from "./components/Likes";
+import { getTranslations } from "next-intl/server";
 
 interface HomePageProps {
   searchParams: Promise<{
@@ -18,19 +19,23 @@ interface HomePageProps {
   }>;
 }
 
-const Home: NextPage<HomePageProps> = async ({ searchParams }) => {
+type Props = HomePageProps & {
+  params: Promise<{ locale: string }>;
+};
+
+const Home: NextPage<Props> = async ({ searchParams, params }: Props) => {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "navigation" });
+
   return (
     <>
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-600 focus:text-white focus:rounded-lg"
       >
-        Skip to main content
+        {t("skipToContent")}
       </a>
-      <main
-        id="main-content"
-        className="min-h-screen bg-gray-50 dark:bg-slate-950"
-      >
+      <main id="main-content" className="min-h-screen">
         <Navigation />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-6">
@@ -40,13 +45,13 @@ const Home: NextPage<HomePageProps> = async ({ searchParams }) => {
               {/* Profile Card */}
               <div className="lg:col-span-4">
                 <div className="sticky top-28">
-                  <Aside />
+                  <Aside locale={locale} />
                 </div>
               </div>
 
               {/* About Section */}
               <article className="lg:col-span-8">
-                <About />
+                <About locale={locale} />
               </article>
             </div>
           </section>
@@ -54,20 +59,20 @@ const Home: NextPage<HomePageProps> = async ({ searchParams }) => {
           {/* Main Content Sections */}
           <div className="space-y-6 lg:space-y-8">
             {/* Experience Section */}
-            <Experiences />
+            <Experiences locale={locale} />
 
             {/* Projects Section */}
-            <Projects searchParams={searchParams} />
+            <Projects searchParams={searchParams} locale={locale} />
 
             {/* Tech Stack Section */}
             <TechStack />
 
             {/* Likes Section */}
-            <Likes />
+            <Likes locale={locale} />
           </div>
         </div>
       </main>
-      <Footer />
+      <Footer locale={locale} />
     </>
   );
 };

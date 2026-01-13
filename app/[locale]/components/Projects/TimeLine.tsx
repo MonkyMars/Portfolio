@@ -30,13 +30,21 @@ const TimeLineView: React.FC<TimelineProps> = ({ project, onClose }) => {
                   year: "numeric",
                 })}
               </span>
-              {!Array.isArray(project.link) ? (
+              {typeof project.link === "string" ? (
                 <Link
-                  href={project.link[0]}
+                  href={project.link}
                   target="_blank"
                   className="cursor-pointer flex items-center gap-1 translate hover:-translate-y-1 transition-transform duration-100 px-3 py-1 my-3 rounded-full bg-primary-100 dark:bg-slate-800/90 text-primary-600 text-sm font-medium"
                 >
-                  See Reposity <ArrowRight size={16} />
+                  See Repository <ArrowRight size={16} />
+                </Link>
+              ) : Array.isArray(project.link) && project.link.length > 0 ? (
+                <Link
+                  href={project.link[0].url}
+                  target="_blank"
+                  className="cursor-pointer flex items-center gap-1 translate hover:-translate-y-1 transition-transform duration-100 px-3 py-1 my-3 rounded-full bg-primary-100 dark:bg-slate-800/90 text-primary-600 text-sm font-medium"
+                >
+                  See Repository <ArrowRight size={16} />
                 </Link>
               ) : null}
             </div>

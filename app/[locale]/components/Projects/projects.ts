@@ -1,6 +1,9 @@
-import { projects as ProjectType } from "./TimelineItem";
+import { _Translator } from "next-intl";
+import { projects as ProjectType, TimelineItem } from "./TimelineItem";
 
-export const projects: ProjectType[] = [
+type TitleType = TimelineItem["title"];
+
+export const getProjects = (t: _Translator): ProjectType[] => [
   // {
   //   title: "CarList",
   //   description: `CarList is a Next.js project I made on my own, It hasn't got its own database but rather uses multiple API's to fetch the data, such as model names, specs and images. Use the feature CarFinder to find the specs of the entered car. CarList uses 100% TypeScript and Scss.`,
@@ -155,9 +158,8 @@ export const projects: ProjectType[] = [
   //   },
   // },
   {
-    title: "Frame The Beat",
-    description:
-      "Frame The Beat is a collection of albumcovers. Save and share your favorite albumcovers with your friends. Frame The Beat is made in Next.js and TypeScript, the backend is in TypeScript and uses SupaBase for hosting the data.",
+    title: t("items.framethebeat.title"),
+    description: t("items.framethebeat.description"),
     date: new Date(2024, 11, 7), // December 7, 2024
     image: "/frame-the-beat.png",
     type: "Web",
@@ -167,23 +169,20 @@ export const projects: ProjectType[] = [
       features: ["AlbumCovers", "Save", "Share", "Like", "Comment"],
       notes: [
         {
-          title: "Problem",
-          description:
-            "This project was made with the user mind, a place where someone can save their favorite album covers. Sort and filter by genre and release date. I wanted to make something that was easy to use and looked good.",
+          title: t("items.framethebeat.notes.problem.title") as TitleType,
+          description: t("items.framethebeat.notes.problem.description"),
           date: new Date(2024, 10, 20), // November 20, 2024
           image: "/frame-the-beat/moralpanic.jpg",
         },
         {
-          title: "Complications",
-          description:
-            "Speed was the biggest complication, when I finished coding and added a few hundred albumcovers the website was very slow. I had to optimize the images and the database queries. Instead of pulling the images from an API, I put them in a SupaBase bucket and pulled them from there which was much faster.",
+          title: t("items.framethebeat.notes.complications.title") as TitleType,
+          description: t("items.framethebeat.notes.complications.description"),
           date: new Date(2024, 11, 1), // December 1, 2024
           image: "/frame-the-beat/supabase.png",
         },
         {
-          title: "Conclussion",
-          description:
-            "This was my biggest project so far, when I made this. Including a lot of features and data. I was also very excited that I could combine my two passions; coding and listening to music. ",
+          title: t("items.framethebeat.notes.conclusion.title") as TitleType,
+          description: t("items.framethebeat.notes.conclusion.description"),
           date: new Date(2024, 11, 7), // December 7, 2024
           image: "/frame-the-beat.png",
         },
@@ -261,24 +260,23 @@ export const projects: ProjectType[] = [
   //   },
   // },
   {
-    title: "GreenVue",
-    description:
-      "GreenVue is a sustainable marketplace built for the European Union. It connects eco-conscious buyers with independent sellers offering environmentally friendly products. The platform uses Next.js for the frontend, Supabase for the backend, and is deployed with Docker on Railway.",
+    title: t("items.greenvue.title"),
+    description: t("items.greenvue.description"),
     date: new Date(2025, 3, 1), // April 1, 2025
     image: "/greenvue.webp",
     type: ["Web", "Mobile", "API"],
     link: [
       {
         url: "https://github.com/MonkyMars/GreenVue-Web",
-        label: "Web",
+        label: t("web"),
       },
       {
         url: "https://github.com/MonkyMars/GreenVue-Mobile",
-        label: "Mobile",
+        label: t("mobile"),
       },
       {
         url: "https://github.com/MonkyMars/GreenVue-API",
-        label: "API",
+        label: t("api"),
       },
     ],
     details: {
@@ -301,21 +299,18 @@ export const projects: ProjectType[] = [
       ],
       notes: [
         {
-          title: "Problem",
-          description:
-            "The problem I was trying to solve with this project was the lack of a sustainable marketplace in the European Union. I wanted to create a platform where eco-conscious buyers could connect with independent sellers offering environmentally friendly products.",
+          title: t("items.greenvue.notes.problem.title") as TitleType,
+          description: t("items.greenvue.notes.problem.description"),
           date: new Date(2025, 2, 20), // March 20, 2025
         },
         {
-          title: "Complications",
-          description:
-            "The biggest complication I had was the backend. I created my own API in GO, which was a new experience for me. I had to learn middleware and secure authentication.",
+          title: t("items.greenvue.notes.complications.title") as TitleType,
+          description: t("items.greenvue.notes.complications.description"),
           date: new Date(2025, 3, 1), // April 1, 2025
         },
         {
-          title: "Conclussion",
-          description:
-            "I've gotten a lot more comfortable with GO and React Native since I started this project. I am still expanding this project.",
+          title: t("items.greenvue.notes.conclusion.title") as TitleType,
+          description: t("items.greenvue.notes.conclusion.description"),
           date: new Date(2025, 3, 1), // April 1, 2025
           image: "/greenvue.webp",
         },
@@ -323,9 +318,8 @@ export const projects: ProjectType[] = [
     },
   },
   {
-    title: "ccheck",
-    description:
-      "ccheck (content checker) scans the specified root directory for files containing the content you want to search for. Includes multi file extension and multi pattern filtering with regex.",
+    title: t("items.ccheck.title"),
+    description: t("items.ccheck.description"),
     date: new Date(2025, 8, 8), // September, 4, 2025
     image: "/ccheck.png",
     type: "CLI",
@@ -335,41 +329,37 @@ export const projects: ProjectType[] = [
       features: ["content checker", "keywords", "patterns", "regex"],
       notes: [
         {
-          title: "Problem",
-          description:
-            "Grep was too complicated for me to use on a daily bases. That's why I made ccheck, a simple content checker for text files. Just add keywords, patterns or regex and cchecker will check the file for you.",
+          title: t("items.ccheck.notes.problem.title") as TitleType,
+          description: t("items.ccheck.notes.problem.description"),
           date: new Date(2025, 8, 1),
         },
         {
-          title: "Complications",
-          description:
-            "In this project, I didn't really have any issues; I spent a lot of time learning Go the last year to feel comfortable in the language",
+          title: t("items.ccheck.notes.complications.title") as TitleType,
+          description: t("items.ccheck.notes.complications.description"),
           date: new Date(2025, 8, 3),
         },
         {
-          title: "Conclussion",
-          description:
-            "I learned a lot about GO and how to create a CLI application. I am very happy with the result and I am excited to see where this project goes in the future.",
+          title: t("items.ccheck.notes.conclusion.title") as TitleType,
+          description: t("items.ccheck.notes.conclusion.description"),
           date: new Date(2025, 8, 8),
         },
       ],
     },
   },
   {
-    title: "Roos van Sharon",
-    description:
-      "TaskMaster is a command-line task management application written in Go. It allows users to create, view, update, and delete tasks directly from the terminal, providing a simple and efficient way to manage daily to-dos.",
+    title: t("items.roosvansharon.title"),
+    description: t("items.roosvansharon.description"),
     date: new Date(2025, 12, 18), // December 18, 2025
     image: "/roosvansharon.png",
     type: "Fullstack",
     link: [
       {
         url: "https://github.com/mamabloemetjes/frontend",
-        label: "Web",
+        label: t("web"),
       },
       {
         url: "https://github.com/mamabloemetjes/backend",
-        label: "API",
+        label: t("api"),
       },
     ],
     details: {
@@ -383,21 +373,20 @@ export const projects: ProjectType[] = [
       ],
       notes: [
         {
-          title: "Problem",
-          description:
-            "My mother wanted a webstore for her filt flower shop, Roos van Sharon. She needed a platform to showcase her products and manage sales online.",
+          title: t("items.roosvansharon.notes.problem.title") as TitleType,
+          description: t("items.roosvansharon.notes.problem.description"),
           date: new Date(2025, 12, 1), // December 1, 2025
         },
         {
-          title: "Complications",
-          description:
-            "The biggest challenge was integrating a working and secure auth system. I decided to just use jwt tokens for this project with csrf protection since it was a small webstore.",
+          title: t(
+            "items.roosvansharon.notes.complications.title",
+          ) as TitleType,
+          description: t("items.roosvansharon.notes.complications.description"),
           date: new Date(2025, 12, 15), // December 15, 2025
         },
         {
-          title: "Conclussion",
-          description:
-            "The project was a big success! My mother is very content with the result and I still get compliments from my family to this day. I learned a lot about server side rendering and SEO for product pages.",
+          title: t("items.roosvansharon.notes.conclusion.title") as TitleType,
+          description: t("items.roosvansharon.notes.conclusion.description"),
           date: new Date(2025, 12, 18), // December 18, 2025
           image: "/roosvansharon.png",
         },

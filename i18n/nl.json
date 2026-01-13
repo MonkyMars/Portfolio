@@ -1,0 +1,229 @@
+{
+  "navigation": {
+    "about": "Over mij",
+    "experience": "Ervaring",
+    "projects": "Projecten",
+    "tech": "Tech Stack",
+    "skipToContent": "Ga naar inhoud",
+    "toggleTheme": "Thema wisselen"
+  },
+  "aside": {
+    "name": "Levi Noppers",
+    "role": "Fullstack Developer",
+    "github": "GitHub",
+    "email": "Email",
+    "location": "Locatie",
+    "country": "Nederland",
+    "continent": "Europa"
+  },
+  "about": {
+    "title": "Over",
+    "titleHighlight": "Mij",
+    "intro": "Hey:) Ik ben een {age} jaar oude fullstack developer uit Nederland. ",
+    "paragraph1": "In mijn vrije tijd ben ik vaak bezig met programmeren, Rocket League spelen en naar muziek luisteren.",
+    "paragraph2": "Tot nu toe heb ik aan verschillende projecten gewerkt. Zoals websites, mobiele applicaties en backend systemen.",
+    "paragraph3": "Voorheen heb ik veel websites gebouwd maar na een tijdje merkte ik dat ik het leuk vond om ook aan de backend te werken. Daarom heb ik mezelf backend development aangeleerd en sindsdien bouw ik graag volledige applicaties.",
+    "paragraph4": "Mijn favoriete programmeertaal is Go, omdat het snel, efficiënt en simplistisch is. Toch vind ik dat het sommige dingen mist, zoals native enums.",
+    "paragraph5": "Als je geïnteresseerd bent in mijn werk of gewoon hallo wilt zeggen, neem gerust een kijkje op mijn GitHub of stuur me een e-mail!"
+  },
+  "experience": {
+    "title": "Erv",
+    "titleRest": "aring",
+    "items": {
+      "firstSteps": {
+        "title": "Eerste Stappen",
+        "date": "2022",
+        "description": "Eerste keer dat ik code schreef in JavaScript voor een Discord bot."
+      },
+      "learningNew": {
+        "title": "Nieuwe Dingen Leren",
+        "date": "2023",
+        "description": "Na een tijdje besloot ik mezelf web development aan te leren via online tutorials van Bro Code op Youtube. Ik begon met HTML, CSS en JavaScript en bouwde eventueel op naar frameworks zoals React en Next.js."
+      },
+      "buildingReal": {
+        "title": "Echte Projecten Bouwen",
+        "date": "2024",
+        "description": "In 2024 begon ik met het bouwen van echte projecten in mijn vrije tijd in Next.js met TypeScript en Tailwind."
+      },
+      "q42": {
+        "title": "Q42 Stagiair",
+        "date": "06/01/2025",
+        "description": "Kreeg een korte stage bij Q42, een bedrijf bekend om hun creative projecten. Hier heb ik nieuwe motivatie gevonden en leerde ik ook Go kennen. Ook heb ik een interview af kunnen leggen met een full time frontend developer."
+      },
+      "independent": {
+        "title": "Zelfstandige Developer",
+        "description": "Momenteel werk ik als zelfstandige developer aan projecten die ik zelf verzin of voor mijn familie, zoals een website voor mijn moeders bloemenwinkel."
+      }
+    }
+  },
+  "projects": {
+    "title": "Pro",
+    "titleRest": "jecten",
+    "searchPlaceholder": "Zoek projecten...",
+    "allTypes": "Alle Types",
+    "projectType": "Project Type",
+    "allTechnologies": "Alle Technologieën",
+    "technology": "Technologie",
+    "clear": "Wissen",
+    "noProjects": "Geen projecten gevonden.",
+    "viewDetails": "Bekijk details",
+    "hideDetails": "Verberg details",
+    "viewProject": "Bekijk project",
+    "web": "Web",
+    "mobile": "Mobiel",
+    "api": "API",
+    "items": {
+      "framethebeat": {
+        "title": "Frame The Beat",
+        "description": "Frame The Beat is een verzameling van album covers. Bewaar en deel je favoriete album covers met je vrienden. Frame The Beat is gemaakt in Next.js en TypeScript, de backend is in TypeScript en gebruikt SupaBase voor het opslaan van data.",
+        "notes": {
+          "problem": {
+            "title": "Probleem",
+            "description": "Dit project is gemaakt met de gebruiker in gedachten, een plek waar iemand zijn favoriete album covers kan opslaan. Sorteren en filteren op genre en releasedatum. Ik wilde iets maken dat makkelijk te gebruiken was en er goed uitzag."
+          },
+          "complications": {
+            "title": "Complicaties",
+            "description": "Snelheid was de grootste complicatie, toen ik klaar was met coderen en een paar honderd album covers had toegevoegd was de website erg traag. Ik moest de afbeeldingen en database queries optimaliseren. In plaats van de afbeeldingen uit een API te halen, zette ik ze in een SupaBase bucket en haalde ze vandaar op wat veel sneller was."
+          },
+          "conclusion": {
+            "title": "Conclusie",
+            "description": "Dit was mijn grootste project tot nu toe toen ik het maakte. Inclusief veel features en data. Ik was ook erg blij dat ik mijn twee passies kon combineren; coderen en naar muziek luisteren."
+          }
+        }
+      },
+      "greenvue": {
+        "title": "GreenVue",
+        "description": "GreenVue is een duurzame marktplaats gebouwd voor in de Europese Unie. Het verbindt milieubewuste kopers met onafhankelijke verkopers die milieuvriendelijke producten aanbieden. Het platform gebruikt Next.js voor de frontend, Supabase voor de backend, en is gedeployed met Docker op Railway.",
+        "notes": {
+          "problem": {
+            "title": "Probleem",
+            "description": "Het probleem dat ik probeerde op te lossen met dit project was het gebrek aan een duurzame marktplaats in de Europese Unie. Ik wilde een platform maken waar milieubewuste kopers konden verbinden met onafhankelijke verkopers die milieuvriendelijke producten aanbieden."
+          },
+          "complications": {
+            "title": "Complicaties",
+            "description": "De grootste complicatie die ik had was de backend. Ik maakte mijn eigen API in GO, wat een nieuwe ervaring voor me was. Ik moest middleware leren en veilige authenticatie."
+          },
+          "conclusion": {
+            "title": "Conclusie",
+            "description": "Ik ben veel meer comfortabel geworden met GO en React Native sinds ik aan dit project begon. Ik breid dit project nog steeds uit."
+          }
+        }
+      },
+      "ccheck": {
+        "title": "ccheck",
+        "description": "ccheck (content checker) scant de opgegeven root directory voor bestanden die de content bevatten waarnaar je zoekt. Inclusief multi file extension en multi pattern filtering met regex.",
+        "notes": {
+          "problem": {
+            "title": "Probleem",
+            "description": "Grep was te ingewikkeld voor mij om dagelijks te gebruiken. Daarom maakte ik ccheck, een simpele content checker voor tekstbestanden. Voeg gewoon keywords, patronen of regex toe en ccheck controleert het bestand voor je."
+          },
+          "complications": {
+            "title": "Complicaties",
+            "description": "In dit project had ik eigenlijk geen problemen; ik heb veel tijd besteed aan het leren van Go het afgelopen jaar om me comfortabel te voelen in de taal."
+          },
+          "conclusion": {
+            "title": "Conclusie",
+            "description": "Ik heb veel geleerd over GO en hoe je een CLI applicatie maakt. Ik ben erg blij met het resultaat en ben benieuwd waar dit project in de toekomst naartoe gaat."
+          }
+        }
+      },
+      "roosvansharon": {
+        "title": "Roos van Sharon",
+        "description": "Een webwinkel voor mijn moeders vilt bloemenwinkel. Gebruikers kunnen producten bekijken en online bestellen. Het platform gebruikt Next.js voor de frontend en een Go backend met PostgreSQL.",
+        "notes": {
+          "problem": {
+            "title": "Probleem",
+            "description": "Mijn moeder wilde een webwinkel voor haar vilt bloemenwinkel, Roos van Sharon. Ze had een platform nodig om haar producten te laten zien en online verkopen te beheren."
+          },
+          "complications": {
+            "title": "Complicaties",
+            "description": "De grootste uitdaging was het integreren van een werkend en veilig authenticatiesysteem. Ik besloot gewoon jwt tokens te gebruiken voor dit project met csrf bescherming omdat het een kleine webwinkel was."
+          },
+          "conclusion": {
+            "title": "Conclusie",
+            "description": "Het project was een groot succes! Mijn moeder is erg tevreden met het resultaat en ik krijg nog steeds complimenten van mijn familie. Ik heb veel geleerd over server side rendering en SEO voor productpaginas."
+          }
+        }
+      }
+    }
+  },
+  "techStack": {
+    "title": "Tech",
+    "titleRest": "stack",
+    "searchPlaceholder": "Zoek technologieën...",
+    "category": "Categorie",
+    "allCategories": "Alle Categorieën",
+    "clear": "Wissen",
+    "noTechnologies": "Geen technologieën gevonden.",
+    "since": "Sinds",
+    "types": {
+      "framework": "Framework",
+      "service": "Service",
+      "language": "Taal",
+      "library": "Library",
+      "tool": "Tool"
+    },
+    "items": {
+      "nextjs": {
+        "label": "Next.js",
+        "note": "Next.js is verreweg mijn favoriete JavaScript framework ooit. Het is extreem snel, geweldig voor SEO en makkelijk te gebruiken, vooral als je van React komt; zoals ik."
+      },
+      "tailwindcss": {
+        "label": "Tailwind CSS",
+        "note": "In het begin was ik sceptisch over Tailwind CSS omdat ik dacht dat het creativiteit zou wegnemen, maar na het een tijdje te gebruiken kan ik me niet voorstellen om terug te gaan naar vanilla CSS."
+      },
+      "typescript": {
+        "label": "TypeScript",
+        "note": "TypeScript is een must-have voor elk serieus project in mijn mening. Het helpt me om fouten op te vangen voordat ze überhaupt gebeuren."
+      },
+      "git": {
+        "label": "Git",
+        "note": "Git gebruik ik dagelijks. Ik gebruik het om mijn projecten te beheren en ook om samen te werken met anderen."
+      },
+      "supabase": {
+        "label": "Supabase",
+        "note": "Ik hou echt van Supabase omdat de DX geweldig is en ze een geweldige gratis tier bieden die ik kan gebruiken voor elk project."
+      },
+      "go": {
+        "label": "Go",
+        "note": "Ik code al een tijdje in Go en heb er verschillende applicaties mee gemaakt. Het is verreweg mijn favoriete taal!"
+      },
+      "rust": {
+        "label": "Rust",
+        "note": "Ik geniet de laatste tijd eerlijk gezegd van Rust. De compiler is behulpzaam hoewel Rust een steile leercurve heeft."
+      }
+    }
+  },
+  "likes": {
+    "title": "Things",
+    "titleHighlight": "I like",
+    "items": {
+      "go": {
+        "label": "Go",
+        "note": "Ik hou van Go vanwege de snelheid, efficiëntie en eenvoud. Het is momenteel mijn favoriete programmeertaal."
+      },
+      "music": {
+        "label": "Muziek",
+        "note": "Tijdens het programmeren of gamen luister ik graag naar muziek. Artiesten zoals Balu Brigada en Betcha zijn mijn absolute favorieten."
+      },
+      "linux": {
+        "label": "Linux",
+        "note": "Ik gebruik al bijna een jaar alleen maar Linux op mijn PC. Ik hou ervan dat ik alles kan aanpassen zoals het voor mij werkt.",
+        "link": "Bekijk dotfiles"
+      }
+    }
+  },
+  "footer": {
+    "copyright": "© {year} Levi Noppers. Alle rechten voorbehouden.",
+    "github": "GitHub",
+    "email": "Email"
+  },
+  "metadata": {
+    "title": "Levi Noppers | Full Stack Developer - Go, Rust & TypeScript",
+    "description": "Mijn portfolio als 16-jarige full stack developer gespecialiseerd in Go, Rust en TypeScript. Bekijk mijn projecten, ervaring en tech stack.",
+    "ogTitle": "Levi Noppers | Full Stack Developer - Go, Rust & TypeScript",
+    "ogDescription": "Mijn portfolio als 16-jarige full stack developer gespecialiseerd in Go, Rust en TypeScript. Bekijk mijn projecten, ervaring en tech stack.",
+    "twitterTitle": "Levi Noppers | Full Stack Developer - Go, Rust & TypeScript",
+    "twitterDescription": "Mijn portfolio als 16-jarige full stack developer gespecialiseerd in Go, Rust en TypeScript. Bekijk mijn projecten, ervaring en tech stack."
+  }
+}

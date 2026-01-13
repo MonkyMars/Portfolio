@@ -1,0 +1,229 @@
+{
+  "navigation": {
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "tech": "Tech",
+    "skipToContent": "Skip to main content",
+    "toggleTheme": "Toggle theme"
+  },
+  "aside": {
+    "name": "Levi Noppers",
+    "role": "Fullstack Developer",
+    "github": "GitHub",
+    "email": "Email",
+    "location": "Location",
+    "country": "The Netherlands",
+    "continent": "Europe"
+  },
+  "about": {
+    "title": "About",
+    "titleHighlight": "Me",
+    "intro": "Hey:) I'm Levi Noppers, a {age}-year-old software developer from the Netherlands.",
+    "paragraph1": "In my free time, I enjoy coding side projects, playing Rocket League and listening to a lot of music.",
+    "paragraph2": "Thus far, I've worked on several projects, including websites, mobile apps and most importantly, backend systems.",
+    "paragraph3": "After a few years of coding experience, I realised that I enjoy backend development way more than frontend development.",
+    "paragraph4": "My go-to language is Go, it strikes the perfect balance between performance and simplicity for me. Though some functionalities lack for me like native enums",
+    "paragraph5": "If you're interested in my work, feel free to check out my GitHub or send an email:)"
+  },
+  "experience": {
+    "title": "Exp",
+    "titleRest": "erience",
+    "items": {
+      "firstSteps": {
+        "title": "First Steps",
+        "date": "2022",
+        "description": "Came in touch with programming for the first time for a Discord bot in JavaScript."
+      },
+      "learningNew": {
+        "title": "Learning New Things",
+        "date": "2023",
+        "description": "Went up from Python to html, css and js to eventually React and Next.js:)"
+      },
+      "buildingReal": {
+        "title": "Building Real Projects",
+        "date": "2024",
+        "description": "Created multiple projects using Next.js, TypeScript, and Tailwind including, but not limited to: a webstore (Something) and an album cover showcase (Frame The Beat)."
+      },
+      "q42": {
+        "title": "Q42 Internship",
+        "date": "06/01/2025",
+        "description": "Got an internship at Q42 for 8 weeks, a company known for its innovative projects. Had a lot of fun there and got the oppertunity to interview a full time frontend developer."
+      },
+      "independent": {
+        "title": "Independent Developer",
+        "description": "Currently focusing on the server side of things. Learning both Go and Rust."
+      }
+    }
+  },
+  "projects": {
+    "title": "Pro",
+    "titleRest": "jects",
+    "searchPlaceholder": "Search projects...",
+    "allTypes": "All Types",
+    "projectType": "Project Type",
+    "allTechnologies": "All Technologies",
+    "technology": "Technology",
+    "clear": "Clear",
+    "noProjects": "No projects found matching your criteria.",
+    "viewDetails": "View Details",
+    "hideDetails": "Hide Details",
+    "viewProject": "View Project",
+    "web": "Web",
+    "mobile": "Mobile",
+    "api": "API",
+    "items": {
+      "framethebeat": {
+        "title": "Frame The Beat",
+        "description": "Frame The Beat is a collection of albumcovers. Save and share your favorite albumcovers with your friends. Frame The Beat is made in Next.js and TypeScript, the backend is in TypeScript and uses SupaBase for hosting the data.",
+        "notes": {
+          "problem": {
+            "title": "Problem",
+            "description": "This project was made with the user mind, a place where someone can save their favorite album covers. Sort and filter by genre and release date. I wanted to make something that was easy to use and looked good."
+          },
+          "complications": {
+            "title": "Complications",
+            "description": "Speed was the biggest complication, when I finished coding and added a few hundred albumcovers the website was very slow. I had to optimize the images and the database queries. Instead of pulling the images from an API, I put them in a SupaBase bucket and pulled them from there which was much faster."
+          },
+          "conclusion": {
+            "title": "Conclussion",
+            "description": "This was my biggest project so far, when I made this. Including a lot of features and data. I was also very excited that I could combine my two passions; coding and listening to music."
+          }
+        }
+      },
+      "greenvue": {
+        "title": "GreenVue",
+        "description": "GreenVue is a sustainable marketplace built for the European Union. It connects eco-conscious buyers with independent sellers offering environmentally friendly products. The platform uses Next.js for the frontend, Supabase for the backend, and is deployed with Docker on Railway.",
+        "notes": {
+          "problem": {
+            "title": "Problem",
+            "description": "The problem I was trying to solve with this project was the lack of a sustainable marketplace in the European Union. I wanted to create a platform where eco-conscious buyers could connect with independent sellers offering environmentally friendly products."
+          },
+          "complications": {
+            "title": "Complications",
+            "description": "The biggest complication I had was the backend. I created my own API in GO, which was a new experience for me. I had to learn middleware and secure authentication."
+          },
+          "conclusion": {
+            "title": "Conclussion",
+            "description": "I've gotten a lot more comfortable with GO and React Native since I started this project. I am still expanding this project."
+          }
+        }
+      },
+      "ccheck": {
+        "title": "ccheck",
+        "description": "ccheck (content checker) scans the specified root directory for files containing the content you want to search for. Includes multi file extension and multi pattern filtering with regex.",
+        "notes": {
+          "problem": {
+            "title": "Problem",
+            "description": "Grep was too complicated for me to use on a daily bases. That's why I made ccheck, a simple content checker for text files. Just add keywords, patterns or regex and cchecker will check the file for you."
+          },
+          "complications": {
+            "title": "Complications",
+            "description": "In this project, I didn't really have any issues; I spent a lot of time learning Go the last year to feel comfortable in the language"
+          },
+          "conclusion": {
+            "title": "Conclussion",
+            "description": "I learned a lot about GO and how to create a CLI application. I am very happy with the result and I am excited to see where this project goes in the future."
+          }
+        }
+      },
+      "roosvansharon": {
+        "title": "Roos van Sharon",
+        "description": "TaskMaster is a command-line task management application written in Go. It allows users to create, view, update, and delete tasks directly from the terminal, providing a simple and efficient way to manage daily to-dos.",
+        "notes": {
+          "problem": {
+            "title": "Problem",
+            "description": "My mother wanted a webstore for her filt flower shop, Roos van Sharon. She needed a platform to showcase her products and manage sales online."
+          },
+          "complications": {
+            "title": "Complications",
+            "description": "The biggest challenge was integrating a working and secure auth system. I decided to just use jwt tokens for this project with csrf protection since it was a small webstore."
+          },
+          "conclusion": {
+            "title": "Conclussion",
+            "description": "The project was a big success! My mother is very content with the result and I still get compliments from my family to this day. I learned a lot about server side rendering and SEO for product pages."
+          }
+        }
+      }
+    }
+  },
+  "techStack": {
+    "title": "Tech",
+    "titleRest": "stack",
+    "searchPlaceholder": "Search technologies...",
+    "category": "Category",
+    "allCategories": "All Categories",
+    "clear": "Clear",
+    "noTechnologies": "No technologies found matching your criteria.",
+    "since": "Since",
+    "types": {
+      "framework": "Framework",
+      "service": "Service",
+      "language": "Language",
+      "library": "Library",
+      "tool": "Tool"
+    },
+    "items": {
+      "nextjs": {
+        "label": "Next.js",
+        "note": "Next.js has been by far my favorite framework ever. It's extremely fast, amazing for SEO and easy to use, especially if you come from React; Like me."
+      },
+      "tailwindcss": {
+        "label": "Tailwind CSS",
+        "note": "At first I was skeptical about Tailwind CSS because I thought it would take away creativity, but after using it for a while I can't imagine going back to vanilla CSS."
+      },
+      "typescript": {
+        "label": "TypeScript",
+        "note": "TypeScript is a must-have for any serious project in my opinion. It helps me to catch errors before they even happen."
+      },
+      "git": {
+        "label": "Git",
+        "note": "Git is a daily driver for me. I use it to manage my projects and also collaborate with others."
+      },
+      "supabase": {
+        "label": "Supabase",
+        "note": "I really love Supabase because the DX is amazing and they provide an amazing free tier that i can use for any project."
+      },
+      "go": {
+        "label": "Go",
+        "note": "I've been coding in Go for quite a while now and created several applications with it. It's my favorite language by far!"
+      },
+      "rust": {
+        "label": "Rust",
+        "note": "I've been enjoying rust lately to be honest. The compiler is helpful though rust has a steep learning curve."
+      }
+    }
+  },
+  "likes": {
+    "title": "Things",
+    "titleHighlight": "I like",
+    "items": {
+      "go": {
+        "label": "Go",
+        "note": "I love coding in Go. It's currently my favorite language due to the simplicity and speed."
+      },
+      "music": {
+        "label": "Music",
+        "note": "I love listening to music while coding."
+      },
+      "linux": {
+        "label": "Linux",
+        "note": "I enjoy using Linux for its flexibility and control over my PC. I personally use CachyOS.",
+        "link": "View dotfiles"
+      }
+    }
+  },
+  "footer": {
+    "copyright": "© {year} Levi Noppers. All rights reserved.",
+    "github": "GitHub",
+    "email": "Email"
+  },
+  "metadata": {
+    "title": "Levi Noppers | Full Stack Developer - Go, Rust & TypeScript",
+    "description": "Portfolio of Levi Noppers, a 16-year-old Full Stack Developer from the Netherlands specializing in backend development with Go and Rust. Building fast, scalable web applications with Next.js, TypeScript, and modern technologies. Former Q42 intern.",
+    "ogTitle": "Levi Noppers | Full Stack Developer - Go, Rust & TypeScript",
+    "ogDescription": "16-year-old Full Stack Developer from the Netherlands building fast, scalable applications with Go, Rust, and TypeScript. Former Q42 intern passionate about backend systems and clean code.",
+    "twitterTitle": "Levi Noppers | Full Stack Developer - Go, Rust & TypeScript",
+    "twitterDescription": "16-year-old Full Stack Developer specializing in backend with Go & Rust. Building scalable web apps. Former Q42 intern. Check out my projects!"
+  }
+}

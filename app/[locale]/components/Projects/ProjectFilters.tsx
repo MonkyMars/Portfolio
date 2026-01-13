@@ -15,16 +15,15 @@ import {
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 interface ProjectFiltersProps {
   projectTypes: string[];
   techStacks: string[];
 }
 
-const ProjectFilters = ({
-  projectTypes,
-  techStacks,
-}: ProjectFiltersProps) => {
+const ProjectFilters = ({ projectTypes, techStacks }: ProjectFiltersProps) => {
+  const t = useTranslations("projects");
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -54,7 +53,7 @@ const ProjectFilters = ({
     <div className="flex flex-col sm:flex-row gap-4 mb-6 p-4 bg-gray-50 dark:bg-slate-800/50 rounded-lg border border-gray-200 dark:border-gray-700">
       <div className="flex-1">
         <Input
-          placeholder="Search projects..."
+          placeholder={t("searchPlaceholder")}
           value={search}
           onChange={handleSearchChange}
           className="h-10 border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100"
@@ -68,11 +67,14 @@ const ProjectFilters = ({
           onValueChange={(value) => handleFilterChange("type", value)}
         >
           <SelectTrigger className="h-10 w-full sm:w-[140px] border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100">
-            <SelectValue placeholder="Project Type" />
+            <SelectValue placeholder={t("projectType")} />
           </SelectTrigger>
           <SelectContent className="bg-white dark:bg-slate-800 border-gray-200 dark:border-gray-700">
-            <SelectItem value="all" className="text-gray-900 dark:text-gray-200">
-              All Types
+            <SelectItem
+              value="all"
+              className="text-gray-900 dark:text-gray-200"
+            >
+              {t("allTypes")}
             </SelectItem>
             {projectTypes.map((type) => (
               <SelectItem
@@ -98,11 +100,14 @@ const ProjectFilters = ({
           onValueChange={(value) => handleFilterChange("tech", value)}
         >
           <SelectTrigger className="h-10 w-full sm:w-[160px] border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100">
-            <SelectValue placeholder="Technology" />
+            <SelectValue placeholder={t("technology")} />
           </SelectTrigger>
           <SelectContent className="bg-white dark:bg-slate-800 border-gray-200 dark:border-gray-700">
-            <SelectItem value="all" className="text-gray-900 dark:text-gray-200">
-              All Technologies
+            <SelectItem
+              value="all"
+              className="text-gray-900 dark:text-gray-200"
+            >
+              {t("allTechnologies")}
             </SelectItem>
             {techStacks.map((tech) => (
               <SelectItem
@@ -130,14 +135,12 @@ const ProjectFilters = ({
         </Select>
 
         {/* Clear Button */}
-        {(search !== "" ||
-          type !== "all" ||
-          tech !== "all") && (
+        {(search !== "" || type !== "all" || tech !== "all") && (
           <button
             onClick={clearFilters}
             className="px-4 h-10 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-white dark:hover:bg-slate-800 border border-gray-200 dark:border-gray-700 rounded-lg transition-colors duration-200"
           >
-            Clear
+            {t("clear")}
           </button>
         )}
       </div>

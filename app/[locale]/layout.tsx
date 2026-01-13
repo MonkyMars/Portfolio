@@ -1,8 +1,12 @@
-"use server";
-
-import type { Metadata, Viewport } from "next";
-import "./globals.css";
-import { Doto, Poppins } from "next/font/google";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { Locale, locales } from "@/i18n/index";
+import React from "react";
+import { Metadata } from "next";
+import { Poppins, Doto } from "next/font/google";
+import { Viewport } from "next/types";
+import "../globals.css";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -13,163 +17,178 @@ const poppins = Poppins({
 const doto = Doto({
   subsets: ["latin"],
   weight: ["400", "900"],
+  style: ["normal"],
   variable: "--font-doto",
+  display: "swap",
 });
 
-export const metadata = async (): Promise<Metadata> => {
-  return {
-    title: {
-      default:
-        "Levi Noppers | Full Stack Developer - Go, Rust & TypeScript Expert",
-      template: "%s | Levi Noppers",
-    },
+export const metadata: Metadata = {
+  title: {
+    default: "Levi Noppers | Full Stack Developer - Go, Rust & TypeScript",
+    template: "%s | Levi Noppers",
+  },
+  description:
+    "Portfolio of Levi Noppers, a 15-year-old Full Stack Developer from the Netherlands specializing in backend development with Go and Rust. Building fast, scalable web applications with Next.js, TypeScript, and modern technologies. Former Q42 intern.",
+  keywords: [
+    "Levi Noppers",
+    "full stack developer Netherlands",
+    "Go developer",
+    "Rust developer",
+    "backend developer",
+    "TypeScript expert",
+    "Next.js developer",
+    "web developer portfolio",
+    "software engineer",
+    "React developer",
+    "Tailwind CSS",
+    "Supabase",
+    "PostgreSQL",
+    "Frame The Beat",
+    "Q42 intern",
+    "full stack web development",
+    "monkymars github",
+    "Dutch developer",
+    "young developer",
+    "responsive web design",
+    "REST API",
+    "database design",
+    "Git",
+    "Linux developer",
+    "CachyOS",
+    "freelance developer",
+    "software development Netherlands",
+    "web applications",
+    "scalable backend systems",
+  ],
+  authors: [{ name: "Levi Noppers", url: "https://www.levinoppers.nl" }],
+  creator: "Levi Noppers",
+  publisher: "Levi Noppers",
+  manifest: "/site.webmanifest",
+  applicationName: "Levi Noppers Portfolio",
+  referrer: "origin-when-cross-origin",
+  category: "technology",
+  classification: "Portfolio Website",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    title: "Levi Noppers | Full Stack Developer - Go, Rust & TypeScript",
     description:
-      "Portfolio of Levi Noppers, a 15-year-old Full Stack Developer from the Netherlands specializing in backend development with Go and Rust. Building fast, scalable web applications with Next.js, TypeScript, and modern technologies. Former Q42 intern.",
-    keywords: [
-      "Levi Noppers",
-      "full stack developer Netherlands",
-      "Go developer",
-      "Rust developer",
-      "backend developer",
-      "TypeScript expert",
-      "Next.js developer",
-      "web developer portfolio",
-      "software engineer",
-      "React developer",
-      "Tailwind CSS",
-      "Supabase",
-      "PostgreSQL",
-      "Frame The Beat",
-      "Q42 intern",
-      "full stack web development",
-      "monkymars github",
-      "Dutch developer",
-      "young developer",
-      "responsive web design",
-      "REST API",
-      "database design",
-      "Git",
-      "Linux developer",
-      "CachyOS",
-      "freelance developer",
-      "software development Netherlands",
-      "web applications",
-      "scalable backend systems",
-    ],
-    authors: [{ name: "Levi Noppers", url: "https://www.levinoppers.nl" }],
-    creator: "Levi Noppers",
-    publisher: "Levi Noppers",
-    manifest: "/site.webmanifest",
-    applicationName: "Levi Noppers Portfolio",
-    referrer: "origin-when-cross-origin",
-    category: "technology",
-    classification: "Portfolio Website",
-    formatDetection: {
-      email: false,
-      address: false,
-      telephone: false,
-    },
-    openGraph: {
-      title: "Levi Noppers | Full Stack Developer - Go, Rust & TypeScript",
-      description:
-        "15-year-old Full Stack Developer from the Netherlands building fast, scalable applications with Go, Rust, and TypeScript. Former Q42 intern passionate about backend systems and clean code.",
-      type: "profile",
-      url: "https://www.levinoppers.nl",
-      images: [
-        {
-          url: "https://www.levinoppers.nl/code.png",
-          width: 1200,
-          height: 630,
-          alt: "Levi Noppers - Full Stack Developer Portfolio - Go, Rust & TypeScript Expert",
-        },
-      ],
-      locale: "en_US",
-      siteName: "Levi Noppers Portfolio",
-      countryName: "Netherlands",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Levi Noppers | Full Stack Developer - Go, Rust & TypeScript",
-      description:
-        "15-year-old Full Stack Developer specializing in backend with Go & Rust. Building scalable web apps. Former Q42 intern. Check out my projects!",
-      images: [
-        {
-          url: "https://www.levinoppers.nl/code.png",
-          alt: "Levi Noppers - Full Stack Developer Portfolio",
-        },
-      ],
-      creator: "@levinoppers",
-      site: "@levinoppers",
-    },
-    icons: {
-      icon: [
-        { url: "/code.png", sizes: "any" },
-        { url: "/code.png", type: "image/png", sizes: "32x32" },
-        { url: "/code.png", type: "image/png", sizes: "16x16" },
-      ],
-      apple: [
-        { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-      ],
-      other: [
-        {
-          rel: "mask-icon",
-          url: "/code.png",
-        },
-      ],
-    },
-    alternates: {
-      canonical: "https://www.levinoppers.nl",
-      languages: {
-        "en-US": "https://www.levinoppers.nl",
-        en: "https://www.levinoppers.nl",
+      "15-year-old Full Stack Developer from the Netherlands building fast, scalable applications with Go, Rust, and TypeScript. Former Q42 intern passionate about backend systems and clean code.",
+    type: "profile",
+    url: "https://www.levinoppers.nl",
+    images: [
+      {
+        url: "https://www.levinoppers.nl/code.png",
+        width: 1200,
+        height: 630,
+        alt: "Levi Noppers - Full Stack Developer Portfolio - Go, Rust & TypeScript Expert",
       },
+    ],
+    locale: "nl_NL",
+    alternateLocale: ["en_US"],
+    siteName: "Levi Noppers Portfolio",
+    countryName: "Netherlands",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Levi Noppers | Full Stack Developer - Go, Rust & TypeScript",
+    description:
+      "15-year-old Full Stack Developer specializing in backend with Go & Rust. Building scalable web apps. Former Q42 intern. Check out my projects!",
+    images: [
+      {
+        url: "https://www.levinoppers.nl/code.png",
+        alt: "Levi Noppers - Full Stack Developer Portfolio",
+      },
+    ],
+    creator: "@levinoppers",
+    site: "@levinoppers",
+  },
+  icons: {
+    icon: [
+      { url: "/code.png", sizes: "any" },
+      { url: "/code.png", type: "image/png", sizes: "32x32" },
+      { url: "/code.png", type: "image/png", sizes: "16x16" },
+    ],
+    other: [
+      {
+        rel: "mask-icon",
+        url: "/code.png",
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://www.levinoppers.nl",
+    languages: {
+      "en-US": "https://www.levinoppers.nl/en",
+      "nl-NL": "https://www.levinoppers.nl/nl",
+      en: "https://www.levinoppers.nl/en",
+      nl: "https://www.levinoppers.nl/nl",
     },
-    verification: {
-      google: "verification_token_placeholder",
-    },
-    robots: {
+  },
+  verification: {
+    google: "verification_token_placeholder",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
       index: true,
       follow: true,
-      nocache: false,
-      googleBot: {
-        index: true,
-        follow: true,
-        noimageindex: false,
-        "max-video-preview": -1,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-      },
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
-    other: {
-      "geo.region": "NL",
-      "geo.placename": "Netherlands",
-    },
-    metadataBase: new URL("https://www.levinoppers.nl"),
-  };
+  },
+  other: {
+    "geo.region": "NL",
+    "geo.placename": "Netherlands",
+  },
+  metadataBase: new URL("https://www.levinoppers.nl"),
 };
 
-export const viewport = async (): Promise<Viewport> => {
-  return {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
-    themeColor: [
-      { media: "(prefers-color-scheme: light)", color: "#f0f9ff" },
-      { media: "(prefers-color-scheme: dark)", color: "#0f172a" },
-    ],
-    colorScheme: "light dark",
-  };
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f0f9ff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f172a" },
+  ],
+  colorScheme: "light dark",
 };
 
-export default async function RootLayout({
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
+export default async function LocaleLayout({
   children,
-}: Readonly<{
+  params,
+}: {
   children: React.ReactNode;
-}>) {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
+  // Ensure that the incoming `locale` is valid
+  if (!locales.includes(locale as Locale)) {
+    notFound();
+  }
+
+  setRequestLocale(locale as Locale);
+
+  // Providing all messages to the client
+  const messages = await getMessages({ locale });
+
   return (
     <html
-      lang="en"
+      lang={locale}
       dir="ltr"
       className="scroll-smooth"
       suppressHydrationWarning
@@ -354,7 +373,7 @@ export default async function RootLayout({
                   name: "What programming languages does Levi Noppers specialize in?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Levi Noppers specializes in Go and Rust for backend development, and TypeScript for full-stack web development. He has extensive experience with Next.js, React, and modern web technologies.",
+                    text: "I specialize in Go and Rust for backend development, and TypeScript for full-stack web development. I have extensive experience with Next.js, React, and modern web technologies.",
                   },
                 },
                 {
@@ -370,7 +389,7 @@ export default async function RootLayout({
                   name: "What kind of projects has Levi Noppers worked on?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Levi has worked on various projects including Frame The Beat (album cover platform), e-commerce webstores, electronic learning environments, and personal galleries. He specializes in backend systems and full-stack web applications.",
+                    text: "I have worked on various projects including Frame The Beat (album cover platform), e-commerce webstores, electronic learning environments, and personal galleries. I specialize in backend systems and full-stack web applications.",
                   },
                 },
                 {
@@ -378,7 +397,7 @@ export default async function RootLayout({
                   name: "What is Levi Noppers' experience level?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Levi started programming in 2022 and has rapidly progressed from Python to modern web development. He completed an 8-week internship at Q42 in early 2025 and is currently working as an independent full-stack developer focusing on backend development.",
+                    text: "I've started programming in 2022 and have rapidly progressed from Python to modern web development. I completed an 8-week internship at Q42 in early 2025 and I'm currently working as an independent full-stack developer focusing on backend development.",
                   },
                 },
               ],
@@ -387,9 +406,12 @@ export default async function RootLayout({
         />
       </head>
       <body
-        className={`antialiased bg-gray-100 dark:bg-slate-900 text-gray-900 dark:text-gray-100 transition-colors ${poppins.variable} ${doto.variable}`}
+        className={`antialiased bg-gray-100 dark:bg-slate-950 text-gray-900 dark:text-gray-100 transition-colors ${poppins.variable} ${doto.variable}`}
+        suppressHydrationWarning
       >
-        {children}
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

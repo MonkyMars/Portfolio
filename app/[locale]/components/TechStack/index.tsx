@@ -10,75 +10,17 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
-import { capitalize } from "@/lib/utils";
-
-interface TechStackItem {
-  label: string;
-  iconSrc: string;
-  experience: number;
-  note: string;
-  className?: string;
-  type: "framework" | "service" | "language" | "library" | "tool";
-}
+import { getTechStack } from "./techstack";
+import { useTranslations } from "next-intl";
 
 const TechStack = () => {
+  const t = useTranslations("techStack");
   const [filters, setFilters] = useState({
     search: "",
     type: "all",
   });
 
-  const stack: TechStackItem[] = [
-    {
-      label: "Next.js",
-      iconSrc: "nextjs",
-      experience: 2023,
-      note: "Next.js has been by far my favorite framework ever. It's extremely fast, amazing for SEO and easy to use, especially if you come from React; Like me.",
-      type: "framework",
-    },
-    {
-      label: "Tailwind CSS",
-      iconSrc: "tailwindcss",
-      experience: 2024,
-      note: "At first I was skeptical about Tailwind CSS because I thought it would take away creativity, but after using it for a while I can't imagine going back to vanilla CSS.",
-      type: "framework",
-    },
-    {
-      label: "TypeScript",
-      iconSrc: "typescript",
-      experience: 2023,
-      note: "TypeScript is a must-have for any serious project in my opinion. It helps me to catch errors before they even happen.",
-      type: "language",
-    },
-    {
-      label: "Git",
-      iconSrc: "git",
-      experience: 2023,
-      note: "Git is a daily driver for me. I use it to manage my projects and also collaborate with others.",
-      type: "tool",
-    },
-    {
-      label: "Supabase",
-      iconSrc: "supabase",
-      experience: 2024,
-      note: "I really love Supabase because the DX is amazing and they provide an amazing free tier that i can use for any project.",
-      type: "service",
-    },
-    {
-      label: "Go",
-      iconSrc: "go",
-      experience: 2025,
-      note: "I've been coding in Go for quite a while now and created several applications with it. It's my favorite language by far!",
-      type: "language",
-    },
-    {
-      label: "Rust",
-      iconSrc: "rust",
-      experience: 2025,
-      note: "I've been enjoying rust lately to be honest. The compiler is helpful though rust has a steep learning curve.",
-      type: "language",
-      className: "invert",
-    },
-  ];
+  const stack = getTechStack(t);
 
   const stackTypes: string[] = Array.from(
     new Set(
@@ -86,7 +28,9 @@ const TechStack = () => {
         Array.isArray(item.type) ? item.type : [item.type],
       ),
     ),
-  ).sort();
+  )
+    .filter(Boolean)
+    .sort();
 
   const filteredStack = stack.filter((item) => {
     const searchMatch =
@@ -117,10 +61,10 @@ const TechStack = () => {
             id="techstack-heading"
             className="text-2xl font-semibold text-primary-600 dark:text-primary-400 font-doto"
           >
-            Tech
+            {t("title")}
           </h2>
           <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 font-doto">
-            stack
+            {t("titleRest")}
           </h2>
         </div>
         <div
@@ -137,7 +81,7 @@ const TechStack = () => {
       >
         <div className="flex-1">
           <Input
-            placeholder="Search technologies..."
+            placeholder={t("searchPlaceholder")}
             value={filters.search}
             onChange={(e) => setFilters({ ...filters, search: e.target.value })}
             className="h-10 border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100"
@@ -155,14 +99,14 @@ const TechStack = () => {
               className="h-10 w-full sm:w-[140px] border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100"
               aria-label="Filter by category"
             >
-              <SelectValue placeholder="Category" />
+              <SelectValue placeholder={t("category")} />
             </SelectTrigger>
             <SelectContent className="bg-white dark:bg-slate-800 border-gray-200 dark:border-gray-700">
               <SelectItem
                 value="all"
                 className="text-gray-900 dark:text-gray-200"
               >
-                All Categories
+                {t("allCategories")}
               </SelectItem>
               {stackTypes.map((item, index) => (
                 <SelectItem
@@ -170,7 +114,7 @@ const TechStack = () => {
                   value={item}
                   className="text-gray-900 dark:text-gray-200"
                 >
-                  {capitalize(item)}
+                  {t(`types.${item}`) || item}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -181,7 +125,7 @@ const TechStack = () => {
               onClick={() => setFilters({ search: "", type: "all" })}
               className="px-4 h-10 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-white dark:hover:bg-slate-800 border border-gray-200 dark:border-gray-700 rounded-lg transition-colors duration-200"
             >
-              Clear
+              {t("clear")}
             </button>
           )}
         </div>
@@ -224,14 +168,15 @@ const TechStack = () => {
                         className="text-xs px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-full font-medium border border-gray-200 dark:border-gray-700"
                         itemProp="applicationCategory"
                       >
-                        {stackItem.type.charAt(0).toUpperCase() +
-                          stackItem.type.slice(1)}
+                        {Array.isArray(stackItem.type)
+                          ? stackItem.type.join(", ")
+                          : t(`types.${stackItem.type}`) || stackItem.type}
                       </span>
                       <span
                         className="text-xs px-3 py-1 bg-blue-600 text-white rounded-full font-extrabold font-doto"
                         aria-label={`Experience since ${stackItem.experience}`}
                       >
-                        Since {stackItem.experience}
+                        {t("since")} {stackItem.experience}
                       </span>
                     </div>
                   </div>
@@ -250,7 +195,7 @@ const TechStack = () => {
       {filteredStack.length === 0 && (
         <div className="text-center py-12" role="status" aria-live="polite">
           <p className="text-gray-500 dark:text-gray-400">
-            No technologies found matching your criteria.
+            {t("noTechnologies")}
           </p>
         </div>
       )}

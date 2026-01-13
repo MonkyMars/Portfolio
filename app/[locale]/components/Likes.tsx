@@ -2,8 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 
-const Likes = async () => {
+const Likes = async ({ locale }: { locale: string }) => {
+  const t = await getTranslations({ locale, namespace: "likes" });
+
   return (
     <section
       className="bg-white dark:bg-slate-900 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-6"
@@ -18,10 +21,10 @@ const Likes = async () => {
             id="likes-heading"
             className="text-2xl font-semibold text-gray-900 dark:text-gray-100 font-doto"
           >
-            Things
+            {t("title")}
           </h2>
           <h2 className="text-2xl font-semibold text-primary-600 dark:text-primary-400 font-doto">
-            I like
+            {t("titleHighlight")}
           </h2>
         </div>
 
@@ -33,20 +36,21 @@ const Likes = async () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6" role="list">
         <LikesCard
-          label="Go"
+          label={t("items.go.label")}
           iconSrc="go"
-          note="I love coding in Go. It's currently my favorite language due to the simplicity and speed."
+          note={t("items.go.note")}
         />
         <LikesCard
-          label="Music"
+          label={t("items.music.label")}
           iconSrc="spotify"
-          note="I love listening to music while coding."
+          note={t("items.music.note")}
         />
         <LikesCard
-          label="Linux"
+          label={t("items.linux.label")}
           iconSrc="linux"
-          note="I enjoy using Linux for its flexibility and control over my PC. I personally use CachyOS."
+          note={t("items.linux.note")}
           link="https://github.com/MonkyMars/dotfiles"
+          linkText={t("items.linux.link")}
         />
       </div>
     </section>
@@ -58,9 +62,16 @@ interface LikesCardProps {
   iconSrc: string;
   note: string;
   link?: string;
+  linkText?: string;
 }
 
-const LikesCard = ({ label, iconSrc, note, link }: LikesCardProps) => {
+const LikesCard = ({
+  label,
+  iconSrc,
+  note,
+  link,
+  linkText,
+}: LikesCardProps) => {
   const invertedIcons: string[] = ["spotify"];
   const isInverted = invertedIcons.includes(iconSrc);
   const iconClass = isInverted
@@ -99,13 +110,13 @@ const LikesCard = ({ label, iconSrc, note, link }: LikesCardProps) => {
         {note}
       </p>
 
-      {link && (
+      {link && linkText && (
         <Link
           href={link}
           target="_blank"
           className="text-primary-600 dark:text-primary-400 text-sm font-extrabold font-doto hover:text-primary-700 dark:hover:text-primary-300 transition-colors duration-200"
         >
-          View dotfiles →
+          {linkText} →
         </Link>
       )}
     </div>

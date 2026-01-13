@@ -1,6 +1,9 @@
-import { projects } from "./projects";
+"use server";
+
+import { getProjects } from "./projects";
 import ProjectFilters from "./ProjectFilters";
 import ProjectList from "./ProjectList";
+import { getTranslations } from "next-intl/server";
 
 interface ProjectsProps {
   searchParams: Promise<{
@@ -8,9 +11,12 @@ interface ProjectsProps {
     type?: string;
     tech?: string;
   }>;
+  locale: string;
 }
 
-const Projects = async ({ searchParams }: ProjectsProps) => {
+const Projects = async ({ searchParams, locale }: ProjectsProps) => {
+  const t = await getTranslations({ locale, namespace: "projects" });
+  const projects = getProjects(t);
   let { search, tech, type } = await searchParams;
 
   if (search == undefined) {
@@ -32,12 +38,16 @@ const Projects = async ({ searchParams }: ProjectsProps) => {
         Array.isArray(project.type) ? project.type : [project.type],
       ),
     ),
-  ).sort();
+  )
+    .filter(Boolean)
+    .sort();
 
   // Get unique tech stack items
   const techStacks = Array.from(
     new Set(projects.flatMap((project) => project.details?.techStack || [])),
-  ).sort();
+  )
+    .filter(Boolean)
+    .sort();
 
   // Filter projects based on selected filters
   const filteredProjects = projects.filter((project) => {
@@ -69,10 +79,10 @@ const Projects = async ({ searchParams }: ProjectsProps) => {
       <div className="flex items-center gap-4 mb-6">
         <div className="flex items-center">
           <h2 className="text-2xl font-semibold text-primary-600 dark:text-primary-400 font-doto">
-            Pro
+            {t("title")}
           </h2>
           <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 font-doto">
-            jects
+            {t("titleRest")}
           </h2>
         </div>
         <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700"></div>

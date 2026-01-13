@@ -2,12 +2,14 @@
 import { useState } from "react";
 import { type projects as ProjectType } from "./TimelineItem";
 import ProjectComponent from "./ProjectComponent";
+import { useTranslations } from "next-intl";
 
 interface ProjectListProps {
   projects: ProjectType[];
 }
 
 const ProjectList = ({ projects }: ProjectListProps) => {
+  const t = useTranslations("projects");
   const [selectedProject, setSelectedProject] = useState<ProjectType | null>(
     null,
   );
@@ -24,9 +26,7 @@ const ProjectList = ({ projects }: ProjectListProps) => {
       ))}
       {projects.length === 0 && (
         <div className="text-center py-12">
-          <p className="text-gray-500 dark:text-gray-400">
-            No projects found matching your criteria.
-          </p>
+          <p className="text-gray-500 dark:text-gray-400">{t("noProjects")}</p>
         </div>
       )}
     </div>
