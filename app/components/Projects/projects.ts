@@ -355,4 +355,53 @@ export const projects: ProjectType[] = [
       ],
     },
   },
+  {
+    title: "Roos van Sharon",
+    description:
+      "TaskMaster is a command-line task management application written in Go. It allows users to create, view, update, and delete tasks directly from the terminal, providing a simple and efficient way to manage daily to-dos.",
+    date: new Date(2025, 12, 18), // December 18, 2025
+    image: "/roosvansharon.png",
+    type: "Fullstack",
+    link: [
+      {
+        url: "https://github.com/mamabloemetjes/frontend",
+        label: "Web",
+      },
+      {
+        url: "https://github.com/mamabloemetjes/backend",
+        label: "API",
+      },
+    ],
+    details: {
+      techStack: ["Go", "Next.js", "TypeScript", "PostgreSQL", "SupaBase"],
+      features: [
+        "Flower Shop",
+        "E-commerce",
+        "Payment Integration",
+        "Admin Panel",
+        "Inventory Management",
+      ],
+      notes: [
+        {
+          title: "Problem",
+          description:
+            "My mother wanted a webstore for her filt flower shop, Roos van Sharon. She needed a platform to showcase her products and manage sales online.",
+          date: new Date(2025, 12, 1), // December 1, 2025
+        },
+        {
+          title: "Complications",
+          description:
+            "The biggest challenge was integrating a working and secure auth system. I decided to just use jwt tokens for this project with csrf protection since it was a small webstore.",
+          date: new Date(2025, 12, 15), // December 15, 2025
+        },
+        {
+          title: "Conclussion",
+          description:
+            "The project was a big success! My mother is very content with the result and I still get compliments from my family to this day. I learned a lot about server side rendering and SEO for product pages.",
+          date: new Date(2025, 12, 18), // December 18, 2025
+          image: "/roosvansharon.png",
+        },
+      ],
+    },
+  },
 ];

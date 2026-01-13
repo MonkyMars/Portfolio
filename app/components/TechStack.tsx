@@ -17,7 +17,7 @@ interface TechStackItem {
   iconSrc: string;
   experience: number;
   note: string;
-	className?: string;
+  className?: string;
   type: "framework" | "service" | "language" | "library" | "tool";
 }
 
@@ -70,14 +70,14 @@ const TechStack = () => {
       note: "I've been coding in Go for quite a while now and created several applications with it. It's my favorite language by far!",
       type: "language",
     },
-		{
-			label: "Rust",
-			iconSrc: "rust",
-			experience: 2025,
-			note: "I've been enjoying rust lately to be honest. The compiler is helpful though rust has a steep learning curve.",
-			type: "language",
-			className: "invert",
-		}
+    {
+      label: "Rust",
+      iconSrc: "rust",
+      experience: 2025,
+      note: "I've been enjoying rust lately to be honest. The compiler is helpful though rust has a steep learning curve.",
+      type: "language",
+      className: "invert",
+    },
   ];
 
   const stackTypes: string[] = Array.from(
@@ -107,27 +107,42 @@ const TechStack = () => {
     <section
       className="bg-white dark:bg-slate-900 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-6"
       id="tech-stack"
+      aria-labelledby="techstack-heading"
+      itemScope
+      itemType="https://schema.org/ItemList"
     >
       <div className="flex items-center gap-4 mb-6">
         <div className="flex items-center gap-1">
-          <h2 className="text-2xl font-semibold text-primary-600 dark:text-primary-400 font-doto">
+          <h2
+            id="techstack-heading"
+            className="text-2xl font-semibold text-primary-600 dark:text-primary-400 font-doto"
+          >
             Tech
           </h2>
           <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 font-doto">
             stack
           </h2>
         </div>
-        <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700"></div>
+        <div
+          className="flex-1 h-px bg-gray-200 dark:bg-gray-700"
+          role="separator"
+        ></div>
       </div>
 
       {/* Filters */}
-      <div className="flex flex-col sm:flex-row gap-4 mb-6 p-4 bg-gray-50 dark:bg-slate-800/50 rounded-lg border border-gray-200 dark:border-gray-700">
+      <div
+        className="flex flex-col sm:flex-row gap-4 mb-6 p-4 bg-gray-50 dark:bg-slate-800/50 rounded-lg border border-gray-200 dark:border-gray-700"
+        role="search"
+        aria-label="Filter technologies"
+      >
         <div className="flex-1">
           <Input
             placeholder="Search technologies..."
             value={filters.search}
             onChange={(e) => setFilters({ ...filters, search: e.target.value })}
             className="h-10 border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100"
+            aria-label="Search technologies by name"
+            type="search"
           />
         </div>
 
@@ -136,7 +151,10 @@ const TechStack = () => {
             value={filters.type}
             onValueChange={(value) => setFilters({ ...filters, type: value })}
           >
-            <SelectTrigger className="h-10 w-full sm:w-[140px] border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100">
+            <SelectTrigger
+              className="h-10 w-full sm:w-[140px] border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100"
+              aria-label="Filter by category"
+            >
               <SelectValue placeholder="Category" />
             </SelectTrigger>
             <SelectContent className="bg-white dark:bg-slate-800 border-gray-200 dark:border-gray-700">
@@ -170,13 +188,16 @@ const TechStack = () => {
       </div>
 
       {/* Tech Stack Grid */}
-      <div className="grid gap-4">
+      <div className="grid gap-4" role="list" aria-label="Technologies">
         {filteredStack
           ?.sort((a, b) => Number(b.experience) - Number(a.experience))
           .map((stackItem, index) => (
             <div
               key={index}
               className="group p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-gray-300 dark:hover:border-gray-600 transition-colors duration-200"
+              role="listitem"
+              itemScope
+              itemType="https://schema.org/SoftwareApplication"
             >
               <div className="flex flex-col sm:flex-row gap-4 items-start">
                 <div className="w-16 h-16 relative bg-gray-50 dark:bg-gray-800 rounded-lg flex-shrink-0 border border-gray-200 dark:border-gray-700">
@@ -192,20 +213,32 @@ const TechStack = () => {
 
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-3">
-                    <h3 className="text-xl font-extrabold text-gray-900 dark:text-gray-100 font-doto">
+                    <h3
+                      className="text-xl font-extrabold text-gray-900 dark:text-gray-100 font-doto"
+                      itemProp="name"
+                    >
                       {stackItem.label.trim()}
                     </h3>
                     <div className="flex gap-2">
-                      <span className="text-xs px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-full font-medium border border-gray-200 dark:border-gray-700">
+                      <span
+                        className="text-xs px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-full font-medium border border-gray-200 dark:border-gray-700"
+                        itemProp="applicationCategory"
+                      >
                         {stackItem.type.charAt(0).toUpperCase() +
                           stackItem.type.slice(1)}
                       </span>
-                      <span className="text-xs px-3 py-1 bg-blue-600 text-white rounded-full font-extrabold font-doto">
+                      <span
+                        className="text-xs px-3 py-1 bg-blue-600 text-white rounded-full font-extrabold font-doto"
+                        aria-label={`Experience since ${stackItem.experience}`}
+                      >
                         Since {stackItem.experience}
                       </span>
                     </div>
                   </div>
-                  <p className="text-gray-600 dark:text-gray-300 text-[15px] leading-relaxed">
+                  <p
+                    className="text-gray-600 dark:text-gray-300 text-[15px] leading-relaxed"
+                    itemProp="description"
+                  >
                     {stackItem.note.trim()}
                   </p>
                 </div>
@@ -215,7 +248,7 @@ const TechStack = () => {
       </div>
 
       {filteredStack.length === 0 && (
-        <div className="text-center py-12">
+        <div className="text-center py-12" role="status" aria-live="polite">
           <p className="text-gray-500 dark:text-gray-400">
             No technologies found matching your criteria.
           </p>

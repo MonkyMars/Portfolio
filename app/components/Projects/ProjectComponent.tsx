@@ -1,4 +1,4 @@
-import { useEffect, useCallback } from "react";
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink, Eye } from "lucide-react";
@@ -18,8 +18,8 @@ type RepoLink = {
 
 const ProjectComponent = ({
   project,
-  setSelectedProject,
   selectedProject,
+  setSelectedProject,
 }: ProjectComponentProps) => {
   const isRepoLinkArray = (href: unknown): href is RepoLink[] => {
     return (
@@ -32,39 +32,28 @@ const ProjectComponent = ({
     );
   };
 
-  const getPrimaryRepoUrl = useCallback(() => {
+  const getPrimaryRepoUrl = (): string | undefined => {
     if (typeof project.link === "string") {
       return project.link;
-    } else if (isRepoLinkArray(project.link)) {
+    } else if (isRepoLinkArray(project.link) && project.link.length > 0) {
       return project.link[0].url;
     }
-    return "";
-  }, [project.link]);
-
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.innerHTML = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "SoftwareSourceCode",
-      name: project.title,
-      description: project.description,
-      datePublished: project.date,
-      programmingLanguage: project.details?.techStack,
-      codeRepository: getPrimaryRepoUrl(),
-      author: {
-        "@type": "Person",
-        name: "Levi Noppers",
-      },
-    });
-    document.head.appendChild(script);
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, [project, getPrimaryRepoUrl]);
+    return undefined;
+  };
 
   return (
     <div className="group border border-gray-200 dark:border-gray-700 rounded-lg hover:border-gray-300 dark:hover:border-gray-600 transition-colors duration-200 overflow-hidden">
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareSourceCode",
+          name: project.title,
+          description: project.description,
+          datePublished: project.date,
+          programmingLanguage: project.details?.techStack,
+          codeRepository: getPrimaryRepoUrl(),
+        })}
+      </script>
       <div className="p-4">
         <div className="flex flex-col lg:flex-row gap-4">
           {/* Project Image */}
@@ -181,7 +170,7 @@ const ProjectComponent = ({
         </div>
       </div>
 
-      {/* Project Details Modal */}
+      {/*Project Details Modal */}
       {selectedProject?.title === project.title && (
         <TimeLineView
           project={selectedProject}

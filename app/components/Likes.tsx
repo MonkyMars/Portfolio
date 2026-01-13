@@ -1,15 +1,23 @@
+"use server";
+
 import Image from "next/image";
 import Link from "next/link";
 
-const Likes = () => {
+const Likes = async () => {
   return (
     <section
       className="bg-white dark:bg-slate-900 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-6"
       id="likes"
+      aria-labelledby="likes-heading"
+      itemScope
+      itemType="https://schema.org/ItemList"
     >
       <div className="flex items-center gap-4 mb-6">
         <div className="flex items-center gap-1">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 font-doto">
+          <h2
+            id="likes-heading"
+            className="text-2xl font-semibold text-gray-900 dark:text-gray-100 font-doto"
+          >
             Things
           </h2>
           <h2 className="text-2xl font-semibold text-primary-600 dark:text-primary-400 font-doto">
@@ -17,10 +25,13 @@ const Likes = () => {
           </h2>
         </div>
 
-        <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700"></div>
+        <div
+          className="flex-1 h-px bg-gray-200 dark:bg-gray-700"
+          role="separator"
+        ></div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6" role="list">
         <LikesCard
           label="Go"
           iconSrc="go"
@@ -57,7 +68,12 @@ const LikesCard = ({ label, iconSrc, note, link }: LikesCardProps) => {
     : "object-contain";
 
   return (
-    <div className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-gray-300 dark:hover:border-gray-600 transition-colors duration-200 text-center">
+    <div
+      className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-gray-300 dark:hover:border-gray-600 transition-colors duration-200 text-center"
+      role="listitem"
+      itemScope
+      itemType="https://schema.org/Thing"
+    >
       <div className="w-16 h-16 mx-auto mb-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 flex items-center justify-center">
         <Image
           src={`/icons/${iconSrc}.png`}
@@ -69,11 +85,17 @@ const LikesCard = ({ label, iconSrc, note, link }: LikesCardProps) => {
         />
       </div>
 
-      <h3 className="text-lg font-extrabold text-gray-900 dark:text-gray-100 mb-3 font-doto">
+      <h3
+        className="text-lg font-extrabold text-gray-900 dark:text-gray-100 mb-3 font-doto"
+        itemProp="name"
+      >
         {label}
       </h3>
 
-      <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">
+      <p
+        className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4"
+        itemProp="description"
+      >
         {note}
       </p>
 

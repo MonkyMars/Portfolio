@@ -1,10 +1,14 @@
-# *
+# Allow all crawlers
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /discord/
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 0
 
 # Host
 Host: https://www.levinoppers.nl
 
 # Sitemaps
 Sitemap: https://www.levinoppers.nl/sitemap.xml
-Sitemap: https://www.levinoppers.nl/server-sitemap.xml
