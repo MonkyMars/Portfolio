@@ -26,6 +26,22 @@
     "paragraph4": "My go-to language is Go, it strikes the perfect balance between performance and simplicity for me. Though some functionalities lack for me like native enums",
     "paragraph5": "If you're interested in my work, feel free to check out my GitHub or send an email:)"
   },
+	"education": {
+  	"title": "Edu",
+  	"titleRest": "cation",
+					"cld": {
+			"title": "Christelijk Lyceum Delft (Natuur & Techniek)",
+			"desc": "",
+			"dateFrom": "08-08-2021",
+			"dateTo": "05-05-2026"
+		},
+		"hbo": {
+			"title": "Haagse Hogeschool",
+			"desc": "",
+			"dateFrom": "09-09-2026",
+			"dateTo": "07-07-2030"
+		}
+	},
   "experience": {
     "title": "Exp",
     "titleRest": "erience",
