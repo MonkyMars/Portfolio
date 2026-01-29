@@ -31,13 +31,13 @@
   	"titleRest": "cation",
 					"cld": {
 			"title": "Christelijk Lyceum Delft (Natuur & Techniek)",
-			"desc": "",
+			"desc": "Currently, I am in my fifth year of HAVO at CLD with a focus on Nature & Technology. I expect to graduate in June 2026!",
 			"dateFrom": "08-08-2021",
 			"dateTo": "05-05-2026"
 		},
 		"hbo": {
 			"title": "Haagse Hogeschool",
-			"desc": "",
+			"desc": "In the fall of 2026, I will begin my HBO-ICT studies at The Hague University of Applied Sciences, where I hope to earn a bachelor's degree in software engineering.",
 			"dateFrom": "09-09-2026",
 			"dateTo": "07-07-2030"
 		}
