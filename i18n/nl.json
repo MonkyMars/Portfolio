@@ -26,19 +26,19 @@
     "paragraph4": "Mijn favoriete programmeertaal is Go, omdat het snel, efficiënt en simplistisch is. Toch vind ik dat het sommige dingen mist, zoals native enums.",
     "paragraph5": "Als je geïnteresseerd bent in mijn werk of gewoon hallo wilt zeggen, neem gerust een kijkje op mijn GitHub of stuur me een e-mail!"
   },
-	"education": {
-		"title": "Oplei",
-  "titleRest": "dingen",
-		"cld": {
+  "education": {
+    	"title": "Op",
+    	"titleRest": "leiding",
+					"cld": {
 			"title": "Christelijk Lyceum Delft (Natuur & Techniek)",
-			"desc": "Momenteel zit ik in 5 HAVO op het CLD met het profiel Natuur & Techniek. Ik verwacht mijn diploma te behalen in juni 2026!",
+			"desc": "Sinds juni 2026 ben ik afgestudeerd voor HAVO Natuur & Techniek aan het Christelijk Lyceum Delft.",
 			"dateFrom": "08-08-2021",
 			"dateTo": "05-05-2026"
 		},
 		"hbo": {
 			"title": "Haagse Hogeschool",
-			"desc": "In het najaar van 2026 begin ik met de opleiding HBO-ICT aan de Haagse Hogeschool, waar ik een bachelor in de software engineering hoop te behalen.",
-			"dateFrom": "09-09-2026",
+			"desc": "Ik studeer momenteel HBO-ICT aan de Haagse Hogeschool in Den Haag. Ik verwacht in de zomer van 2030 af te studeren.",
+			"dateFrom": "01-09-2026",
 			"dateTo": "07-07-2030"
 		}
 	},
